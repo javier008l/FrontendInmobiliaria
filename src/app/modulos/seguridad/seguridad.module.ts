@@ -10,6 +10,7 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-usuario.component';
+import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-us
     CrearUsuarioComponent,
     EditarUsuarioComponent,
     ListarUsuarioComponent,
-    EliminarUsuarioComponent
+    EliminarUsuarioComponent,
+    CerrarSesionComponent
   ],
   imports: [
     CommonModule,
