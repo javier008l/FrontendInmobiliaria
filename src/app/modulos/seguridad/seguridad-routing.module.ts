@@ -4,6 +4,7 @@ import { IdentificacionUsuarioComponent } from './identificacion-usuario/identif
 import { CambioClaveComponent } from './cambio-clave/cambio-clave.component';
 import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
+import { IdentificacionTwofaComponent } from './identificacion-twofa/identificacion-twofa.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path:"cerrar-sesion",
     component: CerrarSesionComponent
+  },
+  {
+    path:"2fa",
+    component:  IdentificacionTwofaComponent
   }
 ];
 
