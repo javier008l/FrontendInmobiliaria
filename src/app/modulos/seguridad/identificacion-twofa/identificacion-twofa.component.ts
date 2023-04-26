@@ -13,6 +13,7 @@ export class IdentificacionTwofaComponent {
   usuarioId: string = "";
   fGroup: FormGroup = new FormGroup({});
 
+
   constructor(
     private servicioSeguridad: SeguridadService,
     private fb: FormBuilder,
@@ -30,7 +31,7 @@ export class IdentificacionTwofaComponent {
     } else {
       this.router.navigate(['/seguridad/identificar-usuario']);
     }
-  }
+  }   
 
   ConstruirFormulario() {
     this.fGroup = this.fb.group({
