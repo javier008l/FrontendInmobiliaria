@@ -1,14 +1,18 @@
-<nav class="blue">
-  <div class="nav-wrapper">
-    <a routerLink="/inicio" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a *ngIf="!sesionAtiva" routerLink="/seguridad/identificar-usuario">Iniciar
-          sesión</a></li>
-      <li><a *ngIf="sesionAtiva" routerLink="/seguridad/cambiar-clave">Cambiar
-          clave</a></li>
-      <li><a *ngIf="sesionAtiva" routerLink="/seguridad/cerrar-sesion">Cerrar
-          sesion</a></li>
-    </ul>
+<nav class="menu_principal">
+  <div class="nav-wrapper row menu_principal1 ">
+    <div class="col s6">
+      <a routerLink="/inicio" class=""> <img class="" width="300" src="../assets/media/Logo1.svg"></a>
+    </div>
+    <div class="col s6">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="boton_menu" *ngIf="!sesionAtiva" routerLink="/seguridad/identificar-usuario">Iniciar
+            sesión</a></li>
+        <li><a *ngIf="sesionAtiva" routerLink="/seguridad/cambiar-clave">Cambiar
+            clave</a></li>
+        <li><a *ngIf="sesionAtiva" routerLink="/seguridad/cerrar-sesion">Cerrar
+            sesion</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 <div *ngIf="sesionAtiva">
