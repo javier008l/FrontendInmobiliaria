@@ -8,33 +8,33 @@ import { IdentificacionTwofaComponent } from './identificacion-twofa/identificac
 
 const routes: Routes = [
   {
-    path:"autenticar-usuario",
-    component: IdentificacionUsuarioComponent
+    path: 'autenticar-usuario',
+    component: IdentificacionUsuarioComponent,
   },
   {
-    path:"identificar-usuario",
-    component: IdentificacionUsuarioComponent
+    path: 'identificar-usuario',
+    component: IdentificacionUsuarioComponent,
   },
   {
-    path:"cambiar-clave",
-    component: CambioClaveComponent
+    path: 'cambiar-clave',
+    component: CambioClaveComponent,
   },
   {
-    path:"recuperar-clave",
-    component: RecuperarClaveComponent
+    path: 'recuperar-clave',
+    component: RecuperarClaveComponent,
   },
   {
-    path:"cerrar-sesion",
-    component: CerrarSesionComponent
+    path: 'cerrar-sesion',
+    component: CerrarSesionComponent,
   },
   {
-    path:"2fa",
-    component:  IdentificacionTwofaComponent
-  }
+    path: '2fa',
+    component: IdentificacionTwofaComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SeguridadRoutingModule { }
+export class SeguridadRoutingModule {}
