@@ -21,6 +21,7 @@ export class IdentificacionTwofaComponent {
 
   ngOnInit() {
     let datos = this.servicioSeguridad.ObtenerDatosUsuarioLS();
+    console.log(datos);
     if (datos != null) {
       this.usuarioId = datos._id!;
       this.ConstruirFormulario();
@@ -48,12 +49,10 @@ export class IdentificacionTwofaComponent {
         .subscribe({
           next: (datos: UsuarioValidadoModel) => {
             console.log(datos);
-
             this.servicioSeguridad.AlmacenarDatosUsuarioValidado(datos);
             this.router.navigate(['']);
           },
           error: (err) => {
-            console.log('PRUEBA SDSDFSDFSDFSDFSDFSDF');
             console.log(err);
           },
         });

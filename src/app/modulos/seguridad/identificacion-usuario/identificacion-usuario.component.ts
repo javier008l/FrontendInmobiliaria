@@ -39,17 +39,14 @@ export class IdentificacionUsuarioComponent {
       let claveCifrada = MD5(clave).toString();
       this.servicioSeguridad
         .IdentificarUsuario(usuario, claveCifrada)
-        /* Subscribing to an observable returned by the `IdentificarUsuario` method of the
-        `SeguridadService`. The `next` function is called when the observable emits a
-        value, which in this case is a `UsuarioModel` object. The function logs the
-        `datos` object to the console, navigates to the `/seguridad/2fa` route using the
-        `Router` service, and logs a message to the console. The `error` function is
-        called if the observable emits an error, and logs the error to the console. */
         .subscribe({
           next: (datos: UsuarioModel) => {
             console.log(datos);
-            this.router.navigate(['/seguridad/2fa']);
-            console.log('----------------PRUEBA----------------');
+            if (
+              this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
+            ) {
+              this.router.navigate(['/seguridad/2fa']);
+            }
           },
           error: (err) => {
             console.log(err);
