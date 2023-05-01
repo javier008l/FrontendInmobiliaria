@@ -1,5 +1,6 @@
 <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
+      <h3 class="color_principal">Iniciar Sesión</h3>
       <form [formGroup]="fGroup" class="login-form">
         <div class="row">
         </div>
@@ -7,7 +8,7 @@
           <div class="input-field col s12">
             <i class="material-icons prefix">mail_outline</i>
             <input formControlName="usuario" class="validate" id="email" type="email">
-            <label for="email" data-error="wrong" data-success="right">Usuario</label>
+            <label for="email" data-error="wrong" data-success="right">Correo</label>
             <div class="show-errors" *ngIf="obtenerFormGroup['usuario'].errors 
             && (obtenerFormGroup['usuario'].dirty || obtenerFormGroup['usuario'].touched)">
             <strong>Este campo es obligatorio y debe tener el formato de correo electrónico</strong>
@@ -26,16 +27,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12">
-            <button (click)="IdentificarUsuario()" class="btn waves-effect waves-light col s12">Identificar</button>
+          <div class="input-field col s12 centrar_boton">
+            <!-- <button (click)="IdentificarUsuario()" class="btn waves-effect waves-light col s12">Identificar</button> -->
+            <button (click)="IdentificarUsuario()" class="waves-effect waves-light btn-large boton"><i class="material-icons left">edit</i>Identificar</button>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a routerLink="/seguridad/registro-publico">Registrarse</a></p>
+            <p class="margin medium-small grow"><a routerLink="/seguridad/registro-publico">Olvide mi contraseña</a></p>
+            <p class="margin medium-small grow"><a routerLink="/seguridad/recuperar-clave">Cambia de contraseña</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a routerLink="/seguridad/recuperar-clave">Olvide mi contraseña</a></p>
+              
+              <p class="margin medium-small grow"><a routerLink="/seguridad/registro-publico">¿No tienes cuenta? Registrate</a></p>
           </div>          
         </div>
       </form>
