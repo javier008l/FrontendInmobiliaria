@@ -12,13 +12,16 @@
         <li><a class="boton_menu" *ngIf="sesionAtiva" routerLink="/seguridad/cambiar-clave">Cambiar
             clave</a></li>
         <li><a class="boton_menu" *ngIf="sesionAtiva" routerLink="/seguridad/cerrar-sesion">Cerrar
-            sesion</a></li>
+            sesion</a>
+        </li>
+        <li>
+          <div *ngIf="sesionAtiva">
+            <app-menu-lateral>
+
+            </app-menu-lateral>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-<div *ngIf="sesionAtiva">
-  <app-menu-lateral>
-
-  </app-menu-lateral>
-</div>
