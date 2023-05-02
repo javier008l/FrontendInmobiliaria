@@ -7,9 +7,11 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a class="boton_menu" *ngIf="!sesionAtiva" routerLink="/seguridad/identificar-usuario">Iniciar
             sesión</a></li>
-        <li><a *ngIf="sesionAtiva" routerLink="/seguridad/cambiar-clave">Cambiar
+        <li><a class="boton_menu" *ngIf="!sesionAtiva" routerLink="/seguridad/registro">
+            Registro</a></li>
+        <li><a class="boton_menu" *ngIf="sesionAtiva" routerLink="/seguridad/cambiar-clave">Cambiar
             clave</a></li>
-        <li><a *ngIf="sesionAtiva" routerLink="/seguridad/cerrar-sesion">Cerrar
+        <li><a class="boton_menu" *ngIf="sesionAtiva" routerLink="/seguridad/cerrar-sesion">Cerrar
             sesion</a></li>
       </ul>
     </div>
