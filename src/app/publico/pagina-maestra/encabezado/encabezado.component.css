@@ -18,6 +18,7 @@ nav {
 .boton_menu {
   border: 1px solid #fffffa;
   border-radius: 20px;
+  margin-left: 20px;
 }
 
 .boton_menu:hover {
