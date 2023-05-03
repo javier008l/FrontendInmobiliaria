@@ -5,6 +5,8 @@ import { MD5 } from 'crypto-js';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
+declare const onloadCallback: any;
+
 @Component({
   selector: 'app-identificacion-usuario',
   templateUrl: './identificacion-usuario.component.html',
@@ -17,10 +19,11 @@ export class IdentificacionUsuarioComponent {
     private fb: FormBuilder,
     private servicioSeguridad: SeguridadService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.ConstruirFormulario();
+    onloadCallback();
   }
 
   ConstruirFormulario() {
@@ -42,10 +45,14 @@ export class IdentificacionUsuarioComponent {
         .subscribe({
           next: (datos: UsuarioModel) => {
             console.log(datos);
-            if (
-              this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
-            ) {
-              this.router.navigate(['/seguridad/2fa']);
+            if (datos._id == undefined || datos._id == null || datos._id == "") {
+              alert("Credenciales incorrectas");
+            } else {
+              if (
+                this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
+              ) {
+                this.router.navigate(['/seguridad/2fa']);
+              }
             }
           },
           error: (err) => {
