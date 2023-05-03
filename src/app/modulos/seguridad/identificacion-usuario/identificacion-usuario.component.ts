@@ -6,6 +6,7 @@ import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 declare const onloadCallback: any;
+declare const grecaptcha: any;
 
 @Component({
   selector: 'app-identificacion-usuario',
@@ -19,7 +20,7 @@ export class IdentificacionUsuarioComponent {
     private fb: FormBuilder,
     private servicioSeguridad: SeguridadService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.ConstruirFormulario();
@@ -33,33 +34,62 @@ export class IdentificacionUsuarioComponent {
     });
   }
 
+  // IdentificarUsuario() {
+  //   if (this.fGroup.invalid) {
+  //     alert('Datos incompletos');
+  //   } else {
+  //     let usuario = this.obtenerFormGroup['usuario'].value;
+  //     let clave = this.obtenerFormGroup['clave'].value;
+  //     let claveCifrada = MD5(clave).toString();
+  //     this.servicioSeguridad
+  //       .IdentificarUsuario(usuario, claveCifrada)
+  //       .subscribe({
+  //         next: (datos: UsuarioModel) => {
+  //           console.log(datos);
+  //           if (datos._id == undefined || datos._id == null || datos._id == "") {
+  //             alert("Credenciales incorrectas");
+  //           } else {
+  //             if (
+  //               this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
+  //             ) {
+  //               this.router.navigate(['/seguridad/2fa']);
+  //             }
+  //           }
+  //         },
+  //         error: (err) => {
+  //           console.log(err);
+  //         },
+  //       });
+  //   }
+  // }
+
   IdentificarUsuario() {
-    if (this.fGroup.invalid) {
-      alert('Datos incompletos');
-    } else {
-      let usuario = this.obtenerFormGroup['usuario'].value;
-      let clave = this.obtenerFormGroup['clave'].value;
-      let claveCifrada = MD5(clave).toString();
-      this.servicioSeguridad
-        .IdentificarUsuario(usuario, claveCifrada)
-        .subscribe({
-          next: (datos: UsuarioModel) => {
-            console.log(datos);
-            if (datos._id == undefined || datos._id == null || datos._id == "") {
-              alert("Credenciales incorrectas");
-            } else {
-              if (
-                this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
-              ) {
-                this.router.navigate(['/seguridad/2fa']);
-              }
-            }
-          },
-          error: (err) => {
-            console.log(err);
-          },
-        });
+    // verifica si el captcha ha sido completado
+    const captcha = grecaptcha.getResponse();
+    if (!captcha) {
+      alert('Por favor, Llene todos los campos');
+      return;
     }
+
+    // resto del código para identificar al usuario
+    let usuario = this.obtenerFormGroup['usuario'].value;
+    let clave = this.obtenerFormGroup['clave'].value;
+    let claveCifrada = MD5(clave).toString();
+    this.servicioSeguridad.IdentificarUsuario(usuario, claveCifrada).subscribe({
+      next: (datos: UsuarioModel) => {
+        console.log(datos);
+        if (datos._id == undefined || datos._id == null || datos._id == '') {
+          alert('Credenciales incorrectas');
+        } else {
+          if (this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)) {
+            this.router.navigate(['/seguridad/2fa']);
+          }
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   get obtenerFormGroup() {
