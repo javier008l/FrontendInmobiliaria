@@ -34,34 +34,6 @@ export class IdentificacionUsuarioComponent {
     });
   }
 
-  // IdentificarUsuario() {
-  //   if (this.fGroup.invalid) {
-  //     alert('Datos incompletos');
-  //   } else {
-  //     let usuario = this.obtenerFormGroup['usuario'].value;
-  //     let clave = this.obtenerFormGroup['clave'].value;
-  //     let claveCifrada = MD5(clave).toString();
-  //     this.servicioSeguridad
-  //       .IdentificarUsuario(usuario, claveCifrada)
-  //       .subscribe({
-  //         next: (datos: UsuarioModel) => {
-  //           console.log(datos);
-  //           if (datos._id == undefined || datos._id == null || datos._id == "") {
-  //             alert("Credenciales incorrectas");
-  //           } else {
-  //             if (
-  //               this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
-  //             ) {
-  //               this.router.navigate(['/seguridad/2fa']);
-  //             }
-  //           }
-  //         },
-  //         error: (err) => {
-  //           console.log(err);
-  //         },
-  //       });
-  //   }
-  // }
 
   IdentificarUsuario() {
     // verifica si el captcha ha sido completado
@@ -96,3 +68,6 @@ export class IdentificacionUsuarioComponent {
     return this.fGroup.controls;
   }
 }
+
+
+
