@@ -30,36 +30,38 @@ export class IdentificacionUsuarioComponent {
     });
   }
 
-//   IdentificarUsuario() {
-//     if (this.fGroup.invalid) {
-//       alert('Datos incompletos');
-//     } else {
-//       let usuario = this.obtenerFormGroup['usuario'].value;
-//       let clave = this.obtenerFormGroup['clave'].value;
-//       let claveCifrada = MD5(clave).toString();
-//       this.servicioSeguridad
-//         .IdentificarUsuario(usuario, claveCifrada)
-//         .subscribe({
-//           next: (datos: UsuarioModel) => {
-//             if(datos._id == undefined || datos._id == null) {
-//               alert("Credenciales incorrectas o falta la validación del correo electronico");
-//             }else {
-//             console.log(datos);
-//             if (
-//               this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
-//             ) {
-//               this.router.navigate(['/seguridad/2fa']);
-//             }
-//           }
-//           },
-//           error: (err) => {
-//             console.log(err);
-//           },
-//         });
-//     }
-//   }
+  IdentificarUsuario() {
+    // verifica si el captcha ha sido completado
+    const captcha = grecaptcha.getResponse();
+    if (!captcha) {
+      alert('Por favor, Llene todos los campos');
+      return;
+    }
 
-//   get obtenerFormGroup() {
-//     return this.fGroup.controls;
-//   }
+    // resto del código para identificar al usuario
+    let usuario = this.obtenerFormGroup['usuario'].value;
+    let clave = this.obtenerFormGroup['clave'].value;
+    let claveCifrada = MD5(clave).toString();
+    this.servicioSeguridad.IdentificarUsuario(usuario, claveCifrada).subscribe({
+      next: (datos: UsuarioModel) => {
+        console.log(datos);
+        if (datos._id == undefined || datos._id == null || datos._id == '') {
+          alert('Credenciales incorrectas');
+        } else {
+          if (this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)) {
+            this.router.navigate(['/seguridad/2fa']);
+          }
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  get obtenerFormGroup() {
+    return this.fGroup.controls;
+  }
 }
+
+
