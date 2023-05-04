@@ -5,7 +5,6 @@
 
 .centrar {
   display: flex;
-  gap: 50px;
   justify-content: center;
 }
 
@@ -13,15 +12,6 @@
   display: flex;
   justify-content: center;
 }
-
-/* .boton {
-  background-color: #449dd1;
-  border-radius: 40px;
-}
-
-.boton:hover {
-  color: orange;
-} */
 
 .parrafo {
   font-family: "Inter";
@@ -72,4 +62,8 @@
   border-top-right-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
+}
+
+.mensaje{
+  margin-left:30px
 }
