@@ -5,6 +5,9 @@ import { MD5 } from 'crypto-js';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
+declare const onloadCallback: any;
+declare const grecaptcha: any;
+
 @Component({
   selector: 'app-identificacion-usuario',
   templateUrl: './identificacion-usuario.component.html',
@@ -21,6 +24,7 @@ export class IdentificacionUsuarioComponent {
 
   ngOnInit() {
     this.ConstruirFormulario();
+    onloadCallback();
   }
 
   ConstruirFormulario() {
@@ -29,6 +33,7 @@ export class IdentificacionUsuarioComponent {
       clave: ['', [Validators.required]],
     });
   }
+
 
   IdentificarUsuario() {
     // verifica si el captcha ha sido completado
@@ -63,5 +68,6 @@ export class IdentificacionUsuarioComponent {
     return this.fGroup.controls;
   }
 }
+
 
 
