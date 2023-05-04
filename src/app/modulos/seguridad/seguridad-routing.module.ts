@@ -8,6 +8,8 @@ import { IdentificacionTwofaComponent } from './identificacion-twofa/identificac
 import { RegistroPublicoUsuariosComponent } from './registro-publico-usuarios/registro-publico-usuarios.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ValidarHashUsuarioPublicoComponent } from './validar-hash-usuario-publico/validar-hash-usuario-publico.component';
+import { ComprobarClaveComponent } from './comprobar-clave/comprobar-clave.component';
+
 
 const routes: Routes = [
   {
@@ -47,10 +49,14 @@ const routes: Routes = [
     path: 'validar-hash-usuario-publico/:hash',
     component: ValidarHashUsuarioPublicoComponent,
   },
+  {
+    path: 'comprobar-clave',
+    component: ComprobarClaveComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SeguridadRoutingModule {}
+export class SeguridadRoutingModule { }
