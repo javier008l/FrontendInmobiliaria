@@ -27,20 +27,20 @@
           </div>
         </div>
       </div>
+      <div id="idRecaptcha" class="g-recaptcha-response" data-sitekey="6LekzdolAAAAAKGOPqKYvfMQu-zsLgF4We2lfzEa"
+        required></div>
       <div class="row">
         <div class="input-field col s12 centrar_boton">
-          <button (click)="IdentificarUsuario()" class="waves-effect waves-light btn-large boton"><i
-              class="material-icons left">edit</i>Identificar</button>
+          <button id="enviar_boton" (click)="IdentificarUsuario()" class="waves-effect waves-light btn-large boton"><i
+              class="material-icons left">person_add</i>Identificar</button>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6 m6 l6">
           <p class="margin medium-small grow"><a routerLink="/seguridad/recuperar-clave">Olvide mi contraseña</a></p>
-          <p class="margin medium-small grow"><a routerLink="/seguridad/registro-publico">Cambia de contraseña</a></p>
         </div>
         <div class="input-field col s6 m6 l6">
-
-          <p class="margin medium-small grow"><a routerLink="/seguridad/registro-publico">¿No tienes cuenta?
+          <p class="margin medium-small grow"><a routerLink="/seguridad/registro">¿No tienes cuenta?
               Registrate</a></p>
         </div>
       </div>

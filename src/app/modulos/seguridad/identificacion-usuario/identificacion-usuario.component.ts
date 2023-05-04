@@ -30,36 +30,36 @@ export class IdentificacionUsuarioComponent {
     });
   }
 
-  IdentificarUsuario() {
-    if (this.fGroup.invalid) {
-      alert('Datos incompletos');
-    } else {
-      let usuario = this.obtenerFormGroup['usuario'].value;
-      let clave = this.obtenerFormGroup['clave'].value;
-      let claveCifrada = MD5(clave).toString();
-      this.servicioSeguridad
-        .IdentificarUsuario(usuario, claveCifrada)
-        .subscribe({
-          next: (datos: UsuarioModel) => {
-            if(datos._id == undefined || datos._id == null) {
-              alert("Credenciales incorrectas o falta la validación del correo electronico");
-            }else {
-            console.log(datos);
-            if (
-              this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
-            ) {
-              this.router.navigate(['/seguridad/2fa']);
-            }
-          }
-          },
-          error: (err) => {
-            console.log(err);
-          },
-        });
-    }
-  }
+//   IdentificarUsuario() {
+//     if (this.fGroup.invalid) {
+//       alert('Datos incompletos');
+//     } else {
+//       let usuario = this.obtenerFormGroup['usuario'].value;
+//       let clave = this.obtenerFormGroup['clave'].value;
+//       let claveCifrada = MD5(clave).toString();
+//       this.servicioSeguridad
+//         .IdentificarUsuario(usuario, claveCifrada)
+//         .subscribe({
+//           next: (datos: UsuarioModel) => {
+//             if(datos._id == undefined || datos._id == null) {
+//               alert("Credenciales incorrectas o falta la validación del correo electronico");
+//             }else {
+//             console.log(datos);
+//             if (
+//               this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)
+//             ) {
+//               this.router.navigate(['/seguridad/2fa']);
+//             }
+//           }
+//           },
+//           error: (err) => {
+//             console.log(err);
+//           },
+//         });
+//     }
+//   }
 
-  get obtenerFormGroup() {
-    return this.fGroup.controls;
-  }
+//   get obtenerFormGroup() {
+//     return this.fGroup.controls;
+//   }
 }
