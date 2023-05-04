@@ -1,0 +1,23 @@
+.fondo {
+  background-color: #0f435f;
+}
+
+.direccion {
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil {
+  display: flex;
+  justify-content: center;
+}
+
+.opcion {
+  box-shadow: inset 0 0 0 0 #449dd1;
+  color: #449dd1;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.opcion:hover {
+  box-shadow: inset 230px 0 0 0 #449dd1;
+  color: white;
+}
