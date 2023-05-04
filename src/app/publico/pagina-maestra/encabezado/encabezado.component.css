@@ -24,3 +24,8 @@ nav {
 .boton_menu:hover {
   background-color: #449dd1;
 }
+
+.logo{
+  margin-left: 40px;
+  margin-top: 15px;
+}

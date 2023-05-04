@@ -21,3 +21,26 @@
   box-shadow: inset 230px 0 0 0 #449dd1;
   color: white;
 }
+
+.contenedor{
+  position: relative;
+  bottom: 58px;
+  left: 15px;
+  max-width:30px
+  
+}
+
+
+.menu{
+  border: 2px solid white;
+  color: white;
+  border-radius: 9px;
+  padding-top: 13px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.menu:hover{
+  background-color:#449DD1
+  
+}
