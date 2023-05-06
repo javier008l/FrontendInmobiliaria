@@ -9,6 +9,10 @@ import { RegistroPublicoUsuariosComponent } from './registro-publico-usuarios/re
 import { RegistroComponent } from './registro/registro.component';
 import { ValidarHashUsuarioPublicoComponent } from './validar-hash-usuario-publico/validar-hash-usuario-publico.component';
 import { ComprobarClaveComponent } from './comprobar-clave/comprobar-clave.component';
+import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
+import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-usuario.component';
 
 
 const routes: Routes = [
@@ -52,6 +56,22 @@ const routes: Routes = [
   {
     path: 'comprobar-clave',
     component: ComprobarClaveComponent,
+  },
+  {
+    path: 'usuario-crear',
+    component: CrearUsuarioComponent,
+  },
+  {
+    path: 'usuario-listar',
+    component: ListarUsuarioComponent,
+  },
+  {
+    path: 'usuario-editar/:id',
+    component: EditarUsuarioComponent,
+  },
+  {
+    path: 'usuario-eliminar',
+    component: EliminarUsuarioComponent,
   },
 ];
 

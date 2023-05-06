@@ -4,6 +4,9 @@ import { UsuarioModel } from '../modelos/usuario.model';
 import { UsuarioValidadoModel } from '../modelos/usuario.valido.model';
 import { HttpClient } from '@angular/common/http';
 import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
+import { PermisoModel } from '../modelos/permiso.model';
+import { ItemMenuModel } from '../modelos/item.menu.model';
+import { ConfiguracionMenuLateral } from '../config/configuracion.menu.lateral';
 
 @Injectable({
   providedIn: 'root',
@@ -146,5 +149,23 @@ export class SeguridadService {
 
   ActualizarComportamientoUsuario(datos: UsuarioValidadoModel) {
     return this.datosUsuarioValidado.next(datos);
+  }
+
+  ConstruirMenuLateral(permisos: PermisoModel[]): ItemMenuModel[]{
+    let menu: ItemMenuModel[] = [];
+
+    permisos.forEach((permiso) => {
+    let datosRuta =  ConfiguracionMenuLateral.listarMenus.filter(x => x.id == permiso.menuId)
+    if(datosRuta.length > 0) {
+      let item = new ItemMenuModel();
+      item.idMenu = permiso.menuId;
+      item.ruta = datosRuta[0].ruta;
+      // item.icono = datosRuta[0].icono;
+      item.texto = datosRuta[0].texto;
+      menu.push(item)
+    }
+    })
+    return menu
+
   }
 }
