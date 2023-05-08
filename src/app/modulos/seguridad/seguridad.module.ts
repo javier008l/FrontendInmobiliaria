@@ -16,6 +16,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { RegistroPublicoUsuariosComponent } from './registro-publico-usuarios/registro-publico-usuarios.component';
 import { ValidarHashUsuarioPublicoComponent } from './validar-hash-usuario-publico/validar-hash-usuario-publico.component';
 import { ComprobarClaveComponent } from './comprobar-clave/comprobar-clave.component';
+import { RegistroPublicoAsesorComponent } from './registro-publico-asesor/registro-publico-asesor.component';
+import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/registro-privado-asesor.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { ComprobarClaveComponent } from './comprobar-clave/comprobar-clave.compo
     RegistroComponent,
     RegistroPublicoUsuariosComponent,
     ValidarHashUsuarioPublicoComponent,
-    ComprobarClaveComponent
+    ComprobarClaveComponent,
+    RegistroPublicoAsesorComponent,
+    RegistroPrivadoAsesorComponent
   ],
   imports: [
     CommonModule,
