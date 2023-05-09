@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { SeguridadRoutingModule } from './seguridad-routing.module';
 import { IdentificacionUsuarioComponent } from './identificacion-usuario/identificacion-usuario.component';
 import { IdentificacionTwofaComponent } from './identificacion-twofa/identificacion-twofa.component';
-import { CambioClaveComponent } from './cambio-clave/cambio-clave.component';
 import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
@@ -15,16 +14,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro/registro.component';
 import { RegistroPublicoUsuariosComponent } from './registro-publico-usuarios/registro-publico-usuarios.component';
 import { ValidarHashUsuarioPublicoComponent } from './validar-hash-usuario-publico/validar-hash-usuario-publico.component';
-import { ComprobarClaveComponent } from './comprobar-clave/comprobar-clave.component';
 import { RegistroPublicoAsesorComponent } from './registro-publico-asesor/registro-publico-asesor.component';
 import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/registro-privado-asesor.component';
+import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 
 
 @NgModule({
   declarations: [
     IdentificacionUsuarioComponent,
     IdentificacionTwofaComponent,
-    CambioClaveComponent,
     RecuperarClaveComponent,
     CrearUsuarioComponent,
     EditarUsuarioComponent,
@@ -34,9 +32,9 @@ import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/regist
     RegistroComponent,
     RegistroPublicoUsuariosComponent,
     ValidarHashUsuarioPublicoComponent,
-    ComprobarClaveComponent,
     RegistroPublicoAsesorComponent,
-    RegistroPrivadoAsesorComponent
+    RegistroPrivadoAsesorComponent,
+    CambiarClaveComponent
   ],
   imports: [
     CommonModule,

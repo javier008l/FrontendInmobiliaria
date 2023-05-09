@@ -1,1 +1,57 @@
-<p>registro-publico-asesor works!</p>
+<br>
+<div class="container">
+  <div class="contenedor">
+    <h3 class="color_principal">Asesor</h3>
+    <form [formGroup]="fGroup" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="primerNombre" id="primerNombre" type="text" class="validate" />
+          <label for="primerNombre">Primer Nombre</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="segundoNombre" id="segundoNombre" type="text" class="validate" />
+          <label for="segundoNombre">Segundo Nombre</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="primerApellido" id="primerApellido" type="text" class="validate" />
+          <label for="primerApellido">Primer Apellido</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="segundoApellido" id="segundoApellido" type="text" class="validate" />
+          <label for="segundoApellido">Segundo Apellido</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="correo" id="email" type="email" class="validate" />
+          <label for="email">Correo</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="telefono" id="telefono" type="text" class="validate" />
+          <label for="telefono">Teléfono Celular</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="cedula" id="cedula" type="text" class="validate" />
+          <label for="cedula">Cedula</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="direccion" id="direccion" type="text" class="validate" />
+          <label for="direccion">Dirección</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="centrar_boton">
+          <button class="waves-effect waves-light btn-large boton" type="button" (click)="Registrarse()">
+            Registrarse
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<br>

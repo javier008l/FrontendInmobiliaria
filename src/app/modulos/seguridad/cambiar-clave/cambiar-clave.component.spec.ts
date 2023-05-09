@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CambioClaveComponent } from './cambio-clave.component';
+import { CambiarClaveComponent } from './cambiar-clave.component';
 
-describe('CambioClaveComponent', () => {
-  let component: CambioClaveComponent;
-  let fixture: ComponentFixture<CambioClaveComponent>;
+describe('CambiarClaveComponent', () => {
+  let component: CambiarClaveComponent;
+  let fixture: ComponentFixture<CambiarClaveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CambioClaveComponent ]
+      declarations: [ CambiarClaveComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CambioClaveComponent);
+    fixture = TestBed.createComponent(CambiarClaveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
