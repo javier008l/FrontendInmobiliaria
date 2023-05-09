@@ -27,13 +27,11 @@ export class RegistroPublicoAsesorComponent {
    */
   ConstruirFormulario() {
     this.fGroup = this.fb.group({
-      primerNombre: ['', [Validators.required, Validators.minLength(2)]],
-      segundoNombre: ['', [Validators.minLength(2)]],
-      primerApellido: ['', [Validators.required, Validators.minLength(2)]],
-      segundoApellido: ['', [Validators.minLength(2)]],
+      nombreCompleto: ['', [Validators.required, Validators.minLength(2)]],
+      apellidoCompleto: ['', [Validators.required, Validators.minLength(2)]],
+      cedula: ['', [Validators.required, Validators.minLength(7)]],
       correo: ['', [Validators.required]],
-      telefono: ['', [Validators.required, Validators.minLength(12)]],
-      cedula: ['', [Validators.required, Validators.minLength(10)]],
+      telefono: ['', [Validators.required, Validators.minLength(10)]],
       direccion: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
@@ -44,20 +42,20 @@ export class RegistroPublicoAsesorComponent {
   Registrarse() {
     let campos = this.ObtenerFormGroup;
     let datos = {
-      primerNombre: campos["primerNombre"].value,
-      segundoNombre: campos["segundoNombre"].value,
-      primerApellido: campos["primerApellido"].value,
-      segundoApellido: campos["segundoApellido"].value,
+      nombreCompleto: campos["nombreCompleto"].value,
+      apellidoCompleto: campos["apellidoCompleto"].value,
+      cedula: campos["cedula"].value,
       correo: campos["correo"].value,
       celular: campos["telefono"].value,
       direccion: campos["direccion"].value,
-      cedula: campos["cedula"].value
+
     }
-    this.servicioSeguridad.RegistrarUsuarioPublico(datos).subscribe({
-      next: (respuesta: UsuarioModel) => {
+    this.servicioSeguridad.SolicitudAsesor(datos).subscribe({
+      next: () => {
         alert("Registro correcto, se ha enviado un mensaje para validar su dirección de correo electrónico.")
+        alert("Se notificado al administrador de su solicitud, si no obtiene respuesta en 7 dias habiles, su solicitud fue rechazada")
       },
-      error: (err) => {
+      error: () => {
         alert("Se ha producido un error en el registro.")
       }
     });

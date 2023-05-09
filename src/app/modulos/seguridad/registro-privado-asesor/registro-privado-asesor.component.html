@@ -2,7 +2,7 @@
 <br>
 <div class="container">
   <div class="contenedor">
-    <h3 class="color_principal">Cliente</h3>
+    <h3 class="color_principal">Asesor</h3>
     <form [formGroup]="fGroup" class="col s12">
       <div class="row">
         <div class="input-field col s6">
@@ -24,6 +24,7 @@
           <label for="segundoApellido">Segundo Apellido</label>
         </div>
       </div>
+      
       <div class="row">
         <div class="input-field col s6">
           <input formControlName="correo" id="email" type="email" class="validate" />
@@ -32,6 +33,16 @@
         <div class="input-field col s6">
           <input formControlName="telefono" id="telefono" type="text" class="validate" />
           <label for="telefono">Teléfono Celular</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="direccion" id="direccion" type="text" class="validate" />
+          <label for="direccion">Direccion</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="cedula" id="cedula" type="text" class="validate" />
+          <label for="cedula">Cedula</label>
         </div>
       </div>
       <div class="row">

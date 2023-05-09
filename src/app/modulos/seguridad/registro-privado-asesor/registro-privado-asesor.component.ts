@@ -32,8 +32,8 @@ export class RegistroPrivadoAsesorComponent {
       primerApellido: ['', [Validators.required, Validators.minLength(2)]],
       segundoApellido: ['', [Validators.minLength(2)]],
       correo: ['', [Validators.required]],
-      telefono: ['', [Validators.required, Validators.minLength(12)]],
-      cedula: ['', [Validators.required, Validators.minLength(10)]],
+      telefono: ['', [Validators.required, Validators.minLength(10)]],
+      cedula: ['', [Validators.required, Validators.minLength(8)]],
       direccion: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
@@ -53,11 +53,11 @@ export class RegistroPrivadoAsesorComponent {
       direccion: campos["direccion"].value,
       cedula: campos["cedula"].value
     }
-    this.servicioSeguridad.RegistrarUsuarioPublico(datos).subscribe({
-      next: (respuesta: UsuarioModel) => {
-        alert("Registro correcto, se ha enviado un mensaje para validar su dirección de correo electrónico.")
+    this.servicioSeguridad.RegistrarAsesorPivado(datos).subscribe({
+      next: () => {
+        alert("El registro ha sido exitoso")
       },
-      error: (err) => {
+      error: () => {
         alert("Se ha producido un error en el registro.")
       }
     });
