@@ -32,6 +32,7 @@ export class RegistroPublicoUsuariosComponent {
       segundoApellido: ['', [Validators.minLength(2)]],
       correo: ['', [Validators.required]],
       telefono: ['', [Validators.required, Validators.minLength(12)]],
+      cedula: ['', [Validators.required, Validators.minLength(10)]],
     });
   }
 
@@ -46,10 +47,11 @@ export class RegistroPublicoUsuariosComponent {
       primerApellido: campos["primerApellido"].value,
       segundoApellido: campos["segundoApellido"].value,
       correo: campos["correo"].value,
-      celular: campos["telefono"].value
+      celular: campos["telefono"].value,
+      cedula: campos["cedula"].value
     }
     this.servicioSeguridad.RegistrarUsuarioPublico(datos).subscribe({
-      next: (respuesta:UsuarioModel) => {
+      next: (respuesta: UsuarioModel) => {
         alert("Registro correcto, se ha enviado un mensaje para validar su dirección de correo electrónico.")
       },
       error: (err) => {
@@ -58,7 +60,7 @@ export class RegistroPublicoUsuariosComponent {
     });
   }
 
-  get ObtenerFormGroup(){
+  get ObtenerFormGroup() {
     return this.fGroup.controls;
   }
 }

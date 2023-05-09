@@ -45,8 +45,6 @@ export class CambiarClaveComponent {
       console.log("El correo es: " + correo);
       console.log("La contraseña Actual es: " + clave)
       console.log("La nueva contraseña es: " + claveNueva)
-
-
     }
   }
   get obtenerFormGroup() {
