@@ -129,6 +129,14 @@ export class SeguridadService {
     });
   }
 
+  CambiarClave(correo: string, clave: string, claveNueva: string): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(`${this.urlBase}cambiar-clave`, {
+      correo: correo,
+      claveActual: clave,
+      claveNueva: claveNueva
+    });
+  }
+
   /** Administración de la sesión de usuario */
 
   datosUsuarioValidado = new BehaviorSubject<UsuarioValidadoModel>(
@@ -151,19 +159,19 @@ export class SeguridadService {
     return this.datosUsuarioValidado.next(datos);
   }
 
-  ConstruirMenuLateral(permisos: PermisoModel[]): ItemMenuModel[]{
+  ConstruirMenuLateral(permisos: PermisoModel[]): ItemMenuModel[] {
     let menu: ItemMenuModel[] = [];
 
     permisos.forEach((permiso) => {
-    let datosRuta =  ConfiguracionMenuLateral.listarMenus.filter(x => x.id == permiso.menuId)
-    if(datosRuta.length > 0) {
-      let item = new ItemMenuModel();
-      item.idMenu = permiso.menuId;
-      item.ruta = datosRuta[0].ruta;
-      // item.icono = datosRuta[0].icono;
-      item.texto = datosRuta[0].texto;
-      menu.push(item)
-    }
+      let datosRuta = ConfiguracionMenuLateral.listarMenus.filter(x => x.id == permiso.menuId)
+      if (datosRuta.length > 0) {
+        let item = new ItemMenuModel();
+        item.idMenu = permiso.menuId;
+        item.ruta = datosRuta[0].ruta;
+        // item.icono = datosRuta[0].icono;
+        item.texto = datosRuta[0].texto;
+        menu.push(item)
+      }
     })
     return menu
 
