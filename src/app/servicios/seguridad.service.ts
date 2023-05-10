@@ -8,14 +8,18 @@ import { PermisoModel } from '../modelos/permiso.model';
 import { ItemMenuModel } from '../modelos/item.menu.model';
 import { ConfiguracionMenuLateral } from '../config/configuracion.menu.lateral';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class SeguridadService {
   urlBase: string = ConfiguracionRutasBackend.urlSeguridad;
+  prueba: string = ConfiguracionRutasBackend.urlLogica;
   constructor(private http: HttpClient) {
     this.validacionDeSesion();
   }
+
+
 
   /**
    * Identificar usuario
@@ -130,6 +134,21 @@ export class SeguridadService {
     });
   }
 
+  CambiarClave(correo: string, clave: string, claveNueva: string): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(`${this.urlBase}cambiar-clave`, {
+      correo: correo,
+      claveActual: clave,
+      claveNueva: claveNueva
+    });
+  }
+
+  SolicitudAsesor(datos: any): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(
+      `${this.prueba}registro-publico-asesor`,
+      datos
+    );
+  }
+
   /** Administración de la sesión de usuario */
 
   datosUsuarioValidado = new BehaviorSubject<UsuarioValidadoModel>(
@@ -151,7 +170,7 @@ export class SeguridadService {
   ActualizarComportamientoUsuario(datos: UsuarioValidadoModel) {
     return this.datosUsuarioValidado.next(datos);
   }
-
+  
   ConstruirMenuLateral(permisos: PermisoModel[]){
     let menu: ItemMenuModel[] = [];
 
@@ -167,6 +186,14 @@ export class SeguridadService {
     });
     this.AlmacenarItemsMenuLateral(menu);
   }
+
+  RegistrarAsesorPivado(datos: any): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(
+      `${this.prueba}registro-privado-asesor`,
+      datos
+    );
+  }
+
 
   /**
    * 

@@ -42,9 +42,14 @@ export class CambiarClaveComponent {
     if (claveNueva === claveVerificar && datosUsuario) {
       const usuario = JSON.parse(datosUsuario);
       const correo = usuario.correo;
-      console.log("El correo es: " + correo);
-      console.log("La contraseña Actual es: " + clave)
-      console.log("La nueva contraseña es: " + claveNueva)
+      this.servicioSeguridad.CambiarClave(correo, clave, claveNueva).subscribe({
+        next: (datos: UsuarioModel) => {
+          alert("Su clave se ha actualizado correctamente " + datos.primerNombre)
+        },
+        error: (err) => {
+          alert("Ha ocurrido un error cambiando la contraseña")
+        }
+      });
     }
   }
   get obtenerFormGroup() {
