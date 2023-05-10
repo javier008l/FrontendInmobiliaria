@@ -14,3 +14,7 @@ app-pie-pagina {
 .color_principal {
   color: #0f435f;
 }
+
+body {
+  overflow-x: hidden;
+}

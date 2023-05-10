@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
+declare const onloadCallback: any;
+declare const grecaptcha: any;
+
 @Component({
   selector: 'app-registro-publico-usuarios',
   templateUrl: './registro-publico-usuarios.component.html',
@@ -19,6 +22,7 @@ export class RegistroPublicoUsuariosComponent {
 
   ngOnInit() {
     this.ConstruirFormulario();
+    onloadCallback();
   }
 
   /**
@@ -40,6 +44,11 @@ export class RegistroPublicoUsuariosComponent {
    * Función de registro público
    */
   Registrarse() {
+    const captcha = grecaptcha.getResponse();
+    if (!captcha) {
+      alert('Por favor, Llene todos los campos');
+      return;
+    }
     let campos = this.ObtenerFormGroup;
     let datos = {
       primerNombre: campos["primerNombre"].value,
