@@ -49,8 +49,9 @@ export class IdentificacionTwofaComponent {
         .subscribe({
           next: (datos: UsuarioValidadoModel) => {
             console.log(datos);
+            this.servicioSeguridad.ConstruirMenuLateral(datos.menu)
             this.servicioSeguridad.AlmacenarDatosUsuarioValidado(datos);
-            this.router.navigate(['']);
+            this.router.navigate([""]);
           },
           error: (err) => {
             console.log(err);

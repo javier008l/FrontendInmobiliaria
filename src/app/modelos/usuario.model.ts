@@ -4,7 +4,7 @@ export class UsuarioModel{
     segundoNombre?: string;
     primerApellido?: string;
     segundoApellido?: string;
-    // cedula?: string;
+    cedula?: string;
     correo?: string;
     celular?: string;
     clave?: string;
