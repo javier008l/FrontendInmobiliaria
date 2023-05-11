@@ -15,6 +15,8 @@ import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/regist
 import { RegistroPublicoAsesorComponent } from './registro-publico-asesor/registro-publico-asesor.component';
 import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 import { FormularioContactoClienteComponent } from './formulario-contacto-cliente/formulario-contacto-cliente.component';
+import { ValidarSesionInactivaGuard } from 'src/app/guardianes/validar-sesion-inactiva.guard';
+import { ValidarSesionActivaGuard } from 'src/app/guardianes/validar-sesion-activa.guard';
 
 
 const routes: Routes = [
@@ -25,22 +27,27 @@ const routes: Routes = [
   {
     path: 'identificar-usuario',
     component: IdentificacionUsuarioComponent,
+    canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: 'recuperar-clave',
     component: RecuperarClaveComponent,
+    canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: 'cerrar-sesion',
     component: CerrarSesionComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: '2fa',
     component: IdentificacionTwofaComponent,
+    canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: 'registro-publico',
     component: RegistroPublicoUsuariosComponent,
+    // canActivate: [ValidarSesionInactivaGuard]
   },
 
   {
@@ -55,18 +62,22 @@ const routes: Routes = [
   {
     path: 'usuario-crear',
     component: CrearUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'usuario-listar',
     component: ListarUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'usuario-editar/:id',
     component: EditarUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'usuario-eliminar',
     component: EliminarUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'registro-publico-asesor',
@@ -78,12 +89,14 @@ const routes: Routes = [
   },
   {
     path: "cambiar-clave",
-    component: CambiarClaveComponent
+    component: CambiarClaveComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "formulario-contacto-cliente",
     component: FormularioContactoClienteComponent
   }
+  
 ];
 
 @NgModule({
