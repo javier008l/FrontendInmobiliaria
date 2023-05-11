@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { UsuarioValidadoModel } from 'src/app/modelos/usuario.valido.model';
+import { ParametrosService } from 'src/app/servicios/parametros.service';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
@@ -8,17 +10,19 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  constructor(
-    private servicioSeguridad: SeguridadService
-  ){
 
+  listaRegistros: InmuebleModel[] = [];
+
+
+  constructor(
+    private servicioSeguridad: SeguridadService,
+    private servicioParametrizacion: ParametrosService)
+  {
   }
 
   sesionAtiva: boolean = false;
 
-  ngOnInit(){
-    this.ValidarSesion();
-  }
+ 
 
   ValidarSesion(){
     this.servicioSeguridad.ObtenerDatosSesion().subscribe({
@@ -34,4 +38,17 @@ export class InicioComponent {
       }
     })
   }
+
+  ngOnInit(){
+    this.ValidarSesion();
+    this.servicioParametrizacion.listarRegistros().subscribe({
+      next:  (datos) => {
+        this.listaRegistros = datos;
+      },
+      error: (err) => {
+
+      }
+    })
+  }
+
 }

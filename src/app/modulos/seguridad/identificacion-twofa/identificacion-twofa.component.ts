@@ -49,9 +49,13 @@ export class IdentificacionTwofaComponent {
         .subscribe({
           next: (datos: UsuarioValidadoModel) => {
             console.log(datos);
+            if(datos.token != null && datos.token != undefined && datos.token != ""){ 
             this.servicioSeguridad.ConstruirMenuLateral(datos.menu)
             this.servicioSeguridad.AlmacenarDatosUsuarioValidado(datos);
             this.router.navigate([""]);
+            }else{
+              alert("El código no es válido")
+            }
           },
           error: (err) => {
             console.log(err);

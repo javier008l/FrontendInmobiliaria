@@ -65,12 +65,32 @@
                 servicios inmobiliarios para satisfacer todas las necesidades de nuestros clientes. Desde la compra y
                 venta de propiedades hasta la búsqueda de propiedades y la visualización de todas las propiedades
                 disponibles, nuestro equipo de expertos está a tu disposición para ayudarte en cada paso del camino.</p>
+            </div>     
+            <div class="col s6">
+                <img class="" width="600" src="../assets/media/servicios.png">
+            </div>
         </div>
-        <div class="col s6">
-            <img class="" width="600" src="../assets/media/servicios.png">
-        </div>
-    </div>
-</div>
+    </div>          
+                <!-- *************************************************************************** -->
+                <!-- <app-hero></app-hero> -->
+                <div class="row">
+                    <div *ngFor="let r of listaRegistros" class="col s3">
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="{{r.foto}}">
+                          <span class="card-title">{{r.direccion}}</span>
+                        </div>
+                        <div class="card-content">
+                          <p>El precio del inmueble es: {{r.costo | currency}}</p>
+                        </div>
+                        <div class="card-action">
+                          <a routerLink="/">Ver más</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <!-- *************************************************************************** -->
+
 <!-- SESION NO ACTIVA Contenedor 3 ------------------------------------------------------>
 <br>
 <br>
