@@ -1,2 +1,16 @@
-<h5 *ngIf="!validado">Validando...</h5>
-<h1 *ngIf="validado">Validado correctamente.</h1>
+<div *ngIf="!validado" class="container centrar_contenedor">
+    <div class="row">
+        <div class="col s12 centrar">
+            <h5 class="color_principal">Estamos Validando Tu Correo</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 centrar">
+            <div class="lds-hourglass"></div>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="validado" class="container centrar_contenedor">
+    <h1>Validado correctamente</h1>
+</div>
