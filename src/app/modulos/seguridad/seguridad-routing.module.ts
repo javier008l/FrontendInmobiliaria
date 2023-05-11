@@ -14,6 +14,7 @@ import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-us
 import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/registro-privado-asesor.component';
 import { RegistroPublicoAsesorComponent } from './registro-publico-asesor/registro-publico-asesor.component';
 import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
+import { FormularioContactoClienteComponent } from './formulario-contacto-cliente/formulario-contacto-cliente.component';
 
 
 const routes: Routes = [
@@ -78,6 +79,10 @@ const routes: Routes = [
   {
     path: "cambiar-clave",
     component: CambiarClaveComponent
+  },
+  {
+    path: "formulario-contacto-cliente",
+    component: FormularioContactoClienteComponent
   }
 ];
 
