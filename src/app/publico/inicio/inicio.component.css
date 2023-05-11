@@ -1,11 +1,43 @@
 .separador {
   border-bottom: 10px solid #0f435f;
   display: flex;
+  flex-direction: column;
+}
+
+.card
+  .card-action
+  a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(
+    .btn-floating
+  ):hover {
+  color: #449dd1;
+}
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+.card
+  .card-action
+  a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(
+    .btn-floating
+  ) {
+  color: white;
 }
 
 .centrar {
   display: flex;
   justify-content: center;
+}
+
+.prueba {
+  background-color: #0f435f;
+}
+
+.prueba1 {
+  color: white;
 }
 
 .boton_div {
