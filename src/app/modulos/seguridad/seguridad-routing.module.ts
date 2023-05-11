@@ -27,7 +27,7 @@ const routes: Routes = [
   {
     path: 'identificar-usuario',
     component: IdentificacionUsuarioComponent,
-    canActivate: [ValidarSesionInactivaGuard]
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'recuperar-clave',
@@ -42,7 +42,7 @@ const routes: Routes = [
   {
     path: '2fa',
     component: IdentificacionTwofaComponent,
-    canActivate: [ValidarSesionInactivaGuard]
+    // canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: 'registro-publico',
@@ -96,7 +96,7 @@ const routes: Routes = [
     path: "formulario-contacto-cliente",
     component: FormularioContactoClienteComponent
   }
-  
+
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ export const ValidarSesionInactivaGuard = () => {
     if(existeSesion){
       return false;
     }
-    router.navigate(["/inicio"]);
+    router.navigate(["/ruta-no-encontrada"]);
     return true;
     
 }

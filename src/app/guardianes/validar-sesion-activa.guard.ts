@@ -11,19 +11,19 @@ export class ValidarSesionActivaGuard implements CanActivate {
   constructor(
     private servicioSeguridad: SeguridadService,
     private router: Router
-  ){
-    
+  ) {
+
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     let existeSesion = this.servicioSeguridad.validacionDeSesion();
-    if(existeSesion){
+    if (existeSesion) {
       return true;
     }
-    this.router.navigate(["/inicio"]);
+    this.router.navigate(["/ruta-no-encontrada"]);
     return false;
   }
-  
+
 }
