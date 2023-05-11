@@ -22,14 +22,14 @@ export class FormularioContactoAsesorComponent {
 
   ConstruirFormulario() {
     this.fGroup = this.fb.group({
-      mensaje: ['', [Validators.required]],
+      motivo: ['', [Validators.required]],
       asunto: ['', [Validators.required]],
       correoCliente: ['', [Validators.required]],
     });
   }
 
   Enviar() {
-    let mensaje = this.obtenerFormGroup['mensaje'].value;
+    let motivo = this.obtenerFormGroup['motivo'].value;
     let asunto = this.obtenerFormGroup['asunto'].value;
     let correoCliente = this.obtenerFormGroup['correoCliente'].value;
 
@@ -37,18 +37,17 @@ export class FormularioContactoAsesorComponent {
 
     if (datosUsuario) {
       const usuario = JSON.parse(datosUsuario);
-      const nombre = usuario.nombre
-      const apellido = usuario.nombre
-      const telefono = usuario.nombre
-      const correo = usuario.correo;
-      // this.servicioSeguridad.CambiarClave(correo, mensaje, asunto, nombre, apellido, telefono).subscribe({
-      //   next: (datos: UsuarioModel) => {
-      //     alert("El correo se ha enviado con exito")
-      //   },
-      //   error: (err) => {
-      //     alert("Ha ocurrido un error enviando el correo")
-      //   }
-      // });
+      // const nombre = usuario.nombre
+      // const telefono = usuario.nombre
+      const correoAsesor = usuario.correo;
+      this.servicioSeguridad.EnviarCorreoACliente(motivo, asunto, correoCliente, correoAsesor).subscribe({
+        next: (datos: UsuarioModel) => {
+          alert("El correo se ha enviado con exito")
+        },
+        error: (err) => {
+          alert("Ha ocurrido un error enviando el correo")
+        }
+      });
     }
   }
   get obtenerFormGroup() {

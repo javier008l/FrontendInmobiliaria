@@ -142,6 +142,18 @@ export class SeguridadService {
     });
   }
 
+  EnviarCorreoACliente(motivo: string, asunto: string, correoCliente: string, correoAsesor: string): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(`${this.prueba}contactar-cliente`, {
+      motivo: motivo,
+      asunto: asunto,
+      correoCliente: correoCliente,
+      // nombre: nombre,
+      // telefono: telefono,
+      correoAsesor: correoAsesor
+    });
+  }
+
+
   SolicitudAsesor(datos: any): Observable<UsuarioModel> {
     return this.http.post<UsuarioModel>(
       `${this.prueba}registro-publico-asesor`,
@@ -159,7 +171,7 @@ export class SeguridadService {
     return this.datosUsuarioValidado.asObservable();
   }
 
-  validacionDeSesion():UsuarioValidadoModel | null {
+  validacionDeSesion(): UsuarioValidadoModel | null {
     let ls = localStorage.getItem('datos-sesion');
     if (ls) {
       let objUsuario = JSON.parse(ls);
@@ -172,19 +184,19 @@ export class SeguridadService {
   ActualizarComportamientoUsuario(datos: UsuarioValidadoModel) {
     return this.datosUsuarioValidado.next(datos);
   }
-  
-  ConstruirMenuLateral(permisos: PermisoModel[]){
+
+  ConstruirMenuLateral(permisos: PermisoModel[]) {
     let menu: ItemMenuModel[] = [];
 
     permisos.forEach((permiso) => {
-    let datosRuta =  ConfiguracionMenuLateral.listarMenus.filter(x => x.id == permiso.menuId)
-    if(datosRuta.length > 0) {
-      let item = new ItemMenuModel();
-      item.idMenu = permiso.menuId;
-      item.ruta = datosRuta[0].ruta;
-      item.texto = datosRuta[0].texto;
-      menu.push(item)
-    }
+      let datosRuta = ConfiguracionMenuLateral.listarMenus.filter(x => x.id == permiso.menuId)
+      if (datosRuta.length > 0) {
+        let item = new ItemMenuModel();
+        item.idMenu = permiso.menuId;
+        item.ruta = datosRuta[0].ruta;
+        item.texto = datosRuta[0].texto;
+        menu.push(item)
+      }
     });
     this.AlmacenarItemsMenuLateral(menu);
   }
@@ -201,7 +213,7 @@ export class SeguridadService {
    * 
    * @param itemsMenu items del menú a guardar en localStrorage
    */
-  AlmacenarItemsMenuLateral(itemsMenu: ItemMenuModel[]){
+  AlmacenarItemsMenuLateral(itemsMenu: ItemMenuModel[]) {
     let menuStr = JSON.stringify(itemsMenu);
     localStorage.setItem("menu-lateral", menuStr);
   }
@@ -210,11 +222,11 @@ export class SeguridadService {
    * 
    * @returns lista con items del menú
    */
-  ObtenerItemsMenuLateral(): ItemMenuModel[]{
+  ObtenerItemsMenuLateral(): ItemMenuModel[] {
     let menu: ItemMenuModel[] = [];
     let menuStr = localStorage.getItem("menu-lateral");
-    if(menuStr){
-    menu = JSON.parse(menuStr);
+    if (menuStr) {
+      menu = JSON.parse(menuStr);
     }
     return menu;
   }

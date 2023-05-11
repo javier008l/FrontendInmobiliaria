@@ -39,12 +39,12 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">keyboard</i>
-                    <textarea id="mensaje" class="materialize-textarea"></textarea>
-                    <label for="mensaje">Mensaje</label>
+                    <textarea id="motivo" class="materialize-textarea"></textarea>
+                    <label for="motivo">Mensaje</label>
                     <div class="show-errors"
-                        *ngIf="obtenerFormGroup['mensaje'].errors
-                        && (obtenerFormGroup['mensaje'].dirty ||
-                        obtenerFormGroup['mensaje'].touched)">
+                        *ngIf="obtenerFormGroup['motivo'].errors
+                        && (obtenerFormGroup['motivo'].dirty ||
+                        obtenerFormGroup['motivo'].touched)">
                         <strong>Este campo es obligatorio</strong>
                     </div>
                 </div>
