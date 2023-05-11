@@ -59,8 +59,8 @@ h5 {
 
 .centrar_contenedor {
   position: absolute;
-  top: 330px;
-  left: 300px;
+  top: 200px;
+  left: 175px;
 }
 
 $text-length: 22;
