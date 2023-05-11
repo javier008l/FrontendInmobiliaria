@@ -17,6 +17,7 @@ import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 import { FormularioContactoClienteComponent } from './formulario-contacto-cliente/formulario-contacto-cliente.component';
 import { ValidarSesionInactivaGuard } from 'src/app/guardianes/validar-sesion-inactiva.guard';
 import { ValidarSesionActivaGuard } from 'src/app/guardianes/validar-sesion-activa.guard';
+import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
 
 
 const routes: Routes = [
@@ -95,6 +96,10 @@ const routes: Routes = [
   {
     path: "formulario-contacto-cliente",
     component: FormularioContactoClienteComponent
+  },
+  {
+    path: "formulario-contacto-asesor",
+    component: FormularioContactoAsesorComponent
   }
 
 ];

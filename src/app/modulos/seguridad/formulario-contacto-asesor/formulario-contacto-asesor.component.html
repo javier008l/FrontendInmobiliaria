@@ -1,1 +1,61 @@
-<p>formulario-contacto-asesor works!</p>
+<br>
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+        <h3 class="color_principal">Contactar Cliente</h3>
+        <form [formGroup]="fGroup" class="login-form">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mail_outline</i>
+                    <input formControlName="correoCliente" class="validate"
+                        id="correoCliente"
+                        type="email">
+                    <label for="correoCliente" data-error="wrong"
+                        data-success="right">Correo</label>
+                    <div class="show-errors"
+                        *ngIf="obtenerFormGroup['correoCliente'].errors
+                        && (obtenerFormGroup['correoCliente'].dirty ||
+                        obtenerFormGroup['correoCliente'].touched)">
+                        <strong>Este campo es obligatorio y debe tener el
+                            formato de correo electrónico</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">insert_comment</i>
+                    <input formControlName="asunto" id="asunto"
+                        type="text">
+                    <label for="asunto">Asunto</label>
+                    <div class="show-errors"
+                        *ngIf="obtenerFormGroup['asunto'].errors
+                        && (obtenerFormGroup['asunto'].dirty ||
+                        obtenerFormGroup['asunto'].touched)">
+                        <strong>Este campo es obligatorio</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">keyboard</i>
+                    <textarea id="mensaje" class="materialize-textarea"></textarea>
+                    <label for="mensaje">Mensaje</label>
+                    <div class="show-errors"
+                        *ngIf="obtenerFormGroup['mensaje'].errors
+                        && (obtenerFormGroup['mensaje'].dirty ||
+                        obtenerFormGroup['mensaje'].touched)">
+                        <strong>Este campo es obligatorio</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 centrar_boton">
+                    <button id="enviar_boton" (click)="Enviar()"
+                        class="waves-effect waves-light btn-large boton"><i
+                            class="material-icons left">person_add</i>Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
