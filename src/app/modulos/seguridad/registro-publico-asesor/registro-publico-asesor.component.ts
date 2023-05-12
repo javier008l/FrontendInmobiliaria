@@ -60,10 +60,8 @@ export class RegistroPublicoAsesorComponent {
       direccion: campos["direccion"].value,
 
     };
-    console.log(datos)
     this.servicioSeguridad.SolicitudAsesor(datos).subscribe({
       next: () => {
-        alert("Registro correcto, se ha enviado un mensaje para validar su dirección de correo electrónico.")
         alert("Se notificado al administrador de su solicitud, si no obtiene respuesta en 7 dias habiles, su solicitud fue rechazada")
       },
       error: () => {
