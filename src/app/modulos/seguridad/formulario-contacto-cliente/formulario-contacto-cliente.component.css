@@ -88,3 +88,11 @@ h3 {
   display: flex;
   gap: 30px;
 }
+[type="radio"]:checked + span::after,
+[type="radio"].with-gap:checked + span::after {
+  background-color: #449dd1;
+}
+.dropdown-content li > a,
+.dropdown-content li > span {
+  color: red;
+}
