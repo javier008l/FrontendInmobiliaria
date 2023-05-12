@@ -25,13 +25,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">insert_comment</i>
-                    <input formControlName="asunto" id="asunto"
+                    <input formControlName="asuntoCorreo" id="asuntoCorreo"
                         type="text">
-                    <label for="asunto">Asunto</label>
+                    <label for="asuntoCorreo">Asunto</label>
                     <div class="show-errors"
-                        *ngIf="obtenerFormGroup['asunto'].errors
-                        && (obtenerFormGroup['asunto'].dirty ||
-                        obtenerFormGroup['asunto'].touched)">
+                        *ngIf="obtenerFormGroup['asuntoCorreo'].errors
+                        && (obtenerFormGroup['asuntoCorreo'].dirty ||
+                        obtenerFormGroup['asuntoCorreo'].touched)">
                         <strong>Este campo es obligatorio</strong>
                     </div>
                 </div>
@@ -39,16 +39,31 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">keyboard</i>
-                    <textarea id="motivo" class="materialize-textarea"></textarea>
-                    <label for="motivo">Mensaje</label>
+                    <input formControlName="motivoMensaje" id="motivoMensaje"
+                        type="text">
+                    <label for="motivoMensaje">Mensaje</label>
                     <div class="show-errors"
-                        *ngIf="obtenerFormGroup['motivo'].errors
-                        && (obtenerFormGroup['motivo'].dirty ||
-                        obtenerFormGroup['motivo'].touched)">
+                        *ngIf="obtenerFormGroup['motivoMensaje'].errors
+                        && (obtenerFormGroup['motivoMensaje'].dirty ||
+                        obtenerFormGroup['motivoMensaje'].touched)">
                         <strong>Este campo es obligatorio</strong>
                     </div>
                 </div>
             </div>
+            <!-- <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">keyboard</i>
+                    <textarea id="motivoMensaje" class="materialize-textarea"
+                        #motivoMensaje></textarea>
+                    <label for="motivoMensaje">Mensaje</label>
+                    <div class="show-errors"
+                        *ngIf="obtenerFormGroup['motivoMensaje'].errors
+                        && (obtenerFormGroup['motivoMensaje'].dirty ||
+                        obtenerFormGroup['motivoMensaje'].touched)">
+                        <strong>Este campo es obligatorio</strong>
+                    </div>
+                </div>
+            </div> -->
             <div class="row">
                 <div class="input-field col s12 centrar_boton">
                     <button id="enviar_boton" (click)="Enviar()"
@@ -59,3 +74,9 @@
         </form>
     </div>
 </div>
+<script>
+    
+  $('#textarea1').val('New Text');
+  M.textareaAutoResize($('#textarea1'));
+        
+</script>

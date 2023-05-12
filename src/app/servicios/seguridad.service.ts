@@ -142,10 +142,10 @@ export class SeguridadService {
     });
   }
 
-  EnviarCorreoACliente(motivo: string, asunto: string, correoCliente: string, correoAsesor: string): Observable<UsuarioModel> {
+  EnviarCorreoACliente(motivoMensaje: string, asuntoCorreo: string, correoCliente: string, correoAsesor: string): Observable<UsuarioModel> {
     return this.http.post<UsuarioModel>(`${this.prueba}contactar-cliente`, {
-      motivo: motivo,
-      asunto: asunto,
+      motivoMensaje: motivoMensaje,
+      asuntoCorreo: asuntoCorreo,
       correoCliente: correoCliente,
       // nombre: nombre,
       // telefono: telefono,

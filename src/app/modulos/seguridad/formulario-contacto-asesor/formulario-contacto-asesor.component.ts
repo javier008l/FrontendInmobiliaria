@@ -18,29 +18,28 @@ export class FormularioContactoAsesorComponent {
 
   ngOnInit() {
     this.ConstruirFormulario();
+
   }
 
   ConstruirFormulario() {
     this.fGroup = this.fb.group({
-      motivo: ['', [Validators.required]],
-      asunto: ['', [Validators.required]],
+      motivoMensaje: ['', [Validators.required]],
+      asuntoCorreo: ['', [Validators.required]],
       correoCliente: ['', [Validators.required]],
     });
   }
 
   Enviar() {
-    let motivo = this.obtenerFormGroup['motivo'].value;
-    let asunto = this.obtenerFormGroup['asunto'].value;
+    let motivoMensaje = this.obtenerFormGroup['motivoMensaje'].value;
+    let asuntoCorreo = this.obtenerFormGroup['asuntoCorreo'].value;
     let correoCliente = this.obtenerFormGroup['correoCliente'].value;
 
     const datosUsuario = localStorage.getItem("datos-usuario");
 
     if (datosUsuario) {
       const usuario = JSON.parse(datosUsuario);
-      // const nombre = usuario.nombre
-      // const telefono = usuario.nombre
       const correoAsesor = usuario.correo;
-      this.servicioSeguridad.EnviarCorreoACliente(motivo, asunto, correoCliente, correoAsesor).subscribe({
+      this.servicioSeguridad.EnviarCorreoACliente(motivoMensaje, asuntoCorreo, correoCliente, correoAsesor).subscribe({
         next: (datos: UsuarioModel) => {
           alert("El correo se ha enviado con exito")
         },

@@ -28,12 +28,12 @@ const routes: Routes = [
   {
     path: 'identificar-usuario',
     component: IdentificacionUsuarioComponent,
-    // canActivate: [ValidarSesionActivaGuard]
+    // canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: 'recuperar-clave',
     component: RecuperarClaveComponent,
-    canActivate: [ValidarSesionInactivaGuard]
+    // canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: 'cerrar-sesion',
