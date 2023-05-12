@@ -62,14 +62,14 @@ export class FormularioContactoClienteComponent {
         direccion: campos["direccion"].value,
       };
       console.log(datos)
-      // this.servicioSeguridad.FormularioContactoCliente(datos).subscribe({
-      //   next: () => {
-      //     alert("Se ha enviado el correo con exito.")
-      //   },
-      //   error: () => {
-      //     alert("Se ha producido un error.")
-      //   }
-      // });
+      this.servicioSeguridad.FormularioContactoCliente(datos).subscribe({
+        next: () => {
+          alert("Se ha enviado el correo con exito.")
+        },
+        error: () => {
+          alert("Se ha producido un error.")
+        }
+      });
     }
   }
 
