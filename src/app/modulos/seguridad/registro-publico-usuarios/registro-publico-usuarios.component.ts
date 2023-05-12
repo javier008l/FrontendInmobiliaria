@@ -56,7 +56,7 @@ export class RegistroPublicoUsuariosComponent {
       primerApellido: campos["primerApellido"].value,
       segundoApellido: campos["segundoApellido"].value,
       correo: campos["correo"].value,
-      celular: campos["telefono"].value,
+      celular: "+57" + campos["telefono"].value,
       cedula: campos["cedula"].value
     }
     this.servicioSeguridad.RegistrarUsuarioPublico(datos).subscribe({

@@ -49,7 +49,7 @@ export class RegistroPrivadoAsesorComponent {
       primerApellido: campos["primerApellido"].value,
       segundoApellido: campos["segundoApellido"].value,
       correo: campos["correo"].value,
-      telefono: campos["telefono"].value,
+      telefono: "+57" + campos["telefono"].value,
       direccion: campos["direccion"].value,
       cedula: campos["cedula"].value
     }
