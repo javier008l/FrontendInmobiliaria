@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MD5 } from 'crypto-js';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
@@ -34,7 +33,6 @@ export class CambiarClaveComponent {
     let clave = this.obtenerFormGroup['clave'].value;
     let claveNueva = this.obtenerFormGroup['claveNueva'].value;
     let claveVerificar = this.obtenerFormGroup['claveVerificar'].value;
-    let claveCifrada = MD5(clave).toString();
     this.servicioSeguridad
 
     const datosUsuario = localStorage.getItem("datos-usuario");

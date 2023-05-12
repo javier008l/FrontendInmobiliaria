@@ -5,28 +5,27 @@
         <form [formGroup]="fGroup" class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input formControlName="tipoMensaje" id="tipoMensaje" type="text" class="validate" />
-                    <label for="tipoMensaje">Tipo de Mensaje</label>
+                    <input formControlName="asunto" id="asunto" type="text" class="validate" />
+                    <label for="asunto">Asunto</label>
                 </div>
                 <div class="input-field col s6">
-                    <select>
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                    <select #selectElement (change)="onSelectChange(selectElement.value)">
+                        <option value="" disabled selected>Tipo de inmueble</option>
+                        <option value="casa">Casa</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="finca">Finca</option>
                     </select>
-                    <label>Tipo de Inmueble</label>
-
+                    <label>Elige uno</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea formControlName="mensaje" id="mensaje" class="materialize-textarea"></textarea>
-                    <label for="mensaje">Mensaje</label>
+                    <textarea formControlName="contenido" id="contenido" class="materialize-textarea"></textarea>
+                    <label for="contenido">Mensaje</label>
                 </div>
             </div>
             <div class="row">
-                <div class="col s12">
+                <div class="col s12 direccion">
                     <p>
                         <label>
                             <input formControlName="alquiler" id="alquiler" name="tipo" type="radio" checked />
@@ -44,7 +43,7 @@
             <div class="row">
                 <div class="centrar_boton">
                     <button class="waves-effect waves-light btn-large boton" type="button" (click)="Enviar()">
-                        Registrarse
+                        Enviar
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

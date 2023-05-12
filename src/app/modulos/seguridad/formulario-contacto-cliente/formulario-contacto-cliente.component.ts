@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
-declare const seleccionador: any;
+import * as M from 'materialize-css';
+
 
 @Component({
   selector: 'app-formulario-contacto-cliente',
@@ -11,6 +12,7 @@ declare const seleccionador: any;
 })
 export class FormularioContactoClienteComponent {
   fGroup: FormGroup = new FormGroup({});
+  tipo: any
 
   constructor(
     private fb: FormBuilder,
@@ -20,19 +22,20 @@ export class FormularioContactoClienteComponent {
 
   ngOnInit() {
     this.ConstruirFormulario();
-    seleccionador()
-
-
+    let elems = document.querySelectorAll('select');
+    let instances = M.FormSelect.init(elems);
   }
 
+  onSelectChange(value: string) {
+    this.tipo = value
+  }
   /**
    * Construcción del formulario con los controles
    */
   ConstruirFormulario() {
     this.fGroup = this.fb.group({
-      tipoMensaje: ['', [Validators.required, Validators.minLength(2)]],
-      inmueble: ['', [Validators.required, Validators.minLength(2)]],
-      mensaje: ['', [Validators.required, Validators.minLength(2)]],
+      asunto: ['', [Validators.required, Validators.minLength(2)]],
+      contenido: ['', [Validators.required, Validators.minLength(2)]],
       venta: ['', [Validators.required]],
     });
   }
@@ -41,24 +44,30 @@ export class FormularioContactoClienteComponent {
    * Función de registro público
    */
   Enviar() {
-
+    const datosUsuario = localStorage.getItem("datos-usuario");
     let campos = this.ObtenerFormGroup;
-    let datos = {
-      tipoMensaje: campos["tipoMensaje"].value,
-      inmueble: campos["inmueble"].value,
-      mensaje: campos["mensaje"].value,
-      venta: campos["venta"].value,
+    const venta: string | undefined = this.fGroup.get('venta')?.value ? 'venta' : 'alquiler';
 
+    if (datosUsuario) {
+      const usuario = JSON.parse(datosUsuario);
+      const correo = usuario.correo;
+      let datos = {
+        asunto: campos["asunto"].value,
+        contenido: campos["contenido"].value,
+        tipo: this.tipo,
+        venta: venta,
+        correo: correo
+      };
+      console.log(datos)
+      // this.servicioSeguridad.FormularioContactoCliente(datos).subscribe({
+      //   next: () => {
+      //     alert("Se ha enviado el correo con exito.")
+      //   },
+      //   error: () => {
+      //     alert("Se ha producido un error.")
+      //   }
+      // });
     }
-    this.servicioSeguridad.SolicitudAsesor(datos).subscribe({
-      next: () => {
-        alert("Registro correcto, se ha enviado un mensaje para validar su dirección de correo electrónico.")
-        alert("Se notificado al administrador de su solicitud, si no obtiene respuesta en 7 dias habiles, su solicitud fue rechazada")
-      },
-      error: () => {
-        alert("Se ha producido un error en el registro.")
-      }
-    });
   }
 
   get ObtenerFormGroup() {

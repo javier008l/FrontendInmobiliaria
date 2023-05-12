@@ -161,6 +161,13 @@ export class SeguridadService {
     );
   }
 
+  FormularioContactoCliente(datos: any): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(
+      `${this.prueba}registro-publico-asesor`,
+      datos
+    );
+  }
+
   /** Administración de la sesión de usuario */
 
   datosUsuarioValidado = new BehaviorSubject<UsuarioValidadoModel>(
