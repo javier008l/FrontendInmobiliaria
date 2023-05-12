@@ -37,6 +37,7 @@ export class FormularioContactoClienteComponent {
       asunto: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
       venta: ['', [Validators.required]],
+      direccion: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
 
@@ -46,7 +47,7 @@ export class FormularioContactoClienteComponent {
   Enviar() {
     const datosUsuario = localStorage.getItem("datos-usuario");
     let campos = this.ObtenerFormGroup;
-    const venta: string | undefined = this.fGroup.get('venta')?.value ? 'venta' : 'alquiler';
+    const ventaAlquiler: string | undefined = this.fGroup.get('venta')?.value ? 'venta' : 'alquiler';
 
     if (datosUsuario) {
       const usuario = JSON.parse(datosUsuario);
@@ -55,8 +56,9 @@ export class FormularioContactoClienteComponent {
         asunto: campos["asunto"].value,
         contenido: campos["contenido"].value,
         tipo: this.tipo,
-        venta: venta,
-        correo: correo
+        ventaAlquiler: ventaAlquiler,
+        correo: correo,
+        direccion: campos["direccion"].value,
       };
       console.log(datos)
       this.servicioSeguridad.FormularioContactoCliente(datos).subscribe({

@@ -5,11 +5,13 @@
         <form [formGroup]="fGroup" class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input formControlName="asunto" id="asunto" type="text" class="validate" />
+                    <input formControlName="asunto" id="asunto" type="text"
+                        class="validate" />
                     <label for="asunto">Asunto</label>
                 </div>
                 <div class="input-field col s6">
-                    <select #selectElement (change)="onSelectChange(selectElement.value)">
+                    <select #selectElement
+                        (change)="onSelectChange(selectElement.value)">
                         <option value="" disabled selected>Tipo de inmueble</option>
                         <option value="casa">Casa</option>
                         <option value="apartamento">Apartamento</option>
@@ -20,7 +22,15 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea formControlName="contenido" id="contenido" class="materialize-textarea"></textarea>
+                    <textarea formControlName="direccion" id="direccion"
+                        class="materialize-textarea"></textarea>
+                    <label for="direccion">Direccion</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea formControlName="contenido" id="contenido"
+                        class="materialize-textarea"></textarea>
                     <label for="contenido">Mensaje</label>
                 </div>
             </div>
@@ -28,13 +38,15 @@
                 <div class="col s12 direccion">
                     <p>
                         <label>
-                            <input formControlName="alquiler" id="alquiler" name="tipo" type="radio" checked />
+                            <input formControlName="alquiler" id="alquiler"
+                                name="tipo" type="radio" checked />
                             <span>Alquiler</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input formControlName="venta" id="venta" name="tipo" type="radio" />
+                            <input formControlName="venta" id="venta"
+                                name="tipo" type="radio" />
                             <span>Venta</span>
                         </label>
                     </p>
@@ -42,7 +54,8 @@
             </div>
             <div class="row">
                 <div class="centrar_boton">
-                    <button class="waves-effect waves-light btn-large boton" type="button" (click)="Enviar()">
+                    <button class="waves-effect waves-light btn-large boton"
+                        type="button" (click)="Enviar()">
                         Enviar
                         <i class="material-icons right">send</i>
                     </button>
@@ -51,4 +64,5 @@
         </form>
     </div>
 </div>
+<br>
 <br>
