@@ -36,7 +36,7 @@ export class FormularioContactoClienteComponent {
     this.fGroup = this.fb.group({
       asunto: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
-      venta: ['', [Validators.required]],
+      ventaAlquiler: ['', [Validators.required]],
       direccion: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
@@ -47,7 +47,8 @@ export class FormularioContactoClienteComponent {
   Enviar() {
     const datosUsuario = localStorage.getItem("datos-usuario");
     let campos = this.ObtenerFormGroup;
-    const ventaAlquiler: string | undefined = this.fGroup.get('venta')?.value ? 'venta' : 'alquiler';
+    const ventaAlquiler: string | undefined = this.fGroup.get('ventaAlquiler')?.value === 'venta' ? 'venta' : 'alquiler';
+
 
     if (datosUsuario) {
       const usuario = JSON.parse(datosUsuario);
@@ -61,14 +62,14 @@ export class FormularioContactoClienteComponent {
         direccion: campos["direccion"].value,
       };
       console.log(datos)
-      this.servicioSeguridad.FormularioContactoCliente(datos).subscribe({
-        next: () => {
-          alert("Se ha enviado el correo con exito.")
-        },
-        error: () => {
-          alert("Se ha producido un error.")
-        }
-      });
+      // this.servicioSeguridad.FormularioContactoCliente(datos).subscribe({
+      //   next: () => {
+      //     alert("Se ha enviado el correo con exito.")
+      //   },
+      //   error: () => {
+      //     alert("Se ha producido un error.")
+      //   }
+      // });
     }
   }
 
