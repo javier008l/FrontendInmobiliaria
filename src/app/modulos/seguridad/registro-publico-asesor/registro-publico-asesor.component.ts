@@ -56,10 +56,11 @@ export class RegistroPublicoAsesorComponent {
       apellidoCompleto: campos["apellidoCompleto"].value,
       cedula: campos["cedula"].value,
       correo: campos["correo"].value,
-      celular: campos["telefono"].value,
+      celular: "+57" + campos["telefono"].value,
       direccion: campos["direccion"].value,
 
-    }
+    };
+    console.log(datos)
     this.servicioSeguridad.SolicitudAsesor(datos).subscribe({
       next: () => {
         alert("Registro correcto, se ha enviado un mensaje para validar su dirección de correo electrónico.")

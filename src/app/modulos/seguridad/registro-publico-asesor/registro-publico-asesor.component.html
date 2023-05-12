@@ -5,39 +5,47 @@
     <form [formGroup]="fGroup" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input formControlName="nombreCompleto" id="nombreCompleto" type="text" class="validate" />
+          <input formControlName="nombreCompleto" id="nombreCompleto"
+            type="text" class="validate" />
           <label for="nombreCompleto">Nombre Completo</label>
         </div>
         <div class="input-field col s6">
-          <input formControlName="apeliidoCompleto" id="apeliidoCompleto" type="text" class="validate" />
+          <input formControlName="apeliidoCompleto" id="apeliidoCompleto"
+            type="text" class="validate" />
           <label for="apeliidoCompleto">Apellido Completo</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input formControlName="correo" id="email" type="email" class="validate" />
+          <input formControlName="correo" id="email" type="email"
+            class="validate" />
           <label for="email">Correo</label>
         </div>
         <div class="input-field col s6">
-          <input formControlName="telefono" id="telefono" type="text" class="validate" />
+          <input formControlName="telefono" id="telefono" type="text"
+            class="validate" />
           <label for="telefono">Teléfono Celular</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input formControlName="cedula" id="cedula" type="text" class="validate" />
+          <input formControlName="cedula" id="cedula" type="text"
+            class="validate" />
           <label for="cedula">Cedula</label>
         </div>
         <div class="input-field col s6">
-          <input formControlName="direccion" id="direccion" type="text" class="validate" />
+          <input formControlName="direccion" id="direccion" type="text"
+            class="validate" />
           <label for="direccion">Dirección</label>
         </div>
       </div>
-      <div id="idRecaptcha" class="g-recaptcha-response" data-sitekey="6LekzdolAAAAAKGOPqKYvfMQu-zsLgF4We2lfzEa"
+      <div id="idRecaptcha" class="g-recaptcha-response"
+        data-sitekey="6LekzdolAAAAAKGOPqKYvfMQu-zsLgF4We2lfzEa"
         required></div>
       <div class="row">
         <div class="centrar_boton">
-          <button class="waves-effect waves-light btn-large boton" type="button" (click)="Registrarse()">
+          <button class="waves-effect waves-light btn-large boton" type="button"
+            (click)="Registrarse()">
             Registrarse
             <i class="material-icons right">send</i>
           </button>
