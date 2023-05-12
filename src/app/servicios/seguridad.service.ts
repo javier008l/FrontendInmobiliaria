@@ -163,7 +163,7 @@ export class SeguridadService {
 
   FormularioContactoCliente(datos: any): Observable<UsuarioModel> {
     return this.http.post<UsuarioModel>(
-      `${this.prueba}registro-publico-asesor`,
+      `${this.prueba}enviar-mensaje-FormularioContacto`,
       datos
     );
   }
