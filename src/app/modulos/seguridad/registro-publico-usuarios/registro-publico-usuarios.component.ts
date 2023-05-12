@@ -35,8 +35,8 @@ export class RegistroPublicoUsuariosComponent {
       primerApellido: ['', [Validators.required, Validators.minLength(2)]],
       segundoApellido: ['', [Validators.minLength(2)]],
       correo: ['', [Validators.required]],
-      telefono: ['', [Validators.required, Validators.minLength(12)]],
-      cedula: ['', [Validators.required, Validators.minLength(10)]],
+      telefono: ['', [Validators.required, Validators.minLength(10)]],
+      cedula: ['', [Validators.required, Validators.minLength(7)]],
     });
   }
 

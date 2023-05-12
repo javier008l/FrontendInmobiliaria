@@ -33,7 +33,7 @@ export class RegistroPrivadoAsesorComponent {
       segundoApellido: ['', [Validators.minLength(2)]],
       correo: ['', [Validators.required]],
       telefono: ['', [Validators.required, Validators.minLength(10)]],
-      cedula: ['', [Validators.required, Validators.minLength(8)]],
+      cedula: ['', [Validators.required, Validators.minLength(7)]],
       direccion: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
