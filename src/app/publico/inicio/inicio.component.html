@@ -95,14 +95,38 @@
 </div>
 <!-- SESION No ACTIVA Inmuebles ------------------------------------------------------>
 <br>
-<div class="container separador">
+<div class="container separador" style="display: none;">
     <div class="row">
         <div>
             <h1 class="color_principal">Nuestros Inmuebles</h1>
         </div>
     </div>
+    <div>
+        <h1 class="color_principal">Venta</h1>
+    </div>
     <div class="row">
         <div *ngFor="let r of listaRegistros" class="col s4">
+            <span class="card-title color_principal">{{r.direccion}}</span>
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{r.foto}}">
+
+                </div>
+                <div class="card-content prueba">
+                    <p class="prueba1">El precio del inmueble es: {{r.costo |
+                        currency}}</p>
+                </div>
+                <div class="card-action grow prueba">
+                    <a class="color_link" routerLink="/">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h1 class="color_principal">alquiler</h1>
+    </div>
+    <div class="row">
+        <div *ngFor="let r of listarAlquiler" class="col s4">
             <span class="card-title color_principal">{{r.direccion}}</span>
             <div class="card">
                 <div class="card-image">

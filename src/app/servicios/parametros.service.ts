@@ -10,14 +10,22 @@ import { ConfiguracionPaginacion } from '../config/configuracion.paginacion';
 })
 export class ParametrosService {
   urlBase: string = ConfiguracionRutasBackend.urlLogica;
-  
+
   constructor(private http: HttpClient) { }
 
   /**
    * Listado de inmuebles
    * @returns
    */
-  listarRegistros():Observable<InmuebleModel[]>{
-   return this.http.get<InmuebleModel[]>(`${this.urlBase}inmueble?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
+  listarRegistros(): Observable<InmuebleModel[]> {
+    return this.http.get<InmuebleModel[]>(
+      `${this.urlBase}inmueble-para-venta`,
+    );
+  }
+
+  listarAlquiler(): Observable<InmuebleModel[]> {
+    return this.http.get<InmuebleModel[]>(
+      `${this.urlBase}inmueble-para-alquiler`,
+    );
   }
 }
