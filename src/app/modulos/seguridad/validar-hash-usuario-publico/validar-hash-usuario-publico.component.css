@@ -31,8 +31,8 @@
 }
 
 h5 {
-  width: 27ch;
-  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  width: 30ch;
+  animation: typing 2s steps(25), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
@@ -52,8 +52,8 @@ h5 {
   }
 }
 
-$text-length: 22;
-$animation-time: 4s;
+$text-length: 25;
+$animation-time: 6s;
 
 h1 {
   position: relative;
@@ -89,4 +89,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.color {
+  color: #449dd1;
 }
