@@ -12,6 +12,8 @@ import { InicioComponent } from './publico/inicio/inicio.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from './componentes/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptores/spinner.interceptor';
+import { InmobiliariaPublicoComponent } from './modulos/seguridad/inmobiliaria-publico/inmobiliaria-publico.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { SpinnerInterceptor } from './interceptores/spinner.interceptor';
     MenuLateralComponent,
     RutaNoEncontradaComponent,
     ErrorDeServidorComponent,
-    InicioComponent
+    InicioComponent,
   ],
   imports: [
     BrowserModule,

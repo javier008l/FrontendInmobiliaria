@@ -4,6 +4,7 @@ import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend
 import { InmuebleModel } from '../modelos/inmueble.model';
 import { Observable } from 'rxjs';
 import { ConfiguracionPaginacion } from '../config/configuracion.paginacion';
+import { SolicitudModel } from '../modelos/solicitud.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,14 @@ export class ParametrosService {
   listarAlquiler(): Observable<InmuebleModel[]> {
     return this.http.get<InmuebleModel[]>(
       `${this.urlBase}inmueble-para-alquiler`,
+    );
+  }
+
+  SolicitudesCliente(correoCliente: string): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}solicitudes-cliente`, {
+      correoCliente: correoCliente
+    }
     );
   }
 }

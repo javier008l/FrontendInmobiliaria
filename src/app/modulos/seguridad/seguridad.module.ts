@@ -19,6 +19,8 @@ import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/regist
 import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 import { FormularioContactoClienteComponent } from './formulario-contacto-cliente/formulario-contacto-cliente.component';
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
+import { SolicitudesClienteComponent } from './solicitudes-cliente/solicitudes-cliente.component';
+import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliaria-publico.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/
     RegistroPrivadoAsesorComponent,
     CambiarClaveComponent,
     FormularioContactoClienteComponent,
-    FormularioContactoAsesorComponent
+    FormularioContactoAsesorComponent,
+    SolicitudesClienteComponent,
+    InmobiliariaPublicoComponent
   ],
   imports: [
     CommonModule,

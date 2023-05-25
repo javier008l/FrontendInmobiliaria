@@ -11,18 +11,8 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 })
 export class InicioComponent {
 
-  listaRegistros: InmuebleModel[] = [];
-  listarAlquiler: InmuebleModel[] = [];
-
-
-  constructor(
-    private servicioSeguridad: SeguridadService,
-    private servicioParametrizacion: ParametrosService) {
-  }
-
   sesionAtiva: boolean = false;
-
-
+  servicioSeguridad: any;
 
   ValidarSesion() {
     this.servicioSeguridad.ObtenerDatosSesion().subscribe({
@@ -41,22 +31,6 @@ export class InicioComponent {
 
   ngOnInit() {
     this.ValidarSesion();
-    this.servicioParametrizacion.listarRegistros().subscribe({
-      next: (datos) => {
-        this.listaRegistros = datos;
-      },
-      error: (err) => {
-
-      }
-    })
-    this.servicioParametrizacion.listarAlquiler().subscribe({
-      next: (datos) => {
-        this.listarAlquiler = datos;
-      },
-      error: (err) => {
-
-      }
-    })
   }
 
 }

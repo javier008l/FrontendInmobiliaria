@@ -147,8 +147,6 @@ export class SeguridadService {
       motivoMensaje: motivoMensaje,
       asuntoCorreo: asuntoCorreo,
       correoCliente: correoCliente,
-      // nombre: nombre,
-      // telefono: telefono,
       correoAsesor: correoAsesor
     });
   }

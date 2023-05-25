@@ -2,7 +2,7 @@
 <div class="container separador" *ngIf="!sesionAtiva">
     <div class="row centrar">
         <div class="col s5">
-            <img class="" width="650" src="../assets/media/home.png">
+            <img class width="650" src="../assets/media/home.png">
         </div>
         <div class="col s2"></div>
         <div class="col s5">
@@ -25,7 +25,7 @@
 <div class="container separador" *ngIf="sesionAtiva">
     <div class="row centrar">
         <div class="col s5">
-            <img class="" width="650" src="../assets/media/bienvenido.png">
+            <img class width="650" src="../assets/media/bienvenido.png">
         </div>
         <div class="col s2"></div>
         <div class="col s5">
@@ -70,7 +70,7 @@
                 ser tu socio confiable en todas tus necesidades inmobiliarias.</p>
         </div>
         <div class="col s6">
-            <img class="" width="650" src="../assets/media/home1.png">
+            <img class width="650" src="../assets/media/home1.png">
         </div>
     </div>
 </div>
@@ -89,64 +89,12 @@
                 para ayudarte en cada paso del camino.</p>
         </div>
         <div class="col s6">
-            <img class="" width="600" src="../assets/media/servicios.png">
+            <img class width="600" src="../assets/media/servicios.png">
         </div>
     </div>
 </div>
-<!-- SESION No ACTIVA Inmuebles ------------------------------------------------------>
-<br>
-<div class="container separador" style="display: none;">
-    <div class="row">
-        <div>
-            <h1 class="color_principal">Nuestros Inmuebles</h1>
-        </div>
-    </div>
-    <div>
-        <h1 class="color_principal">Venta</h1>
-    </div>
-    <div class="row">
-        <div *ngFor="let r of listaRegistros" class="col s4">
-            <span class="card-title color_principal">{{r.direccion}}</span>
-            <div class="card">
-                <div class="card-image">
-                    <img src="{{r.foto}}">
 
-                </div>
-                <div class="card-content prueba">
-                    <p class="prueba1">El precio del inmueble es: {{r.costo |
-                        currency}}</p>
-                </div>
-                <div class="card-action grow prueba">
-                    <a class="color_link" routerLink="/">Ver más</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <h1 class="color_principal">alquiler</h1>
-    </div>
-    <div class="row">
-        <div *ngFor="let r of listarAlquiler" class="col s4">
-            <span class="card-title color_principal">{{r.direccion}}</span>
-            <div class="card">
-                <div class="card-image">
-                    <img src="{{r.foto}}">
-
-                </div>
-                <div class="card-content prueba">
-                    <p class="prueba1">El precio del inmueble es: {{r.costo |
-                        currency}}</p>
-                </div>
-                <div class="card-action grow prueba">
-                    <a class="color_link" routerLink="/">Ver más</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
 <!-- SESION NO ACTIVA Contenedor 3 ------------------------------------------------------>
-<br>
 <br>
 <div class="container" *ngIf="!sesionAtiva">
     <div class="row">
@@ -154,7 +102,7 @@
             <div class="card">
                 <span class="card-title color_principal titulo">Visión</span>
                 <div class="card-image">
-                    <img class="" width="650" src="../assets/media/faro.png">
+                    <img class width="650" src="../assets/media/faro.png">
                 </div>
                 <div class="card-content fondo">
                     <p class="color">Nuestra visión es convertirnos en la
@@ -173,7 +121,7 @@
             <div class="card">
                 <span class="card-title color_principal titulo">Misión</span>
                 <div class="card-image">
-                    <img class="" width="650"
+                    <img class width="650"
                         src="../assets/media/equipo2.png">
                 </div>
                 <div class="card-content fondo">

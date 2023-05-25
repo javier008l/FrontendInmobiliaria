@@ -18,6 +18,8 @@ import { FormularioContactoClienteComponent } from './formulario-contacto-client
 import { ValidarSesionInactivaGuard } from 'src/app/guardianes/validar-sesion-inactiva.guard';
 import { ValidarSesionActivaGuard } from 'src/app/guardianes/validar-sesion-activa.guard';
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
+import { SolicitudesClienteComponent } from './solicitudes-cliente/solicitudes-cliente.component';
+import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliaria-publico.component';
 
 
 const routes: Routes = [
@@ -100,6 +102,14 @@ const routes: Routes = [
   {
     path: "formulario-contacto-asesor",
     component: FormularioContactoAsesorComponent
+  },
+  {
+    path: "inmuebles-publico",
+    component: InmobiliariaPublicoComponent
+  },
+  {
+    path: "solicitudes-cliente",
+    component: SolicitudesClienteComponent
   }
 
 ];

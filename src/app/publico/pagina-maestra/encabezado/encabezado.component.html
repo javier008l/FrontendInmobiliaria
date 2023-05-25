@@ -1,23 +1,30 @@
 <nav class="menu_principal">
   <div class="nav-wrapper row menu_principal1 ">
     <div class="col s6">
-      <a routerLink="/inicio" class=""> <img class="logo" width="300" src="../assets/media/Logo1.svg"></a>
+      <a routerLink="/inicio" class> <img class="logo" width="300"
+          src="../assets/media/Logo1.svg"></a>
     </div>
     <div class="col s6">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="boton_menu" *ngIf="!sesionAtiva" routerLink="/seguridad/identificar-usuario">Iniciar
+        <li><a class="boton_menu" *ngIf="!sesionAtiva"
+            routerLink="/seguridad/inmuebles-publico">inmuebles</a></li>
+        <li><a class="boton_menu" *ngIf="!sesionAtiva"
+            routerLink="/seguridad/identificar-usuario">Iniciar
             sesión</a></li>
-        <li><a class="boton_menu" *ngIf="!sesionAtiva" routerLink="/seguridad/registro">
+        <li><a class="boton_menu" *ngIf="!sesionAtiva"
+            routerLink="/seguridad/registro">
             Registro</a></li>
-        <li><a class="boton_menu" *ngIf="sesionAtiva" routerLink="/seguridad/cambiar-clave">Cambiar
+        <li><a class="boton_menu" *ngIf="sesionAtiva"
+            routerLink="/seguridad/cambiar-clave">Cambiar
             clave</a></li>
-        <li><a class="boton_menu" *ngIf="sesionAtiva" routerLink="/seguridad/cerrar-sesion">Cerrar
+        <li><a class="boton_menu" *ngIf="sesionAtiva"
+            routerLink="/seguridad/cerrar-sesion">Cerrar
             sesion</a>
         </li>
         <li>
           <div *ngIf="sesionAtiva">
             <app-menu-lateral>
-        
+
             </app-menu-lateral>
           </div>
         </li>
@@ -26,8 +33,8 @@
     </div>
   </div>
 </nav>
-  <div *ngIf="sesionAtiva">
-    <app-menu-lateral>
+<div *ngIf="sesionAtiva">
+  <app-menu-lateral>
 
-    </app-menu-lateral>
-  </div>
+  </app-menu-lateral>
+</div>
