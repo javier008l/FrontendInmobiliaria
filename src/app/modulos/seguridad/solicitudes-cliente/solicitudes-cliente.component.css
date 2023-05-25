@@ -120,10 +120,10 @@
 
 .template {
   display: grid;
-  grid-template-columns: repeat(2, 310px);
+  grid-template-columns: repeat(2, 405px);
   grid-template-rows: repeat(3, auto);
   justify-content: space-evenly;
-  gap: 10px;
+  gap: 20px;
 }
 
 .enviado {

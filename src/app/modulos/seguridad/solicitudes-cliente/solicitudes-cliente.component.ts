@@ -17,6 +17,23 @@ export class SolicitudesClienteComponent {
     private servicioParametrizacion: ParametrosService) {
   }
 
+  obtenerestadoId(estadoId: number): string {
+    if (estadoId === 1) {
+      return 'Enviado';
+    } else if (estadoId === 2) {
+      return 'En Estudio';
+    } else if (estadoId === 3) {
+      return 'Aceptado';
+    } else if (estadoId === 4) {
+      return 'Aceptado Con Codeudor';
+    } else if (estadoId === 5) {
+      return 'Rechazado';
+    }
+    else {
+      return 'desconocido';
+    }
+  }
+
 
   solicitar() {
     const datosUsuario = localStorage.getItem("datos-usuario");
