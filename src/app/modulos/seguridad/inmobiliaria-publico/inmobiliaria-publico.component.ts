@@ -41,6 +41,18 @@ export class InmobiliariaPublicoComponent {
     this.ValidarSesion();
   }
 
+  obtenerTipoInmueble(tipoInmuebleId: number): string {
+    if (tipoInmuebleId === 1) {
+      return 'casa';
+    } else if (tipoInmuebleId === 2) {
+      return 'apartamento';
+    } else if (tipoInmuebleId === 3) {
+      return 'finca';
+    } else {
+      return 'desconocido';
+    }
+  }
+
   alquiler() {
     this.showVenta = false;
     this.showAlquiler = true;
@@ -68,4 +80,5 @@ export class InmobiliariaPublicoComponent {
       }
     });
   }
+
 }
