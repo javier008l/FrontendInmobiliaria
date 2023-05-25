@@ -1,13 +1,29 @@
-<div class="container separador">
+<div class="container ">
     <div class="row">
         <div>
-            <h1 class="color_principal">Nuestros Inmuebles</h1>
+            <h1 class="color_principal centrar">Nuestros Inmuebles</h1>
+        </div>
+    </div>
+    <div class="row direccion">
+        <div class="row centrar">
+            <div class="input-field col s12 centrar">
+                <button id="alquiler_boton" (click)="alquiler()"
+                    class=" btn-large boton">
+                    <i class="material-icons left">home</i>Alquiler
+                </button>
+            </div>
+        </div>
+
+        <div class="row centrar">
+            <div class="input-field col s12 centrar">
+                <button id="venta_boton" (click)="venta()"
+                    class=" btn-large boton">
+                    <i class="material-icons left">home</i>Venta
+                </button>
+            </div>
         </div>
     </div>
 
-    <div>
-        <h1 class="color_principal">Venta</h1>
-    </div>
     <div class="row" *ngIf="!showAlquiler">
         <div *ngFor="let r of listaRegistros" class="col s4">
             <span class="card-title color_principal">{{r.direccion}}</span>
@@ -24,18 +40,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row centrar">
-        <div class="input-field col s12 centrar">
-            <button id="venta_boton" (click)="venta()"
-                class="waves-effect waves-light btn-large boton">
-                <i class="material-icons left">home</i>Venta
-            </button>
-        </div>
-    </div>
-
-    <div>
-        <h1 class="color_principal">Alquiler</h1>
     </div>
     <div class="row" *ngIf="!showVenta">
         <div *ngFor="let r of listarAlquiler" class="col s4">
@@ -54,12 +58,5 @@
             </div>
         </div>
     </div>
-    <div class="row centrar">
-        <div class="input-field col s12 centrar">
-            <button id="alquiler_boton" (click)="alquiler()"
-                class="waves-effect waves-light btn-large boton">
-                <i class="material-icons left">home</i>Alquiler
-            </button>
-        </div>
-    </div>
+
 </div>

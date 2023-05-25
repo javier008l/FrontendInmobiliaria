@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+.direccion {
+  display: flex;
+}
+
 .card
   .card-action
   a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(
@@ -85,8 +89,7 @@
     background calc(var(--dur) * 3) steps(3, jump-end);
 }
 
-.boton:hover,
-.boton:focus {
+.boton:hover {
   box-shadow: 0 4px 8px hsla(190deg, 15%, 5%, 0.2);
   transform: translateY(-4px);
   background: hsl(201deg, 73%, 22%);
