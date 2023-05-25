@@ -160,3 +160,11 @@ span.badge {
   float: right;
   box-sizing: border-box;
 }
+
+.tipo {
+  font-weight: 400;
+  font-size: 26px;
+}
+.card-title {
+  padding: 30px;
+}
