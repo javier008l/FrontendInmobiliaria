@@ -1,4 +1,99 @@
-<div class="container ">
+<div class="container">
+    <div class="row">
+      <div>
+        <h1 class="color_principal centrar">Nuestros Inmuebles</h1>
+      </div>
+    </div>
+  
+    <div class="row direccion">
+      <div class="row centrar">
+        <div class="input-field col s12 centrar">
+          <button id="alquiler_boton" (click)="alquiler()" class="btn-large boton">
+            <i class="material-icons left">home</i>Alquiler
+          </button>
+        </div>
+      </div>
+  
+      <div class="row centrar">
+        <div class="input-field col s12 centrar">
+          <button id="venta_boton" (click)="venta()" class="btn-large boton">
+            <i class="material-icons left">home</i>Venta
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row" *ngIf="showAlquiler">
+      <!-- Agrega los botones para filtrar por tipo de inmueble -->
+      <div class="row centrar">
+        <div class="input-field col s12 centrar">
+          <button (click)="filtrarPorTipo(3, 12)" class="btn-small boton">
+            Finca
+          </button>
+          <button (click)="filtrarPorTipo(1, 12)" class="btn-small boton">
+            Casa
+          </button>
+          <button (click)="filtrarPorTipo(2, 12)" class="btn-small boton">
+            Apartamento
+          </button>
+        </div>
+      </div>
+  
+      <!-- Mostrar la lista de inmuebles para alquiler -->
+      <div *ngFor="let inmueble of listaInmuebles" class="col s4">
+        <span class="card-title color_principal">{{ inmueble.direccion }}</span>
+        <div class="card">
+          <div class="card-image">
+            <img [src]="inmueble.foto">
+          </div>
+          <div class="card-content prueba">
+            <p class="prueba1">El precio del inmueble es: {{ inmueble.costo | currency }}</p>
+            <p class="prueba1">El inmueble es: {{ inmueble.tipoInmuebleId ? obtenerTipoInmueble(inmueble.tipoInmuebleId) : '' }}</p>
+          </div>
+          <div class="card-action grow prueba">
+            <a class="color_link" routerLink="/">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row" *ngIf="showVenta">
+      <!-- Agrega los botones para filtrar por tipo de inmueble -->
+      <div class="row centrar">
+        <div class="input-field col s12 centrar">
+            <!-- filtrar por Tipo recibe el id y el limite de cuantos se quieren mostrar -->
+          <button (click)="filtrarPorTipo(3, 12)" class="btn-small boton">
+            Finca
+          </button>
+          <button (click)="filtrarPorTipo(1, 12)" class="btn-small boton">
+            Casa
+          </button>
+          <button (click)="filtrarPorTipo(2, 12)" class="btn-small boton">
+            Apartamento
+          </button>
+        </div>
+      </div>
+  
+      <!-- Mostrar la lista de inmuebles para venta -->
+      <div *ngFor="let inmueble of listaInmuebles" class="col s4">
+        <span class="card-title color_principal">{{ inmueble.direccion }}</span>
+        <div class="card">
+          <div class="card-image">
+            <img [src]="inmueble.foto">
+          </div>
+          <div class="card-content prueba">
+            <p class="prueba1">El precio del inmueble es: {{ inmueble.costo | currency }}</p>
+            <!-- <p class="prueba1">El inmueble es: {{ obtenerTipoInmueble(inmueble.tipoInmuebleId) }}</p> -->
+          </div>
+          <div class="card-action grow prueba">
+            <a class="color_link" routerLink="/">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<!-- <div class="container ">
     <div class="row">
         <div>
             <h1 class="color_principal centrar">Nuestros Inmuebles</h1>
@@ -62,4 +157,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->

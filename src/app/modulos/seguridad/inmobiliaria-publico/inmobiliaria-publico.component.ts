@@ -10,8 +10,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
   styleUrls: ['./inmobiliaria-publico.component.css']
 })
 export class InmobiliariaPublicoComponent {
-  listaRegistros: InmuebleModel[] = [];
-  listarAlquiler: InmuebleModel[] = [];
+  listaInmuebles: InmuebleModel[] = [];
   showVenta: boolean = true;
   showAlquiler: boolean = false;
 
@@ -56,29 +55,39 @@ export class InmobiliariaPublicoComponent {
   alquiler() {
     this.showVenta = false;
     this.showAlquiler = true;
-
-    this.servicioParametrizacion.listarAlquiler().subscribe({
+  
+    this.servicioParametrizacion.listarRegistros('paraAlquiler').subscribe({
       next: (datos) => {
-        this.listarAlquiler = datos;
+        this.listaInmuebles = datos;
       },
       error: (err) => {
-
+        // Manejo de error
       }
     });
   }
-
+  
   venta() {
     this.showVenta = true;
     this.showAlquiler = false;
-
-    this.servicioParametrizacion.listarRegistros().subscribe({
+  
+    this.servicioParametrizacion.listarRegistros('paraVenta').subscribe({
       next: (datos) => {
-        this.listaRegistros = datos;
+        this.listaInmuebles = datos;
       },
       error: (err) => {
-
+        // Manejo de error
       }
     });
+  }
+  
+  
+  filtrarPorTipo(tipo: number, limit?: number) {
+    // Filtrar la lista de inmuebles por tipo
+    this.listaInmuebles = this.listaInmuebles.filter(inmueble => inmueble.tipoInmuebleId === tipo);
+  
+    if (limit) {
+      this.listaInmuebles = this.listaInmuebles.slice(0, limit); // Aplicar el límite utilizando el método slice
+    }
   }
 
 }

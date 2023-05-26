@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
 import { InmuebleModel } from '../modelos/inmueble.model';
 import { Observable } from 'rxjs';
-import { ConfiguracionPaginacion } from '../config/configuracion.paginacion';
 import { SolicitudModel } from '../modelos/solicitud.model';
 
 @Injectable({
@@ -18,16 +17,13 @@ export class ParametrosService {
    * Listado de inmuebles
    * @returns
    */
-  listarRegistros(): Observable<InmuebleModel[]> {
-    return this.http.get<InmuebleModel[]>(
-      `${this.urlBase}inmueble-para-venta`,
-    );
-  }
-
-  listarAlquiler(): Observable<InmuebleModel[]> {
-    return this.http.get<InmuebleModel[]>(
-      `${this.urlBase}inmueble-para-alquiler`,
-    );
+  listarRegistros(tipo: string, tipoInmuebleId?: number): Observable<InmuebleModel[]> {
+    let url = `${this.urlBase}/listar-inmuebles?tipo=${tipo}?limit=20`;
+    if (tipoInmuebleId) {
+      url += `tipoInmuebleId=${tipoInmuebleId}`;
+    }
+    
+    return this.http.get<InmuebleModel[]>(url)
   }
 
   SolicitudesCliente(correoCliente: string): Observable<SolicitudModel[]> {

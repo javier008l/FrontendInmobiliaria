@@ -3,7 +3,7 @@ export class InmuebleModel {
     direccion?: string;
     costo?: string;
     foto?: string;
-    tipoInmuebleId?: string;
+    tipoInmuebleId?: number;
     ciudadId?: string;
     paraVenta?: boolean;
     paraAlquiler?: boolean;
