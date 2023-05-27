@@ -17,7 +17,7 @@ export class ParametrosService {
    * Listado de inmuebles
    * @returns
    */
-  listarRegistros(tipo: string, tipoInmuebleId?: number): Observable<InmuebleModel[]> {
+  listarRegistros(tipo?: string, tipoInmuebleId?: number): Observable<InmuebleModel[]> {
     let url = `${this.urlBase}/listar-inmuebles?tipo=${tipo}?limit=20`;
     if (tipoInmuebleId) {
       url += `tipoInmuebleId=${tipoInmuebleId}`;

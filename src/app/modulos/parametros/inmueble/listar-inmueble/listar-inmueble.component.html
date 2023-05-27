@@ -1,1 +1,33 @@
-<p>listar-inmueble works!</p>
+<br />
+<a routerLink="/parametros/inmueble-agregar" class="btn">Agregar Registro</a>
+<br />
+
+<table>
+    <thead>
+      <tr>
+          <th>Direccion</th>
+          <th>Costo</th>
+          <th>Tipo de Inmueble</th>
+          <th>Ciudad</th>
+          <th>Para Venta</th>
+          <th>Para Alquiler</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inmueble of listaInmuebles">
+        <td>{{inmueble.direccion}}</td>
+        <td>{{inmueble.costo}}</td>
+        <td>{{inmueble.tipoInmuebleId}}</td>
+        <td>{{inmueble.ciudadId}}</td>
+        <td>{{inmueble.paraVenta}}</td>
+        <td>{{inmueble.paraAlquiler}}</td>
+        <td><img src="{{inmueble.foto}}" class="imagenListadoRegistros" /></td>
+        <td>
+            <a routerLink="/parametros/inmueble-editar/{{inmueble.id}}" class="btn orange">Editar Registro</a>&nbsp;
+            <a routerLink="/parametros/inmueble-eliminar/{{inmueble.id}}" class="btn red">Eliminar Registro</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>

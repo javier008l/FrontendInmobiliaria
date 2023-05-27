@@ -65,22 +65,22 @@ const routes: Routes = [
   {
     path: 'usuario-crear',
     component: CrearUsuarioComponent,
-    canActivate: [ValidarSesionActivaGuard]
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'usuario-listar',
     component: ListarUsuarioComponent,
-    canActivate: [ValidarSesionActivaGuard]
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'usuario-editar/:id',
     component: EditarUsuarioComponent,
-    canActivate: [ValidarSesionActivaGuard]
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'usuario-eliminar',
     component: EliminarUsuarioComponent,
-    canActivate: [ValidarSesionActivaGuard]
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'registro-publico-asesor',
@@ -93,7 +93,7 @@ const routes: Routes = [
   {
     path: "cambiar-clave",
     component: CambiarClaveComponent,
-    canActivate: [ValidarSesionActivaGuard]
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "formulario-contacto-cliente",
