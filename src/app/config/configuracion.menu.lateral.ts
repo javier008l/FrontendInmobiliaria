@@ -11,7 +11,7 @@ export namespace ConfiguracionMenuLateral{
     },
     {
         id: "641e21713ae85517e8ef09c7",
-        ruta: "/parametros/inmuble-listar",
-        texto: "Imbuebles"
+        ruta: "/parametros/inmueble-listar",
+        texto: "Inmuebles"
     }];
 }
