@@ -83,8 +83,9 @@
           </div>
           <div class="card-content prueba">
             <p class="prueba1">El precio del inmueble es: {{ inmueble.costo | currency }}</p>
-            <!-- <p class="prueba1">El inmueble es: {{ obtenerTipoInmueble(inmueble.tipoInmuebleId) }}</p> -->
+            <p class="prueba1">El inmueble es: {{ inmueble.tipoInmuebleId ? obtenerTipoInmueble(inmueble.tipoInmuebleId) : '' }}</p>
           </div>
+          
           <div class="card-action grow prueba">
             <a class="color_link" routerLink="/">Ver más</a>
           </div>
@@ -93,68 +94,3 @@
     </div>
   
 
-<!-- <div class="container ">
-    <div class="row">
-        <div>
-            <h1 class="color_principal centrar">Nuestros Inmuebles</h1>
-        </div>
-    </div>
-    <div class="row direccion">
-        <div class="row centrar">
-            <div class="input-field col s12 centrar">
-                <button id="alquiler_boton" (click)="alquiler()"
-                    class=" btn-large boton">
-                    <i class="material-icons left">home</i>Alquiler
-                </button>
-            </div>
-        </div>
-
-        <div class="row centrar">
-            <div class="input-field col s12 centrar">
-                <button id="venta_boton" (click)="venta()"
-                    class=" btn-large boton">
-                    <i class="material-icons left">home</i>Venta
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" *ngIf="!showAlquiler">
-        <div *ngFor="let r of listaRegistros" class="col s4">
-            <span class="card-title color_principal">{{r.direccion}}</span>
-            <div class="card">
-                <div class="card-image">
-                    <img [src]="r.foto">
-                </div>
-                <div class="card-content prueba">
-                    <p class="prueba1">El precio del inmueble es: {{r.costo |
-                        currency}}</p>
-                    <p class="prueba1">El inmueble es: {{ r.tipoInmuebleId ?
-                        obtenerTipoInmueble(+r.tipoInmuebleId) : '' }}</p>
-
-                </div>
-                <div class="card-action grow prueba">
-                    <a class="color_link" routerLink="/">Ver más</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row" *ngIf="!showVenta">
-        <div *ngFor="let r of listarAlquiler" class="col s4">
-            <span class="card-title color_principal">{{r.direccion}}</span>
-            <div class="card">
-                <div class="card-image">
-                    <img [src]="r.foto">
-                </div>
-                <div class="card-content prueba">
-                    <p class="prueba1">El precio del inmueble es: {{r.costo |
-                        currency}}</p>
-                    <p class="prueba1">El inmueble es: {{ r.tipoInmuebleId ?
-                        obtenerTipoInmueble(+r.tipoInmuebleId) : '' }}</p>
-                </div>
-                <div class="card-action grow prueba">
-                    <a class="color_link" routerLink="/">Ver más</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
