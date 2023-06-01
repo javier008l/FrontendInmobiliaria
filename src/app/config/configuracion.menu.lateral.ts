@@ -13,5 +13,17 @@ export namespace ConfiguracionMenuLateral{
         id: "641e21713ae85517e8ef09c7",
         ruta: "/parametros/inmueble-listar",
         texto: "Inmuebles"
-    }];
+    },
+    {
+        id: "645d1e3d6543c82644d294f9",
+        ruta: "/seguridad/solicitudes-cliente",
+        texto: "Solicitudes"
+    },
+    {
+        id: "6479040ef5616802009c2bac",
+        ruta: "/seguridad/formulario-contacto-cliente",
+        texto: "Contáctanos"
+    }
+
+];
 }
