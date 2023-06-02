@@ -22,7 +22,7 @@ export class ParametrosService {
     if (tipoInmuebleId) {
       url += `tipoInmuebleId=${tipoInmuebleId}`;
     }
-    
+
     return this.http.get<InmuebleModel[]>(url)
   }
 
@@ -33,4 +33,13 @@ export class ParametrosService {
     }
     );
   }
+
+  InmueblesAsesor(correoAsesor: string): Observable<InmuebleModel[]> {
+    return this.http.post<InmuebleModel[]>(
+      `${this.urlBase}ver-inmuebles-asesor`, {
+      correoAsesor: correoAsesor
+    }
+    );
+  }
+
 }

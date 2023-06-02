@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <h1 class="color_principal centrar">Inmuebles</h1>
+        </div>
+    </div>
+    <div class="row template">
+        <div *ngFor="let inmueble of listaInmuebles">
+            <span class="card-title color_principal">{{ inmueble.direccion }}</span>
+            <div class="card">
+                <div class="card-image">
+                    <img height="250px" [src]="inmueble.foto">
+                </div>
+                <div class="card-content prueba">
+                    <p class="prueba1">El precio del inmueble es: {{
+                        inmueble.costo |
+                        currency }}</p>
+                    <p class="prueba1">El inmueble es: {{
+                        inmueble.tipoInmuebleId ?
+                        obtenerTipoInmueble(inmueble.tipoInmuebleId) : '' }}</p>
+                </div>
+                <div class="card-action grow prueba">
+                    <a class="color_link" routerLink="/">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row centrar">
+        <div class="input-field col s12 centrar">
+            <button id="enviar_boton" (click)="solicitar()"
+                class="waves-effect waves-light btn-large boton"><i
+                    class="material-icons left">home</i>Ver</button>
+        </div>
+    </div>
