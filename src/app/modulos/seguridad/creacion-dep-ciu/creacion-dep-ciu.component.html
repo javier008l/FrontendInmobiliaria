@@ -1,0 +1,35 @@
+
+<div class="centrar-contenedor">
+    <div class="contenedor">
+        <h3 class="color_principal">Crear</h3>
+        <form [formGroup]="fGroup" class="col s12">
+            <div class="input-field col s12">
+                <select #departmentSelectElement
+                    (change)="departamentoSeleccionado(departmentSelectElement.value)"
+                    id="departmentSelect">
+                    <option value disabled selected>Escoge un Departamento</option>
+                </select>
+                <label>Departmentos</label>
+            </div>
+            <br>
+            <div class="input-field col s12">
+                <select #citySelectElement
+                    (change)="ciudadSeleccionado(citySelectElement.value)"
+                    id="citySelect">
+                    <option value disabled selected>Escoge una Ciudad</option>
+                </select>
+                <label>Ciudades</label>
+            </div>
+            <br>
+            <div class="row">
+                <div class="centrar_boton">
+                    <button class="waves-effect waves-light btn-large boton"
+                        type="button" (click)="Enviar()">
+                        Enviar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -61,7 +61,6 @@ export class FormularioContactoClienteComponent {
         correo: correo,
         direccion: campos["direccion"].value,
       };
-      console.log(datos)
       this.servicioSeguridad.FormularioContactoCliente(datos).subscribe({
         next: () => {
           alert("Se ha enviado el correo con exito.")

@@ -15,6 +15,7 @@ import { SpinnerInterceptor } from './interceptores/spinner.interceptor';
 import { InmobiliariaPublicoComponent } from './modulos/seguridad/inmobiliaria-publico/inmobiliaria-publico.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

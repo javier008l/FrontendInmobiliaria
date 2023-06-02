@@ -21,6 +21,7 @@ import { FormularioContactoClienteComponent } from './formulario-contacto-client
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
 import { SolicitudesClienteComponent } from './solicitudes-cliente/solicitudes-cliente.component';
 import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliaria-publico.component';
+import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliari
     FormularioContactoClienteComponent,
     FormularioContactoAsesorComponent,
     SolicitudesClienteComponent,
-    InmobiliariaPublicoComponent
+    InmobiliariaPublicoComponent,
+    CreacionDepCiuComponent
   ],
   imports: [
     CommonModule,

@@ -20,6 +20,7 @@ import { ValidarSesionActivaGuard } from 'src/app/guardianes/validar-sesion-acti
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
 import { SolicitudesClienteComponent } from './solicitudes-cliente/solicitudes-cliente.component';
 import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliaria-publico.component';
+import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
 
 
 const routes: Routes = [
@@ -106,6 +107,10 @@ const routes: Routes = [
   {
     path: "inmuebles-publico",
     component: InmobiliariaPublicoComponent
+  },
+  {
+    path: "creacion",
+    component: CreacionDepCiuComponent
   },
   {
     path: "solicitudes-cliente",
