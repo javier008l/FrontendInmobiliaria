@@ -21,3 +21,23 @@
 .space {
   padding-top: 30px;
 }
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small devices */
+@media screen and (max-width: 350px) {
+}
+/* For medium devices */
+
+@media screen and (min-width: 568px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+/* For large devices */
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1256px) {
+}

@@ -1,3 +1,55 @@
+// import { Component } from '@angular/core';
+// import { InmuebleModel } from 'src/app/modelos/inmueble.model';
+// import { ParametrosService } from 'src/app/servicios/parametros.service';
+
+// @Component({
+//   selector: 'app-inmuebles-asesor',
+//   templateUrl: './inmuebles-asesor.component.html',
+//   styleUrls: ['./inmuebles-asesor.component.css']
+// })
+// export class InmueblesAsesorComponent {
+
+//   listaInmuebles: InmuebleModel[] = [];
+//   servicioSeguridad: any;
+//   sesionAtiva: boolean | undefined;
+
+//   constructor(
+//     private servicioParametrizacion: ParametrosService) {
+//   }
+
+//   obtenerTipoInmueble(tipoInmuebleId: number): string {
+//     if (tipoInmuebleId === 1) {
+//       return 'casa';
+//     } else if (tipoInmuebleId === 2) {
+//       return 'apartamento';
+//     } else if (tipoInmuebleId === 3) {
+//       return 'finca';
+//     } else {
+//       return 'desconocido';
+//     }
+//   }
+
+
+//   solicitar() {
+//     const datosUsuario = localStorage.getItem("datos-usuario");
+//     if (datosUsuario) {
+//       const usuario = JSON.parse(datosUsuario);
+//       const correoAsesor = usuario.correo;
+
+//       this.servicioParametrizacion.InmueblesAsesor(correoAsesor).subscribe({
+//         next: (datos) => {
+//           this.listaInmuebles = datos;
+//         },
+//         error: (err) => {
+
+//         }
+//       })
+
+//     }
+//   }
+
+// }
+// SEPARADOR ----------------------------------------------------------------------------------->
 import { Component } from '@angular/core';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { ParametrosService } from 'src/app/servicios/parametros.service';
@@ -8,30 +60,48 @@ import { ParametrosService } from 'src/app/servicios/parametros.service';
   styleUrls: ['./inmuebles-asesor.component.css']
 })
 export class InmueblesAsesorComponent {
-
   listaInmuebles: InmuebleModel[] = [];
-  servicioSeguridad: any;
-  sesionAtiva: boolean | undefined;
+  listaInmueblesFiltrados: InmuebleModel[] = [];
+  fechaFiltro: string = '';
+  sesionActiva: boolean = false;
 
-  constructor(
-    private servicioParametrizacion: ParametrosService) {
-  }
+  constructor(private servicioParametrizacion: ParametrosService) { }
 
   obtenerTipoInmueble(tipoInmuebleId: number): string {
-    if (tipoInmuebleId === 1) {
-      return 'casa';
-    } else if (tipoInmuebleId === 2) {
-      return 'apartamento';
-    } else if (tipoInmuebleId === 3) {
-      return 'finca';
+    switch (tipoInmuebleId) {
+      case 1:
+        return 'casa';
+      case 2:
+        return 'apartamento';
+      case 3:
+        return 'finca';
+      default:
+        return 'desconocido';
+    }
+  }
+
+  filtrarPorFecha() {
+    if (this.fechaFiltro !== '') {
+      const fechaFiltro = new Date(this.fechaFiltro);
+      fechaFiltro.setUTCHours(0, 0, 0, 0);
+      console.log('Fecha de filtro:', fechaFiltro);
+
+      this.listaInmueblesFiltrados = this.listaInmuebles.filter(inmueble => {
+        const fechaInmueble = inmueble.fecha ? new Date(inmueble.fecha) : null;
+        if (fechaInmueble) fechaInmueble.setUTCHours(0, 0, 0, 0);
+        console.log('Fecha del inmueble:', fechaInmueble);
+
+        return fechaInmueble !== null && fechaInmueble.getTime() === fechaFiltro.getTime();
+      });
     } else {
-      return 'desconocido';
+      this.listaInmueblesFiltrados = this.listaInmuebles;
     }
   }
 
 
+
   solicitar() {
-    const datosUsuario = localStorage.getItem("datos-usuario");
+    const datosUsuario = localStorage.getItem('datos-usuario');
     if (datosUsuario) {
       const usuario = JSON.parse(datosUsuario);
       const correoAsesor = usuario.correo;
@@ -39,13 +109,13 @@ export class InmueblesAsesorComponent {
       this.servicioParametrizacion.InmueblesAsesor(correoAsesor).subscribe({
         next: (datos) => {
           this.listaInmuebles = datos;
+          this.listaInmueblesFiltrados = datos; // Inicialmente mostrar todos los inmuebles sin filtrar
         },
         error: (err) => {
-
+          console.error(err); // Manejar el error adecuadamente
         }
-      })
-
+      });
     }
   }
-
 }
+
