@@ -4,6 +4,7 @@ import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend
 import { InmuebleModel } from '../modelos/inmueble.model';
 import { Observable } from 'rxjs';
 import { SolicitudModel } from '../modelos/solicitud.model';
+import { ConfiguracionPaginacion } from '../config/configuracion.paginacion';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class ParametrosService {
     }
 
     return this.http.get<InmuebleModel[]>(url)
+  }
+
+  listarRegistrosSolicitudes(): Observable<SolicitudModel[]> {
+    return this.http.get<SolicitudModel[]>(`${this.urlBase}solicitud?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
   }
 
   SolicitudesCliente(correoCliente: string): Observable<SolicitudModel[]> {

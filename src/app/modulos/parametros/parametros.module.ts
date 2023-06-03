@@ -10,7 +10,10 @@ import { ListarInmuebleComponent } from './inmueble/listar-inmueble/listar-inmue
 import { CrearInmuebleComponent } from './inmueble/crear-inmueble/crear-inmueble.component';
 import { EditarInmuebleComponent } from './inmueble/editar-inmueble/editar-inmueble.component';
 import { EliminarInmuebleComponent } from './inmueble/eliminar-inmueble/eliminar-inmueble.component';
-
+import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solicitud.component';
+import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
+import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
+import { ListarSolicitudComponent } from './solicitud/listar-solicitud/listar-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,11 @@ import { EliminarInmuebleComponent } from './inmueble/eliminar-inmueble/eliminar
     ListarInmuebleComponent,
     CrearInmuebleComponent,
     EditarInmuebleComponent,
-    EliminarInmuebleComponent
+    EliminarInmuebleComponent,
+    CrearSolicitudComponent,
+    EditarSolicitudComponent,
+    EliminarSolicitudComponent,
+    ListarSolicitudComponent,
   ],
   imports: [
     CommonModule,

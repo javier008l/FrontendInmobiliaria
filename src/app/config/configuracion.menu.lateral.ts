@@ -25,12 +25,12 @@ export namespace ConfiguracionMenuLateral{
     },
     {
         id: "64790d8df5616802009c2bb6",
-        ruta: "/seguridad/",
+        ruta: "/seguridad/inmuebles-asesor",
         texto: "Inmuebles a cargo"
     },
     {
         id: "64790da4f5616802009c2bb7",
-        ruta: "/seguridad/",
+        ruta: "/seguridad/inmueble-crear",
         texto: "Crear un inmueble"
     },
     {
@@ -43,7 +43,7 @@ export namespace ConfiguracionMenuLateral{
     // Se usa el "/parametros/inmueble-listar"
     {
         id: "645d1e3d6543c82644d294f9",
-        ruta: "/seguridad/",
+        ruta: "/parametros/listar-solicitud",
         texto: "Solicitudes"
     },
     {
@@ -64,7 +64,7 @@ export namespace ConfiguracionMenuLateral{
     {
         id: "641f65738e3ec03084db6834",
         ruta: "/seguridad/registro-privado-asesor",
-        texto: "Cear Asesor"
+        texto: "Crear Asesor"
     },
 
 ];

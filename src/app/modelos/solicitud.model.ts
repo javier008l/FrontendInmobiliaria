@@ -3,7 +3,7 @@ export class SolicitudModel {
     fechaSolicitud?: string;
     clienteId?: number;
     asesorId?: number;
-    coDeudorId?: number;
+    codeudorId?: number;
     tipoSolicitdId?: number;
     estadoId?: number;
     tipoInmuebleId?: number;
