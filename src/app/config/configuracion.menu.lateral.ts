@@ -42,7 +42,7 @@ export namespace ConfiguracionMenuLateral{
     // MENU LATERAL PARA EL ADMINISTRADOR
     // Se usa el "/parametros/inmueble-listar"
     {
-        id: "645d1e3d6543c82644d294f9",
+        id: "647ba4de691c8a1430752d56",
         ruta: "/parametros/listar-solicitud",
         texto: "Solicitudes"
     },
