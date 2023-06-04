@@ -46,8 +46,6 @@ export class InmueblesAsesorComponent {
     }
   }
 
-
-
   solicitar() {
     const datosUsuario = localStorage.getItem('datos-usuario');
     if (datosUsuario) {
