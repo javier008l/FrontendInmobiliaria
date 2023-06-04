@@ -13,18 +13,21 @@
                     obtenerEstadoSolicitud(r.estadoId) : '' }}</span>
                 <p><br></p>
                 <div class="card-content prueba">
+                    <p class="prueba1"> El id de su solicitud es: {{
+                        r.id }}</p>
                     <p class="prueba1"> La fecha de su solicitud es: {{
                         r.fechaSolicitud }}</p>
+                </div>
+                <div class="card-action grow prueba">
+                    <a class="color_link"
+                        routerLink="/">Ver más</a>
                 </div>
                 <div class="card-action grow prueba">
                     <button *ngIf="r.estadoId === 3" (click)="contrato()"
                         class="waves-effect waves-light btn-large boton aceptado"><i
                             class="material-icons left">arrow_downward</i>Descargar
                         Contrato</button>
-                    <a *ngIf="r.estadoId !== 3" class="color_link"
-                        routerLink="/">Ver más</a>
-                </div>
-                <div class="card-action grow prueba">
+
                     <button *ngIf="r.estadoId === 4" (click)="coDeudor()"
                         class="waves-effect waves-light btn-large boton aceptado"><i
                             class="material-icons left">arrow_downward</i>Descargar
