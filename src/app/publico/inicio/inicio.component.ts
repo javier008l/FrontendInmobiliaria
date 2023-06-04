@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { UsuarioValidadoModel } from 'src/app/modelos/usuario.valido.model';
-import { ParametrosService } from 'src/app/servicios/parametros.service';
-import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
   selector: 'app-inicio',

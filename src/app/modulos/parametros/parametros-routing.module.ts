@@ -8,6 +8,12 @@ import { ListarSolicitudComponent } from './solicitud/listar-solicitud/listar-so
 import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solicitud.component';
 import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
+import { InmueblesAsesorComponent } from './inmuebles-asesor/inmuebles-asesor.component';
+import { SolicitudesClienteComponent } from './solicitudes-cliente/solicitudes-cliente.component';
+import { EditarClienteComponent } from './cliente/editar-cliente/editar-cliente.component';
+import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component';
+import { CrearClienteComponent } from './cliente/crear-cliente/crear-cliente.component';
+import { EliminarClienteComponent } from './cliente/eliminar-cliente/eliminar-cliente.component';
 
 const routes: Routes = [
   {
@@ -41,7 +47,31 @@ const routes: Routes = [
   {
     path:"solicitud-editar/:id",
     component: EditarSolicitudComponent,
-  }
+  },
+  {
+    path: "inmuebles-asesor",
+    component: InmueblesAsesorComponent
+  },
+
+  {
+    path: "solicitudes-cliente",
+    component: SolicitudesClienteComponent
+  },{
+    path:"cliente-listar",
+    component: ListarClienteComponent,
+  },
+  {
+    path:"cliente-agregar",
+    component: CrearClienteComponent,
+  },
+  {
+    path:"cliente-eliminar/:id",
+    component: EliminarClienteComponent,
+  },
+  {
+    path:"cliente-editar/:id",
+    component: EditarClienteComponent,
+  },
 ];
 
 @NgModule({

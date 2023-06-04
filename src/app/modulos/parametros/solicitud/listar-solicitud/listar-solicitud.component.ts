@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
-import { ParametrosService } from 'src/app/servicios/parametros.service';
+import { SolicitudService } from 'src/app/servicios/parametros/solicitud.service';
 
 @Component({
   selector: 'app-listar-solicitud',
@@ -11,12 +11,12 @@ export class ListarSolicitudComponent {
   listaSolicitudes: SolicitudModel[]=[];
 
   constructor(
-    private servicioParamentros : ParametrosService
+    private servicioSolicitudes : SolicitudService
   ){
   }
 
   ngOnInit(){
-    this.servicioParamentros.listarRegistrosSolicitudes().subscribe({
+    this.servicioSolicitudes.listarRegistrosSolicitudes().subscribe({
       next: (datos) => {
         this.listaSolicitudes = datos;
       },

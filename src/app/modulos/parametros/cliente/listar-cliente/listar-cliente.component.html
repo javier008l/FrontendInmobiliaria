@@ -1,1 +1,34 @@
-<p>listar-cliente works!</p>
+<br />
+<a routerLink="/parametros/cliente-agregar" class="btn">Agregar Registro</a>
+<br />
+
+<table>
+    <thead>
+      <tr>
+          <th>Primer Nombre</th>
+          <th>Segundo Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Segundo Apellido</th>
+          <th>Cedula</th>
+          <th>Correo</th>
+          <th>Telefono</th>
+          <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of listaClientes.registros">
+        <td>{{cliente.primerNombre}}</td>
+        <td>{{cliente.segundoNombre}}</td>
+        <td>{{cliente.primerApellido}}</td>
+        <td>{{cliente.segundoApellido}}</td>
+        <td>{{cliente.cedula}}</td>
+        <td>{{cliente.correo}}</td>
+        <td>{{cliente.telefono}}</td>
+        
+        <td>
+            <a routerLink="/parametros/cliente-editar/{{cliente.id}}" class="btn orange">Editar Registro</a>&nbsp;
+            <a routerLink="/parametros/cliente-eliminar/{{cliente.id}}" class="btn red">Eliminar Registro</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>

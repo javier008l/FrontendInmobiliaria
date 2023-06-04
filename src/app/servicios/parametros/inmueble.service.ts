@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
-import { InmuebleModel } from '../modelos/inmueble.model';
+import { ConfiguracionRutasBackend } from '../../config/configuracion.rutas.backend';
+import { InmuebleModel } from '../../modelos/inmueble.model';
 import { Observable } from 'rxjs';
-import { SolicitudModel } from '../modelos/solicitud.model';
-import { ConfiguracionPaginacion } from '../config/configuracion.paginacion';
+import { SolicitudModel } from '../../modelos/solicitud.model';
+import { ConfiguracionPaginacion } from '../../config/configuracion.paginacion';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ParametrosService {
+export class InmuebleService {
   urlBase: string = ConfiguracionRutasBackend.urlLogica;
 
   constructor(private http: HttpClient) { }
@@ -27,17 +27,6 @@ export class ParametrosService {
     return this.http.get<InmuebleModel[]>(url)
   }
 
-  listarRegistrosSolicitudes(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>(`${this.urlBase}solicitud?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
-  }
-
-  SolicitudesCliente(correoCliente: string): Observable<SolicitudModel[]> {
-    return this.http.post<SolicitudModel[]>(
-      `${this.urlBase}solicitudes-cliente`, {
-      correoCliente: correoCliente
-    }
-    );
-  }
 
   InmueblesAsesor(correoAsesor: string): Observable<InmuebleModel[]> {
     return this.http.post<InmuebleModel[]>(

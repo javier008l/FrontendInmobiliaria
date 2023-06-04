@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
-import { ParametrosService } from 'src/app/servicios/parametros.service';
+import { SolicitudService } from 'src/app/servicios/parametros/solicitud.service';
 
 @Component({
   selector: 'app-solicitudes-cliente',
@@ -12,7 +12,7 @@ export class SolicitudesClienteComponent {
   servicioSeguridad: any;
   sesionActiva: boolean | undefined;
 
-  constructor(private servicioParametrizacion: ParametrosService) { }
+  constructor(private servicioSolicitudes: SolicitudService) { }
 
   obtenerEstadoSolicitud(estadoId: number): string {
     if (estadoId === 1) {
@@ -36,7 +36,7 @@ export class SolicitudesClienteComponent {
       const usuario = JSON.parse(datosUsuario);
       const correoCliente = usuario.correo;
 
-      this.servicioParametrizacion.SolicitudesCliente(correoCliente).subscribe({
+      this.servicioSolicitudes.SolicitudesCliente(correoCliente).subscribe({
         next: (datos) => {
           this.listaSolicitudes = datos;
         },

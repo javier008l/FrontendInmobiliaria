@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
-import { ParametrosService } from 'src/app/servicios/parametros.service';
+import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
 
 @Component({
   selector: 'app-inmuebles-asesor',
@@ -13,7 +13,7 @@ export class InmueblesAsesorComponent {
   fechaFiltro: string = '';
   sesionActiva: boolean = false;
 
-  constructor(private servicioParametrizacion: ParametrosService) { }
+  constructor(private servicioInmueble: InmuebleService) { }
 
   obtenerTipoInmueble(tipoInmuebleId: number): string {
     switch (tipoInmuebleId) {
@@ -54,7 +54,7 @@ export class InmueblesAsesorComponent {
       const usuario = JSON.parse(datosUsuario);
       const correoAsesor = usuario.correo;
 
-      this.servicioParametrizacion.InmueblesAsesor(correoAsesor).subscribe({
+      this.servicioInmueble.InmueblesAsesor(correoAsesor).subscribe({
         next: (datos) => {
           this.listaInmuebles = datos;
           this.listaInmueblesFiltrados = datos; // Inicialmente mostrar todos los inmuebles sin filtrar

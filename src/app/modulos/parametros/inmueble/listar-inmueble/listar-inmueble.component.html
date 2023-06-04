@@ -12,6 +12,8 @@
           <th>Para Venta</th>
           <th>Para Alquiler</th>
           <th>Imagen</th>
+          <th>Correo del Asesor</th>
+          <th>Fecha</th>
           <th>Acciones</th>
       </tr>
     </thead>
@@ -23,6 +25,8 @@
         <td>{{inmueble.ciudadId}}</td>
         <td>{{inmueble.paraVenta}}</td>
         <td>{{inmueble.paraAlquiler}}</td>
+        <td>{{inmueble.correoAsesor}}</td>
+        <td>{{inmueble.fecha}}</td>
         <td><img src="{{inmueble.foto}}" class="imagenListadoRegistros" /></td>
         <td>
             <a routerLink="/parametros/inmueble-editar/{{inmueble.id}}" class="btn orange">Editar Registro</a>&nbsp;
