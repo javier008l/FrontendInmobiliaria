@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { UsuarioValidadoModel } from 'src/app/modelos/usuario.valido.model';
-import { ParametrosService } from 'src/app/servicios/parametros.service';
+import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class InmobiliariaPublicoComponent {
 
   constructor(
     private servicioSeguridad: SeguridadService,
-    private servicioParametrizacion: ParametrosService
+    private servicioInmueble: InmuebleService
   ) { }
 
   sesionAtiva: boolean = false;
@@ -57,7 +57,7 @@ export class InmobiliariaPublicoComponent {
     this.showVenta = false;
     this.showAlquiler = true;
   
-    this.servicioParametrizacion.listarRegistros('paraAlquiler').subscribe({
+    this.servicioInmueble.listarRegistros('paraAlquiler').subscribe({
       next: (datos) => {
         this.listaInmuebles = datos;
         this.listaInmueblesTodos = datos;
@@ -72,7 +72,7 @@ export class InmobiliariaPublicoComponent {
     this.showVenta = true;
     this.showAlquiler = false;
   
-    this.servicioParametrizacion.listarRegistros('paraVenta').subscribe({
+    this.servicioInmueble.listarRegistros('paraVenta').subscribe({
       next: (datos) => {
         this.listaInmuebles = datos;
         this.listaInmueblesTodos = datos;
