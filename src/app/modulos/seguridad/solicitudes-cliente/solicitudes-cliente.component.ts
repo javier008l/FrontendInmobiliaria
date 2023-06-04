@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
 import { ParametrosService } from 'src/app/servicios/parametros.service';
 
-
 @Component({
   selector: 'app-solicitudes-cliente',
   templateUrl: './solicitudes-cliente.component.html',
@@ -11,13 +10,11 @@ import { ParametrosService } from 'src/app/servicios/parametros.service';
 export class SolicitudesClienteComponent {
   listaSolicitudes: SolicitudModel[] = [];
   servicioSeguridad: any;
-  sesionAtiva: boolean | undefined;
+  sesionActiva: boolean | undefined;
 
-  constructor(
-    private servicioParametrizacion: ParametrosService) {
-  }
+  constructor(private servicioParametrizacion: ParametrosService) { }
 
-  obtenerestadoId(estadoId: number): string {
+  obtenerEstadoSolicitud(estadoId: number): string {
     if (estadoId === 1) {
       return 'Enviado';
     } else if (estadoId === 2) {
@@ -28,15 +25,13 @@ export class SolicitudesClienteComponent {
       return 'Aceptado Con Codeudor';
     } else if (estadoId === 5) {
       return 'Rechazado';
-    }
-    else {
-      return 'desconocido';
+    } else {
+      return 'Desconocido';
     }
   }
 
-
   solicitar() {
-    const datosUsuario = localStorage.getItem("datos-usuario");
+    const datosUsuario = localStorage.getItem('datos-usuario');
     if (datosUsuario) {
       const usuario = JSON.parse(datosUsuario);
       const correoCliente = usuario.correo;
@@ -45,11 +40,23 @@ export class SolicitudesClienteComponent {
         next: (datos) => {
           this.listaSolicitudes = datos;
         },
-        error: (err) => {
-
-        }
-      })
-
+        error: (err) => { }
+      });
     }
   }
+
+  contrato() {
+    window.open('https://drive.google.com/file/d/1FOJc2CWwjKx6jC9ZC-zw6GivNq89HOlB/view?usp=sharing', '_blank');
+  }
+
+  coDeudor() {
+    window.open('https://drive.google.com/file/d/1PU66vg1BWsF_w9bvfpAwXRRDAH7eQfG8/view?usp=sharing', '_blank');
+  }
 }
+
+
+
+
+
+
+
