@@ -9,7 +9,7 @@ import { ClienteService } from 'src/app/servicios/parametros/cliente.service';
   styleUrls: ['./listar-cliente.component.css']
 })
 export class ListarClienteComponent {
-  listaClientes: PaginadorClienteModel= new PaginadorClienteModel;
+  listaClientes: PaginadorClienteModel= new PaginadorClienteModel();
   pag = 1;
 
   constructor(

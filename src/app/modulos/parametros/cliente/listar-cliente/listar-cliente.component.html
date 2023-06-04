@@ -5,10 +5,11 @@
 <table>
     <thead>
       <tr>
-          <th>Primer Nombre</th>
+          <!-- <th>Primer Nombre</th>
           <th>Segundo Nombre</th>
           <th>Primer Apellido</th>
-          <th>Segundo Apellido</th>
+          <th>Segundo Apellido</th> -->
+          <th>Nombre</th>
           <th>Cedula</th>
           <th>Correo</th>
           <th>Telefono</th>
@@ -16,18 +17,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cliente of listaClientes.registros">
-        <td>{{cliente.primerNombre}}</td>
+      <!-- <tr *ngFor="let cliente of listaClientes"> -->
+      <tr *ngFor="let r of listaClientes.registros">
+        <!-- <td>{{cliente.primerNombre}}</td>
         <td>{{cliente.segundoNombre}}</td>
         <td>{{cliente.primerApellido}}</td>
-        <td>{{cliente.segundoApellido}}</td>
-        <td>{{cliente.cedula}}</td>
-        <td>{{cliente.correo}}</td>
-        <td>{{cliente.telefono}}</td>
+        <td>{{cliente.segundoApellido}}</td> -->
+        <td>{{r.primerNombre}} {{r.segundoNombre}} {{r.primerApellido}} {{r.segundoApellido}}</td>
+        <td>{{r.cedula}}</td>
+        <td>{{r.correo}}</td>
+        <td>{{r.telefono}}</td>
         
         <td>
-            <a routerLink="/parametros/cliente-editar/{{cliente.id}}" class="btn orange">Editar Registro</a>&nbsp;
-            <a routerLink="/parametros/cliente-eliminar/{{cliente.id}}" class="btn red">Eliminar Registro</a>
+            <a routerLink="/parametros/inmueble-editar/{{r.id}}" class="btn orange">Editar Registro</a>&nbsp;
+            <a routerLink="/parametros/inmueble-eliminar/{{r.id}}" class="btn red">Eliminar Registro</a>
         </td>
       </tr>
     </tbody>
