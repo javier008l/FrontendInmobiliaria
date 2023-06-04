@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable, skip } from 'rxjs';
 import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
+import { ClienteModel } from 'src/app/modelos/cliente.model';
 import { PaginadorClienteModel } from 'src/app/modelos/paginador.cliente.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-  urlBase: string = ConfiguracionRutasBackend.urlLogica;
 
+  urlBase: string = ConfiguracionRutasBackend.urlLogica;
   constructor(private http: HttpClient) { }
 
   /**
@@ -22,4 +23,10 @@ export class ClienteService {
     let skip = (pag -1) * limit;
     return this.http.get<PaginadorClienteModel>(`${this.urlBase}cliente?filter={"limit":${limit}, "skip":${skip}}`);
   }
+
+  // listarRegistrosClientes(): Observable<ClienteModel[]> {
+  //   return this.http.get<ClienteModel[]>(`${this.urlBase}cliente?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
+  // }
+
+
 }
