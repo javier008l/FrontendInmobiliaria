@@ -60,6 +60,7 @@ export class SolicitudesClienteComponent {
   }
 
   contrato() {
+    alert("Una vez firmado el contrato, subelo a google drive como pdf y pon el link en URL Contrato y dale al boton subir contrato")
     window.open('https://drive.google.com/file/d/1FOJc2CWwjKx6jC9ZC-zw6GivNq89HOlB/view?usp=sharing', '_blank');
   }
 
