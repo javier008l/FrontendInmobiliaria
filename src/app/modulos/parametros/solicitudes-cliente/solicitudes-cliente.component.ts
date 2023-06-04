@@ -73,6 +73,11 @@ export class SolicitudesClienteComponent {
     window.open('https://drive.google.com/file/d/1PU66vg1BWsF_w9bvfpAwXRRDAH7eQfG8/view?usp=sharing', '_blank');
   }
 
+  eliminar(id: number) {
+    console.log('ID de la solicitud a eliminar:', id);
+    // Resto del código para eliminar la solicitud
+  }
+
   get ObtenerFormGroup() {
     return this.fGroup.controls;
   }

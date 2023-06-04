@@ -16,10 +16,10 @@
                     <p class="prueba1"> La fecha de su solicitud es: {{
                         r.fechaSolicitud }}</p>
                 </div>
-                <div class="card-action prueba">
+                <!-- <div class="card-action prueba">
                     <a class="color_link"
                         routerLink="/">Ver más</a>
-                </div>
+                </div> -->
                 <div class="card-action prueba">
                     <!-- ACEPTADO -->
                     <p *ngIf="r.estadoId === 3" class="prueba1"> El id de su
@@ -53,6 +53,13 @@
                         class="waves-effect waves-light btn-large boton aceptado"><i
                             class="material-icons left">arrow_downward</i>Descargar
                         Contrato CoDeudor</button>
+                    <!-- ELIMINAR SOLICITUD -->
+                    <button *ngIf="r.estadoId === 1"
+                        (click)="r.id && eliminar(r.id)"
+                        class="waves-effect waves-light btn-large boton rechazado">
+                        <i class="material-icons left">close</i>Eliminar
+                        Solicitud
+                    </button>
 
                 </div>
             </div>
