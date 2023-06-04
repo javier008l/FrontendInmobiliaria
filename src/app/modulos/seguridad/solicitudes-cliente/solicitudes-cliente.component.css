@@ -168,3 +168,15 @@ span.badge {
 .card-title {
   padding: 30px;
 }
+
+label {
+  color: #fffffa;
+}
+
+.validate,
+.ng-dirty,
+.ng-valid,
+.valid,
+.ng-touched {
+  color: #fffffa;
+}
