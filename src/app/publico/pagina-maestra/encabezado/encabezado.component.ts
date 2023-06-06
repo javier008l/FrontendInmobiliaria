@@ -11,26 +11,26 @@ export class EncabezadoComponent {
 
   constructor(
     private servicioSeguridad: SeguridadService
-  ){
+  ) {
 
   }
 
   sesionAtiva: boolean = false;
 
-  ngOnInit(){
+  ngOnInit() {
     this.ValidarSesion();
   }
 
-  ValidarSesion(){
+  ValidarSesion() {
     this.servicioSeguridad.ObtenerDatosSesion().subscribe({
-      next: (datos: UsuarioValidadoModel)=>{
-        if(datos.token != ""){
+      next: (datos: UsuarioValidadoModel) => {
+        if (datos.token != "") {
           this.sesionAtiva = true;
-        }else{
+        } else {
           this.sesionAtiva = false;
         }
       },
-      error:(err: any)=>{
+      error: (err: any) => {
 
       }
     })

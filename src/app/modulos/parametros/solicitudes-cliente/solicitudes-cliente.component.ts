@@ -13,6 +13,8 @@ export class SolicitudesClienteComponent {
   listaSolicitudes: SolicitudModel[] = [];
   servicioSeguridad: any;
   sesionActiva: boolean | undefined;
+  clienteId: any;
+
 
   constructor(private servicioSolicitudes: SolicitudService, private fb: FormBuilder) { }
 
@@ -65,22 +67,57 @@ export class SolicitudesClienteComponent {
   }
 
   subirContrato() {
-    let contrato = this.ObtenerFormGroup["contrato"].value;
-    console.log(contrato)
-  }
+    const estadoId = 1;
+    const contrato = this.ObtenerFormGroup["contrato"].value;
+    const datosUsuario = localStorage.getItem('datos-usuario');
 
+    if (datosUsuario) {
+      const usuario = JSON.parse(datosUsuario);
+      const correoAsesor = usuario.correo;
+
+      this.servicioSolicitudes.idCliente(correoAsesor).subscribe({
+        next: (datos) => {
+          this.clienteId = Number(datos);
+
+          if (this.clienteId) {
+            this.servicioSolicitudes.subirContrato(contrato, estadoId, this.clienteId).subscribe({
+              next: (datos) => {
+                alert("Se Envio El Contrato con Exito");
+              },
+              error: (err) => {
+                console.log(err);
+              }
+            });
+          } else {
+            console.log("No se pudo obtener el clienteId.");
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    }
+  }
 
   coDeudor() {
     window.open('https://drive.google.com/file/d/1PU66vg1BWsF_w9bvfpAwXRRDAH7eQfG8/view?usp=sharing', '_blank');
   }
 
   eliminar(id: number) {
-    console.log('ID de la solicitud a eliminar:', id);
-    // Resto del código para eliminar la solicitud
+    this.servicioSolicitudes.eliminarSolicitud(id).subscribe({
+      next: (datos) => {
+        this.recargarPagina();
+      },
+      error: (err) => { }
+    });
   }
 
   get ObtenerFormGroup() {
     return this.fGroup.controls;
+  }
+
+  recargarPagina() {
+    window.location.reload();
   }
 
 }

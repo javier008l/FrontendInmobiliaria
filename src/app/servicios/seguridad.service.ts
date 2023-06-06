@@ -7,6 +7,8 @@ import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend
 import { PermisoModel } from '../modelos/permiso.model';
 import { ItemMenuModel } from '../modelos/item.menu.model';
 import { ConfiguracionMenuLateral } from '../config/configuracion.menu.lateral';
+import { DepartamentoModel } from '../modelos/departamento.model';
+import { CiudadModel } from '../modelos/ciudad.model';
 
 
 @Injectable({
@@ -139,6 +141,19 @@ export class SeguridadService {
       correo: correo,
       claveActual: clave,
       claveNueva: claveNueva
+    });
+  }
+
+  nombreDepartamento(nombreDepartamento: string): Observable<DepartamentoModel> {
+    return this.http.post<DepartamentoModel>(`${this.prueba}nombre-departamento`, {
+      nombreDepartamento: nombreDepartamento,
+    });
+  }
+
+  crearCiudad(nombre: string, departamentoId: number): Observable<CiudadModel> {
+    return this.http.post<CiudadModel>(`${this.prueba}ciudad`, {
+      nombre: nombre,
+      departamentoId: departamentoId
     });
   }
 
