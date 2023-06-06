@@ -38,6 +38,15 @@ export class SolicitudService {
     );
   }
 
+  subirCoDeudor(documento: string, solicitudId: number): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}codeudor`, {
+      documento: documento,
+      solicitudId: solicitudId
+    }
+    );
+  }
+
   subirContrato(contrato: string, estadoId: number, clienteId: number): Observable<ContratoModel[]> {
     return this.http.post<ContratoModel[]>(
       `${this.urlBase}contrato`, {

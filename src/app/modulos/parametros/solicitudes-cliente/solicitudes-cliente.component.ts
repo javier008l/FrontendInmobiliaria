@@ -25,6 +25,7 @@ export class SolicitudesClienteComponent {
   ConstruirFormulario() {
     this.fGroup = this.fb.group({
       contrato: ['', [Validators.required, Validators.minLength(2)]],
+      CoDeudor: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
 
@@ -97,6 +98,20 @@ export class SolicitudesClienteComponent {
         }
       });
     }
+  }
+
+  subirCodeudor(solicitudId: number) {
+    const documento = this.ObtenerFormGroup["CoDeudor"].value;
+
+    this.servicioSolicitudes.subirCoDeudor(documento, solicitudId).subscribe({
+      next: (datos) => {
+        alert("Se Envio La Información con exito")
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
   }
 
   coDeudor() {
