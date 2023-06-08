@@ -11,10 +11,10 @@ import { ErrorDeServidorComponent } from './publico/errores/error-de-servidor/er
 import { InicioComponent } from './publico/inicio/inicio.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from './componentes/spinner/spinner.module';
-import { SpinnerInterceptor } from './interceptores/spinner.interceptor';
+import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { InmobiliariaPublicoComponent } from './modulos/seguridad/inmobiliaria-publico/inmobiliaria-publico.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 
 
@@ -37,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
