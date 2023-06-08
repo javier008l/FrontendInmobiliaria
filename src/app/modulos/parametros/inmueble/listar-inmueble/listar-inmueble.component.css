@@ -1,3 +1,8 @@
-.imagenListadoRegistros{
-    width: 70px;
+.imagenListadoRegistros {
+  width: 70px;
+}
+
+.container {
+  width: 98%;
+  margin-bottom: 30px;
 }
