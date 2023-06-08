@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { ClienteModel } from 'src/app/modelos/cliente.model';
-import { PaginadorClienteModel } from 'src/app/modelos/paginador.cliente.model';
 import { ClienteService } from 'src/app/servicios/parametros/cliente.service';
 
 @Component({
@@ -9,8 +9,10 @@ import { ClienteService } from 'src/app/servicios/parametros/cliente.service';
   styleUrls: ['./listar-cliente.component.css']
 })
 export class ListarClienteComponent {
-  listaClientes: PaginadorClienteModel= new PaginadorClienteModel();
+  listaClientes: ClienteModel [] = [];
   pag = 1;
+  total = 0;
+  registroPorPagina = ConfiguracionPaginacion.registrosPorPagina;
 
   constructor(
     private servicioCliente: ClienteService
@@ -18,9 +20,14 @@ export class ListarClienteComponent {
   }
 
   ngOnInit(){
+    this.ListarRegistros()
+  }
+
+  ListarRegistros(){
     this.servicioCliente.listarRegistrosClientes(this.pag).subscribe({
       next: (datos) => {
-        this.listaClientes = datos;
+        this.listaClientes = datos.registros;
+        this.total = datos.totalRegistros;
       },
       error: (err) => {
         alert("Error leyendo la información");

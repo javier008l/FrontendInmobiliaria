@@ -24,9 +24,4 @@ export class ClienteService {
     return this.http.get<PaginadorClienteModel>(`${this.urlBase}cliente?filter={"limit":${limit}, "skip":${skip}}`);
   }
 
-  // listarRegistrosClientes(): Observable<ClienteModel[]> {
-  //   return this.http.get<ClienteModel[]>(`${this.urlBase}cliente?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
-  // }
-
-
 }

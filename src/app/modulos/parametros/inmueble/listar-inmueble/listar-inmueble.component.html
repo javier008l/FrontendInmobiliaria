@@ -11,9 +11,9 @@
           <th>Ciudad</th>
           <th>Para Venta</th>
           <th>Para Alquiler</th>
-          <th>Imagen</th>
           <th>Correo del Asesor</th>
           <th>Fecha</th>
+          <th>Imagen</th>
           <th>Acciones</th>
       </tr>
     </thead>
@@ -21,7 +21,7 @@
       <tr *ngFor="let inmueble of listaInmuebles">
         <td>{{inmueble.direccion}}</td>
         <td>{{inmueble.costo}}</td>
-        <td>{{inmueble.tipoInmuebleId}}</td>
+        <td>{{inmueble.tipoInmuebleId ? obtenerTipoInmueble(inmueble.tipoInmuebleId) : ''}}</td>
         <td>{{inmueble.ciudadId}}</td>
         <td>{{inmueble.paraVenta}}</td>
         <td>{{inmueble.paraAlquiler}}</td>

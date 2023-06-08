@@ -26,4 +26,17 @@ export class ListarInmuebleComponent {
     });
   }
 
+  obtenerTipoInmueble(tipoInmuebleId: number): string {
+    if (tipoInmuebleId === 1) {
+      return 'Casa';
+    } else if (tipoInmuebleId === 2) {
+      return 'Apartamento';
+    } else if (tipoInmuebleId === 3) {
+      return 'Finca';
+    } else if (tipoInmuebleId === undefined) {
+      return 'Desconocido';
+    }
+    return this.obtenerTipoInmueble(tipoInmuebleId);
+  }
+
 }

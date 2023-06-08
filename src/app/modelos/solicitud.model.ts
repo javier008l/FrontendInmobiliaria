@@ -4,7 +4,7 @@ export class SolicitudModel {
     clienteId?: number;
     asesorId?: number;
     codeudorId?: number;
-    tipoSolicitdId?: number;
+    tipoSolicitudId?: number;
     estadoId?: number;
     tipoInmuebleId?: number;
     inmuebleId?: number;
