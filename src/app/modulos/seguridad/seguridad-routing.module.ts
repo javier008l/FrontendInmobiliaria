@@ -19,7 +19,6 @@ import { ValidarSesionInactivaGuard } from 'src/app/guardianes/validar-sesion-in
 import { ValidarSesionActivaGuard } from 'src/app/guardianes/validar-sesion-activa.guard';
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
 import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliaria-publico.component';
-import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
 
 
 
@@ -111,11 +110,11 @@ const routes: Routes = [
   {
     path: "inmuebles-publico",
     component: InmobiliariaPublicoComponent
-  },
-  {
-    path: "creacion",
-    component: CreacionDepCiuComponent
   }
+  // {
+  //   path: "creacion",
+  //   component: CreacionDepCiuComponent
+  // }
 
 ];
 

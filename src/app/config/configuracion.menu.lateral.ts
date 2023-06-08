@@ -47,14 +47,9 @@ export namespace ConfiguracionMenuLateral{
         texto: "Solicitudes"
     },
     {
-        id: "645d1edd6543c82644d294fb",
-        ruta: "/parametros/",
-        texto: "Crear Departamentos"
-    },
-    {
         id: "645d1ec06543c82644d294fa",
-        ruta: "/parametros/",
-        texto: "Crear ciudades"
+        ruta: "/parametros/creacion",
+        texto: "Crear Ciudades y Departamentos"
     },
     {
         id: "647a0ee87670d92b40f6682c",

@@ -21,7 +21,7 @@ import { FormularioContactoClienteComponent } from './formulario-contacto-client
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
 import { SolicitudesClienteComponent } from '../parametros/solicitudes-cliente/solicitudes-cliente.component';
 import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliaria-publico.component';
-import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
+import { CreacionDepCiuComponent } from '../parametros/creacion-dep-ciu/creacion-dep-ciu.component';
 import { InmueblesAsesorComponent } from '../parametros/inmuebles-asesor/inmuebles-asesor.component';
 
 
