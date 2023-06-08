@@ -25,4 +25,46 @@ export class ListarSolicitudComponent {
       }
     });
   }
+
+  obtenerEstadoSolicitud(estadoId: number): string {
+    if (estadoId === 1) {
+      return 'Enviado';
+    } else if (estadoId === 2) {
+      return 'En Estudio';
+    } else if (estadoId === 3) {
+      return 'Aceptado';
+    } else if (estadoId === 4) {
+      return 'Aceptado Con Codeudor';
+    } else if (estadoId === 5) {
+      return 'Rechazado';
+    } else if (estadoId === undefined) {
+      return 'Desconocido';
+    }
+    return this.obtenerEstadoSolicitud(estadoId);
+  }
+
+  obtenerTipoInmueble(tipoInmuebleId: number): string {
+    if (tipoInmuebleId === 1) {
+      return 'Casa';
+    } else if (tipoInmuebleId === 2) {
+      return 'Apartamento';
+    } else if (tipoInmuebleId === 3) {
+      return 'Finca';
+    } else if (tipoInmuebleId === undefined) {
+      return 'Desconocido';
+    }
+    return this.obtenerTipoInmueble(tipoInmuebleId);
+  }
+
+  obtenerTipoSolicitud(tipoSolicitudId: number): string {
+    if (tipoSolicitudId === 1) {
+      return 'Compra';
+    } else if (tipoSolicitudId === 2) {
+      return 'Venta';
+    } else if (tipoSolicitudId === undefined) {
+      return 'Desconocido';
+    }
+    return this.obtenerTipoSolicitud(tipoSolicitudId);
+  }
+
 }

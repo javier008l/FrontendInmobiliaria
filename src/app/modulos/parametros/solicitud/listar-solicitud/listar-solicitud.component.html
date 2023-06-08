@@ -12,7 +12,7 @@
           <th>Tipo de Solicitud</th>
           <th>Estado</th>
           <th>Tipo de Inmueble</th>
-          <th>Inmuebel</th>
+          <th>Inmueble</th>
           <th>Acciones</th>
       </tr>
     </thead>
@@ -22,9 +22,9 @@
         <td>{{solicitud.clienteId}}</td>
         <td>{{solicitud.asesorId}}</td>
         <td>{{solicitud.codeudorId}}</td>
-        <td>{{solicitud.tipoSolicitdId}}</td>
-        <td>{{solicitud.estadoId}}</td>
-        <td>{{solicitud.tipoSolicitdId}}</td>
+        <td>{{solicitud.tipoSolicitudId ? obtenerTipoSolicitud(solicitud.tipoSolicitudId) : ''}}</td>
+        <td>{{solicitud.estadoId ? obtenerEstadoSolicitud(solicitud.estadoId) : ''}}</td>
+        <td>{{solicitud.tipoInmuebleId ? obtenerTipoInmueble(solicitud.tipoInmuebleId) : ''}}</td>
         <td>{{solicitud.inmuebleId}}</td>
         <td>
             <a routerLink="/parametros/inmueble-editar/{{solicitud.id}}" class="btn orange">Editar Registro</a>&nbsp;
