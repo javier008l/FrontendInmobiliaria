@@ -20,7 +20,7 @@ export namespace ConfiguracionMenuLateral{
     // MENU LATERAL DEL ASESOR
     {
         id: "64790cc3f5616802009c2bb4",
-        ruta: "/parametros/",
+        ruta: "/parametros/solicitudes-asesor",
         texto: "Solicitudes a estudiar"
     },
     {
