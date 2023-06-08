@@ -21,9 +21,10 @@ export class ValidarSesionActivaGuard implements CanActivate {
     let existeSesion = this.servicioSeguridad.validacionDeSesion();
     if (existeSesion) {
       return true;
-    }
+    } else {
     this.router.navigate(["/ruta-no-encontrada"]);
     return false;
   }
+}
 
 }

@@ -18,10 +18,8 @@ import { FormularioContactoClienteComponent } from './formulario-contacto-client
 import { ValidarSesionInactivaGuard } from 'src/app/guardianes/validar-sesion-inactiva.guard';
 import { ValidarSesionActivaGuard } from 'src/app/guardianes/validar-sesion-activa.guard';
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
-import { SolicitudesClienteComponent } from '../parametros/solicitudes-cliente/solicitudes-cliente.component';
 import { InmobiliariaPublicoComponent } from './inmobiliaria-publico/inmobiliaria-publico.component';
 import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
-import { InmueblesAsesorComponent } from '../parametros/inmuebles-asesor/inmuebles-asesor.component';
 
 
 
@@ -29,11 +27,12 @@ const routes: Routes = [
   {
     path: 'autenticar-usuario',
     component: IdentificacionUsuarioComponent,
+    canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: 'identificar-usuario',
     component: IdentificacionUsuarioComponent,
-    // canActivate: [ValidarSesionInactivaGuard]
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: 'recuperar-clave',
@@ -63,6 +62,7 @@ const routes: Routes = [
   {
     path: 'validar-hash-usuario-publico/:hash',
     component: ValidarHashUsuarioPublicoComponent,
+    // canActivate: [ValidarSesionInactivaGuard]
   },
 
   {
@@ -88,10 +88,12 @@ const routes: Routes = [
   {
     path: 'registro-publico-asesor',
     component: RegistroPublicoAsesorComponent,
+    // canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: "registro-privado-asesor",
     component: RegistroPrivadoAsesorComponent,
+    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "cambiar-clave",

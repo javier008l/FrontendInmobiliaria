@@ -11,10 +11,10 @@ export const ValidarSesionInactivaGuard = () => {
   let existeSesion = seviciosSeguridad.validacionDeSesion();
     if(existeSesion){
       return false;
-    }
+    }else{
     router.navigate(["/ruta-no-encontrada"]);
     return true;
-    
+    }
 }
 
 // @Injectable({

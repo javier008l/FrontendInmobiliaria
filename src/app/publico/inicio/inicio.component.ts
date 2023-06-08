@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioValidadoModel } from 'src/app/modelos/usuario.valido.model';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,8 +9,9 @@ import { UsuarioValidadoModel } from 'src/app/modelos/usuario.valido.model';
 })
 export class InicioComponent {
 
+  constructor(private servicioSeguridad: SeguridadService) {
+  }
   sesionAtiva: boolean = false;
-  servicioSeguridad: any;
 
   ValidarSesion() {
     this.servicioSeguridad.ObtenerDatosSesion().subscribe({
