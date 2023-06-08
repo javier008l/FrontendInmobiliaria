@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <h1 class="color_principal centrar">Solicitudes</h1>
+        </div>
+    </div>
+    <div class="row template">
+        <div *ngFor="let r of listaSolicitudes">
+            <div class="card">
+                <span class="card-title color_principal">El estado de su
+                    solicitud es: </span>
+                <span class="card-title color_principal tipo">{{ r.estadoId ?
+                    obtenerEstadoSolicitud(r.estadoId) : '' }}</span>
+                <p><br></p>
+                <div class="card-content prueba">
+                    <p class="prueba1"> La fecha de su solicitud es: {{
+                        r.fechaSolicitud }}</p>
+                </div>
+                <!-- <div class="card-action prueba">
+                    <a class="color_link"
+                        routerLink="/">Ver más</a>
+                </div> -->
+                <div class="card-action prueba">
+                    <!-- ACEPTADO -->
+                    <p *ngIf="r.estadoId === 3" class="prueba1"> El id de su
+                        solicitud es: {{
+                        r.id }}</p>
+                    <p *ngIf="r.estadoId === 3" class="prueba1"> El id de su
+                        inmueble es: {{
+                        r.inmuebleId }}</p>
+                    <button *ngIf="r.estadoId === 3" (click)="contrato()"
+                        class="waves-effect waves-light btn-large boton aceptado"><i
+                            class="material-icons left">arrow_downward</i>Descargar
+                        Contrato</button>
+
+                    <form *ngIf="r.estadoId === 3" class>
+                        <div class="row">
+                            <div class="input-field col">
+                                <input formControlName="contrato"
+                                    id="contrato"
+                                    type="text" class="validate" />
+                                <label for="contrato">URL Contrato</label>
+                            </div>
+                        </div>
+                        <button (click)="subirContrato()"
+                            class="waves-effect waves-light btn-large boton estudio"><i
+                                class="material-icons left">arrow_upward</i>Subir
+                            Contrato</button>
+                    </form>
+
+                    <!-- ACEPTADO CON CODEUDOR -->
+                    <p *ngIf="r.estadoId === 4" class="prueba1"> El id de su
+                        solicitud es: {{
+                        r.id }}</p>
+                    <p *ngIf="r.estadoId === 4" class="prueba1"> El id de su
+                        inmueble es: {{
+                        r.inmuebleId }}</p>
+                    <button *ngIf="r.estadoId === 4" (click)="coDeudor()"
+                        class="waves-effect waves-light btn-large boton aceptado"><i
+                            class="material-icons left">arrow_downward</i>Descargar
+                        Informacion
+                    </button>
+                    <form *ngIf="r.estadoId === 4" class>
+                        <div class="row">
+                            <div class="input-field col">
+                                <input formControlName="CoDeudor"
+                                    id="CoDeudor"
+                                    type="text" class="validate" />
+                                <label for="CoDeudor">URL CoDeudor</label>
+                            </div>
+                        </div>
+                        <button (click)="r.id && subirCodeudor(r.id)"
+                            class="waves-effect waves-light btn-large boton estudio"><i
+                                class="material-icons left">arrow_upward</i>Subir
+                            CoDeudor</button>
+                    </form>
+                    <!-- ELIMINAR SOLICITUD -->
+                    <button *ngIf="r.estadoId === 1"
+                        (click)="r.id && eliminar(r.id)"
+                        class="waves-effect waves-light btn-large boton rechazado">
+                        <i class="material-icons left">close</i>Eliminar
+                        Solicitud
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row centrar">
+        <div class="input-field col s12 centrar">
+            <button id="enviar_boton" (click)="solicitar()"
+                class="waves-effect waves-light btn-large boton"><i
+                    class="material-icons left">home</i>Solicitar</button>
+        </div>
+    </div>
+</div>

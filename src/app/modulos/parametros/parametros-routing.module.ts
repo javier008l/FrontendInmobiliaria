@@ -15,38 +15,39 @@ import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.
 import { CrearClienteComponent } from './cliente/crear-cliente/crear-cliente.component';
 import { EliminarClienteComponent } from './cliente/eliminar-cliente/eliminar-cliente.component';
 import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
+import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-asesor.component';
 
 const routes: Routes = [
   {
-    path:"inmueble-listar",
+    path: "inmueble-listar",
     component: ListarInmuebleComponent,
   },
   {
-    path:"inmueble-agregar",
+    path: "inmueble-agregar",
     component: CrearInmuebleComponent,
   },
   {
-    path:"inmueble-eliminar/:id",
+    path: "inmueble-eliminar/:id",
     component: EliminarInmuebleComponent,
   },
   {
-    path:"inmueble-editar/:id",
+    path: "inmueble-editar/:id",
     component: EditarInmuebleComponent,
   },
   {
-    path:"solicitud-listar",
+    path: "solicitud-listar",
     component: ListarSolicitudComponent,
   },
   {
-    path:"solicitud-agregar",
+    path: "solicitud-agregar",
     component: CrearSolicitudComponent,
   },
   {
-    path:"solicitud-eliminar/:id",
+    path: "solicitud-eliminar/:id",
     component: EliminarSolicitudComponent,
   },
   {
-    path:"solicitud-editar/:id",
+    path: "solicitud-editar/:id",
     component: EditarSolicitudComponent,
   },
   {
@@ -57,21 +58,25 @@ const routes: Routes = [
   {
     path: "solicitudes-cliente",
     component: SolicitudesClienteComponent
-  },{
-    path:"cliente-listar",
+  }, {
+    path: "cliente-listar",
     component: ListarClienteComponent,
   },
   {
-    path:"cliente-agregar",
+    path: "cliente-agregar",
     component: CrearClienteComponent,
   },
   {
-    path:"cliente-eliminar/:id",
+    path: "cliente-eliminar/:id",
     component: EliminarClienteComponent,
   },
   {
-    path:"cliente-editar/:id",
+    path: "cliente-editar/:id",
     component: EditarClienteComponent,
+  },
+  {
+    path: "solicitudes-asesor",
+    component: SolicitudesAsesorComponent,
   },
   {
     path: "creacion",
