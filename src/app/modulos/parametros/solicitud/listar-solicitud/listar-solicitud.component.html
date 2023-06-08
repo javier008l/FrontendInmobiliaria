@@ -30,11 +30,13 @@
         <td>{{solicitud.tipoInmuebleId ?
           obtenerTipoInmueble(solicitud.tipoInmuebleId) : ''}}</td>
         <td>{{solicitud.inmuebleId}}</td>
-        <td>
+        <td class="direccion">
           <a routerLink="/parametros/inmueble-editar/{{solicitud.id}}"
             class="btn orange">Editar Registro</a>&nbsp;
           <a routerLink="/parametros/inmueble-eliminar/{{solicitud.id}}"
             class="btn red">Eliminar Registro</a>
+          <a routerLink="/parametros/inmueble-eliminar/{{solicitud.id}}"
+            class="btn blue">Eliminar Registro</a>
         </td>
       </tr>
     </tbody>
