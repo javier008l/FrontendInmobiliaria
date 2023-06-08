@@ -14,7 +14,6 @@ import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solic
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
 import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
 import { ListarSolicitudComponent } from './solicitud/listar-solicitud/listar-solicitud.component';
-import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-asesor.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,8 @@ import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-ase
   ],
   imports: [
     CommonModule,
-    ParametrosRoutingModule
+    ParametrosRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class ParametrosModule { }
