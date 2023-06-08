@@ -16,6 +16,7 @@ import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/elimi
 import { ListarSolicitudComponent } from './solicitud/listar-solicitud/listar-solicitud.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-asesor.component';
+import { CambiarAsesorSolicitudComponent } from './solicitud/cambiar-asesor-solicitud/cambiar-asesor-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-ase
     EliminarSolicitudComponent,
     ListarSolicitudComponent,
     SolicitudesAsesorComponent,
+    CambiarAsesorSolicitudComponent,
   ],
   imports: [
     CommonModule,
