@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoDeudorModel } from 'src/app/modelos/codeudor.model';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
 import { SolicitudService } from 'src/app/servicios/parametros/solicitud.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-solicitudes-asesor',
   templateUrl: './solicitudes-asesor.component.html',
   styleUrls: ['./solicitudes-asesor.component.css']
 })
+
+
 export class SolicitudesAsesorComponent {
   fGroup: FormGroup = new FormGroup({});
   listaSolicitudes: SolicitudModel[] = [];
+  listaCoDeudor: CoDeudorModel[] = [];
   servicioSeguridad: any;
   sesionActiva: boolean | undefined;
   clienteId: any;
-
 
   constructor(private servicioSolicitudes: SolicitudService, private fb: FormBuilder) { }
 
@@ -24,12 +30,9 @@ export class SolicitudesAsesorComponent {
 
   ConstruirFormulario() {
     this.fGroup = this.fb.group({
-      contrato: ['', [Validators.required, Validators.minLength(2)]],
-      CoDeudor: ['', [Validators.required, Validators.minLength(2)]],
+      motivoRechazo: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
-
-
 
   obtenerEstadoSolicitud(estadoId: number): string {
     if (estadoId === 1) {
@@ -62,64 +65,9 @@ export class SolicitudesAsesorComponent {
     }
   }
 
-  contrato() {
-    alert("Una vez firmado el contrato, subelo a google drive como pdf y pon el link en URL Contrato y dale al boton subir contrato")
-    window.open('https://drive.google.com/file/d/1FOJc2CWwjKx6jC9ZC-zw6GivNq89HOlB/view?usp=sharing', '_blank');
-  }
-
-  subirContrato() {
-    const estadoId = 1;
-    const contrato = this.ObtenerFormGroup["contrato"].value;
-    const datosUsuario = localStorage.getItem('datos-usuario');
-
-    if (datosUsuario) {
-      const usuario = JSON.parse(datosUsuario);
-      const correoAsesor = usuario.correo;
-
-      this.servicioSolicitudes.idCliente(correoAsesor).subscribe({
-        next: (datos) => {
-          this.clienteId = Number(datos);
-
-          if (this.clienteId) {
-            this.servicioSolicitudes.subirContrato(contrato, estadoId, this.clienteId).subscribe({
-              next: (datos) => {
-                alert("Se Envio El Contrato con Exito");
-              },
-              error: (err) => {
-                console.log(err);
-              }
-            });
-          } else {
-            console.log("No se pudo obtener el clienteId.");
-          }
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      });
-    }
-  }
-
-  subirCodeudor(solicitudId: number) {
-    const documento = this.ObtenerFormGroup["CoDeudor"].value;
-
-    this.servicioSolicitudes.subirCoDeudor(documento, solicitudId).subscribe({
-      next: (datos) => {
-        alert("Se Envio La Información con exito")
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-
-  }
-
-  coDeudor() {
-    window.open('https://drive.google.com/file/d/1PU66vg1BWsF_w9bvfpAwXRRDAH7eQfG8/view?usp=sharing', '_blank');
-  }
-
-  eliminar(id: number) {
-    this.servicioSolicitudes.eliminarSolicitud(id).subscribe({
+  rechazar(solicitudId: number) {
+    let estadoSolicitudId = 5
+    this.servicioSolicitudes.rechazar(solicitudId, estadoSolicitudId).subscribe({
       next: (datos) => {
         this.recargarPagina();
       },
@@ -156,6 +104,34 @@ export class SolicitudesAsesorComponent {
       error: (err) => { }
     });
   }
+
+  solicitarCodeudor(solicitudId: number) {
+    let estadoSolicitudId = 4;
+    this.servicioSolicitudes.SolicitudesCoDeudor(solicitudId, estadoSolicitudId).subscribe({
+      next: (datos) => {
+        if (typeof datos === 'object') {
+          this.listaCoDeudor = Object.values(datos);
+          alert("El URL con la informacion del CoDeudor es: " + this.listaCoDeudor[1])
+        } else {
+          this.listaCoDeudor = datos;
+          alert(this.listaCoDeudor[1])
+        }
+      },
+      error: (err) => { }
+    });
+  }
+
+  subirComentario(event: Event, solicitudId: number) {
+    event.preventDefault();
+    const motivoRechazo = (document.getElementById('motivoRechazo-' + solicitudId) as HTMLInputElement)?.value;
+    console.log(motivoRechazo);
+    let estadoSolicitudId = 5
+    this.servicioSolicitudes.motivoRechazo(solicitudId, estadoSolicitudId, motivoRechazo).subscribe({
+
+    });
+  }
+
+
 
   get ObtenerFormGroup() {
     return this.fGroup.controls;

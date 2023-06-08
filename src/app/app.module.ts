@@ -13,6 +13,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from './componentes/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptores/spinner.interceptor';
 import { InmobiliariaPublicoComponent } from './modulos/seguridad/inmobiliaria-publico/inmobiliaria-publico.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -30,7 +32,9 @@ import { InmobiliariaPublicoComponent } from './modulos/seguridad/inmobiliaria-p
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SpinnerModule
+    SpinnerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }

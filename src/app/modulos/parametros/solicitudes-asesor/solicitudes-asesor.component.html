@@ -37,7 +37,7 @@
                     </button>
                     <!-- EN ESTUDIO -->
                     <!-- ACEPTAR -->
-                    <button *ngIf="r.estadoId === 2"
+                    <button *ngIf="r.estadoId === 2 || r.estadoId === 4"
                         (click)="r.id && aceptar(r.id)"
                         class="waves-effect waves-light btn-large boton aceptado">
                         <i class="material-icons left">close</i>Aceptar
@@ -46,45 +46,39 @@
                     <!-- ACEPTAR CODEUDOR -->
                     <button *ngIf="r.estadoId === 2"
                         (click)="r.id && aceptarCodeudor(r.id)"
-                        class="waves-effect waves-light btn-large boton aceptado">
+                        class="waves-effect waves-light btn-large boton aceptadocodeudor">
                         <i class="material-icons left">close</i>Aceptar
-                        Solicitud
+                        Solicitud CoDeudor
                     </button>
                     <!-- RECHAZAR -->
-                    <button *ngIf="r.estadoId === 2"
-                        (click)="r.id && eliminar(r.id)"
+                    <button *ngIf="r.estadoId === 2 || r.estadoId === 4"
+                        (click)="r.id && rechazar(r.id)"
                         class="waves-effect waves-light btn-large boton rechazado">
-                        <i class="material-icons left">close</i>Eliminar
+                        <i class="material-icons left">close</i>Rechazar
                         Solicitud
                     </button>
-
-                    <!-- ACEPTADO CON CODEUDOR -->
-                    <p *ngIf="r.estadoId === 4" class="prueba1"> El id de su
-                        solicitud es: {{
-                        r.id }}</p>
-                    <p *ngIf="r.estadoId === 4" class="prueba1"> El id de su
-                        inmueble es: {{
-                        r.inmuebleId }}</p>
-                    <button *ngIf="r.estadoId === 4" (click)="coDeudor()"
-                        class="waves-effect waves-light btn-large boton aceptado"><i
-                            class="material-icons left">arrow_downward</i>Descargar
+                    <button *ngIf="r.estadoId === 4"
+                        (click)="r.id && solicitarCodeudor(r.id)"
+                        class="waves-effect waves-light btn-large boton aceptadocodeudor">
+                        <i class="material-icons left">close</i>Solicitar
                         Informacion
                     </button>
-                    <form *ngIf="r.estadoId === 4" class>
+                    <!-- RECHAZADO -->
+                    <form form *ngIf="r.estadoId === 5" [id]="'form-' + r.id">
                         <div class="row">
                             <div class="input-field col">
-                                <input formControlName="CoDeudor"
-                                    id="CoDeudor"
-                                    type="text" class="validate" />
-                                <label for="CoDeudor">URL CoDeudor</label>
+                                <textarea [id]="'motivoRechazo-' + r.id"
+                                    class="materialize-textarea"></textarea>
+
+                                <label for="textarea1">Comentario</label>
                             </div>
                         </div>
-                        <button (click)="r.id && subirCodeudor(r.id)"
-                            class="waves-effect waves-light btn-large boton estudio"><i
-                                class="material-icons left">arrow_upward</i>Subir
-                            CoDeudor</button>
+                        <button (click)="r.id && subirComentario($event,r.id)"
+                            class="waves-effect waves-light btn-large boton estudio">
+                            <i class="material-icons left">arrow_upward</i>Subir
+                            Comentario
+                        </button>
                     </form>
-
                 </div>
             </div>
         </div>

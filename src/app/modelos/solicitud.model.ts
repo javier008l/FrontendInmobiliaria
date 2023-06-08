@@ -8,5 +8,6 @@ export class SolicitudModel {
     estadoId?: number;
     tipoInmuebleId?: number;
     inmuebleId?: number;
+    motivoRechazo?: string
 
 }

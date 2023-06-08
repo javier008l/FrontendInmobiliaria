@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
+import { CoDeudorModel } from 'src/app/modelos/codeudor.model';
 import { ContratoModel } from 'src/app/modelos/contrato.model';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
 
@@ -34,11 +35,38 @@ export class SolicitudService {
     );
   }
 
+  SolicitudesCoDeudor(solicitudId: number, estadoSolicitudId: number): Observable<CoDeudorModel[]> {
+    return this.http.post<CoDeudorModel[]>(
+      `${this.urlBase}mostrar-codeudor`, {
+      solicitudId: solicitudId,
+      estadoSolicitudId: estadoSolicitudId
+    }
+    );
+  }
+
   eliminarSolicitud(id: number): Observable<SolicitudModel[]> {
     return this.http.delete<SolicitudModel[]>(`${this.urlBase}solicitud/${id}`);
   }
 
   pasarEnEstudio(solicitudId: number, estadoSolicitudId: number): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}/notificacion-estado-solicitud`, {
+      solicitudId: solicitudId,
+      estadoSolicitudId: estadoSolicitudId
+    }
+    );
+  }
+
+  motivoRechazo(solicitudId: number, estadoSolicitudId: number, motivoRechazo: string): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}/notificacion-estado-solicitud`, {
+      solicitudId: solicitudId,
+      estadoSolicitudId: estadoSolicitudId,
+      motivoRechazo: motivoRechazo
+    }
+    );
+  }
+  rechazar(solicitudId: number, estadoSolicitudId: number): Observable<SolicitudModel[]> {
     return this.http.post<SolicitudModel[]>(
       `${this.urlBase}/notificacion-estado-solicitud`, {
       solicitudId: solicitudId,
