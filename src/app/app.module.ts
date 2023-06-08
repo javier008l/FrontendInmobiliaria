@@ -14,6 +14,7 @@ import { SpinnerModule } from './componentes/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { InmobiliariaPublicoComponent } from './modulos/seguridad/inmobiliaria-publico/inmobiliaria-publico.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -31,7 +32,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SpinnerModule
+    SpinnerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true},

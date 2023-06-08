@@ -131,6 +131,7 @@
 
 .rechazado {
   background: #d7263d;
+  margin-bottom: 30px;
 }
 
 .aceptado {
@@ -140,10 +141,12 @@
 
 .estudio {
   background: #e94f37;
+  margin-bottom: 30px;
 }
 
 .aceptadocodeudor {
-  background: #2c1320;
+  background: #e94f37;
+  margin-bottom: 30px;
 }
 
 span.badge {
@@ -177,4 +180,14 @@ label {
 .valid,
 .ng-touched {
   color: #fffffa;
+}
+
+textarea.materialize-textarea {
+  line-height: normal;
+  overflow-y: hidden;
+  padding: 0.8rem 0 0.8rem 0;
+  resize: none;
+  min-height: 3rem;
+  box-sizing: border-box;
+  color: white;
 }
