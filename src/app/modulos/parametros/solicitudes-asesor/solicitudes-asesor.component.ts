@@ -4,11 +4,11 @@ import { SolicitudModel } from 'src/app/modelos/solicitud.model';
 import { SolicitudService } from 'src/app/servicios/parametros/solicitud.service';
 
 @Component({
-  selector: 'app-solicitudes-cliente',
-  templateUrl: './solicitudes-cliente.component.html',
-  styleUrls: ['./solicitudes-cliente.component.css']
+  selector: 'app-solicitudes-asesor',
+  templateUrl: './solicitudes-asesor.component.html',
+  styleUrls: ['./solicitudes-asesor.component.css']
 })
-export class SolicitudesClienteComponent {
+export class SolicitudesAsesorComponent {
   fGroup: FormGroup = new FormGroup({});
   listaSolicitudes: SolicitudModel[] = [];
   servicioSeguridad: any;
@@ -53,7 +53,7 @@ export class SolicitudesClienteComponent {
       const usuario = JSON.parse(datosUsuario);
       const correoCliente = usuario.correo;
 
-      this.servicioSolicitudes.SolicitudesCliente(correoCliente).subscribe({
+      this.servicioSolicitudes.SolicitudesAsesor(correoCliente).subscribe({
         next: (datos) => {
           this.listaSolicitudes = datos;
         },
@@ -68,7 +68,7 @@ export class SolicitudesClienteComponent {
   }
 
   subirContrato() {
-    const estadoId = 3;
+    const estadoId = 1;
     const contrato = this.ObtenerFormGroup["contrato"].value;
     const datosUsuario = localStorage.getItem('datos-usuario');
 
@@ -127,6 +127,36 @@ export class SolicitudesClienteComponent {
     });
   }
 
+  pasarEnEstudio(solicitudId: number) {
+    let estadoSolicitudId = 2
+    this.servicioSolicitudes.pasarEnEstudio(solicitudId, estadoSolicitudId).subscribe({
+      next: (datos) => {
+        this.recargarPagina();
+      },
+      error: (err) => { }
+    });
+  }
+
+  aceptar(solicitudId: number) {
+    let estadoSolicitudId = 3
+    this.servicioSolicitudes.pasarEnEstudio(solicitudId, estadoSolicitudId).subscribe({
+      next: (datos) => {
+        this.recargarPagina();
+      },
+      error: (err) => { }
+    });
+  }
+
+  aceptarCodeudor(solicitudId: number) {
+    let estadoSolicitudId = 4
+    this.servicioSolicitudes.pasarEnEstudio(solicitudId, estadoSolicitudId).subscribe({
+      next: (datos) => {
+        this.recargarPagina();
+      },
+      error: (err) => { }
+    });
+  }
+
   get ObtenerFormGroup() {
     return this.fGroup.controls;
   }
@@ -136,10 +166,3 @@ export class SolicitudesClienteComponent {
   }
 
 }
-
-
-
-
-
-
-

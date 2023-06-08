@@ -26,8 +26,43 @@ export class SolicitudService {
     );
   }
 
+  SolicitudesAsesor(correoCliente: string): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}solicitudes-asesor`, {
+      correoCliente: correoCliente
+    }
+    );
+  }
+
   eliminarSolicitud(id: number): Observable<SolicitudModel[]> {
     return this.http.delete<SolicitudModel[]>(`${this.urlBase}solicitud/${id}`);
+  }
+
+  pasarEnEstudio(solicitudId: number, estadoSolicitudId: number): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}/notificacion-estado-solicitud`, {
+      solicitudId: solicitudId,
+      estadoSolicitudId: estadoSolicitudId
+    }
+    );
+  }
+
+  aceptar(solicitudId: number, estadoSolicitudId: number): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}/notificacion-estado-solicitud`, {
+      solicitudId: solicitudId,
+      estadoSolicitudId: estadoSolicitudId
+    }
+    );
+  }
+
+  aceptarCodeudor(solicitudId: number, estadoSolicitudId: number): Observable<SolicitudModel[]> {
+    return this.http.post<SolicitudModel[]>(
+      `${this.urlBase}/notificacion-estado-solicitud`, {
+      solicitudId: solicitudId,
+      estadoSolicitudId: estadoSolicitudId
+    }
+    );
   }
 
   idCliente(correoAsesor: string): Observable<SolicitudModel[]> {
