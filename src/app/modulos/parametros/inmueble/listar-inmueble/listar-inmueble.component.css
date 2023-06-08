@@ -6,3 +6,8 @@
   width: 98%;
   margin-bottom: 30px;
 }
+
+.direccion {
+  display: flex;
+  gap: 10px;
+}
