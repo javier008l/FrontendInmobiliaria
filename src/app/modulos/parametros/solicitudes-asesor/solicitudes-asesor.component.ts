@@ -53,7 +53,7 @@ export class SolicitudesAsesorComponent {
       const usuario = JSON.parse(datosUsuario);
       const correoCliente = usuario.correo;
 
-      this.servicioSolicitudes.SolicitudesCliente(correoCliente).subscribe({
+      this.servicioSolicitudes.SolicitudesAsesor(correoCliente).subscribe({
         next: (datos) => {
           this.listaSolicitudes = datos;
         },
@@ -120,6 +120,36 @@ export class SolicitudesAsesorComponent {
 
   eliminar(id: number) {
     this.servicioSolicitudes.eliminarSolicitud(id).subscribe({
+      next: (datos) => {
+        this.recargarPagina();
+      },
+      error: (err) => { }
+    });
+  }
+
+  pasarEnEstudio(solicitudId: number) {
+    let estadoSolicitudId = 2
+    this.servicioSolicitudes.pasarEnEstudio(solicitudId, estadoSolicitudId).subscribe({
+      next: (datos) => {
+        this.recargarPagina();
+      },
+      error: (err) => { }
+    });
+  }
+
+  aceptar(solicitudId: number) {
+    let estadoSolicitudId = 3
+    this.servicioSolicitudes.pasarEnEstudio(solicitudId, estadoSolicitudId).subscribe({
+      next: (datos) => {
+        this.recargarPagina();
+      },
+      error: (err) => { }
+    });
+  }
+
+  aceptarCodeudor(solicitudId: number) {
+    let estadoSolicitudId = 4
+    this.servicioSolicitudes.pasarEnEstudio(solicitudId, estadoSolicitudId).subscribe({
       next: (datos) => {
         this.recargarPagina();
       },

@@ -68,7 +68,7 @@ export class SolicitudesClienteComponent {
   }
 
   subirContrato() {
-    const estadoId = 1;
+    const estadoId = 3;
     const contrato = this.ObtenerFormGroup["contrato"].value;
     const datosUsuario = localStorage.getItem('datos-usuario');
 
