@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 declare var M: any;
 
+
 @Component({
   selector: 'app-creacion-dep-ciu',
   templateUrl: './creacion-dep-ciu.component.html',
@@ -16,7 +17,9 @@ export class CreacionDepCiuComponent implements OnInit {
   departamento: any;
   ciudad: any
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private servicioSeguridad: SeguridadService) {
+
+  }
 
   ngOnInit() {
     this.loadDepartments();
@@ -77,13 +80,31 @@ export class CreacionDepCiuComponent implements OnInit {
   }
 
   Enviar() {
+    let nombreDepartamento = this.departamento;
+    let nombre = this.ciudad;
 
-    let datos = {
-      departamento: this.departamento,
-      ciudad: this.ciudad
-    };
-    console.log(datos)
+    this.servicioSeguridad.nombreDepartamento(nombreDepartamento).subscribe({
+      next: (datos: any) => {
+        this.departamento = datos
 
+        if (this.departamento) {
+          this.servicioSeguridad.crearCiudad(nombre, this.departamento).subscribe({
+            next: (datos) => {
+              alert("Se creo con exito");
+            },
+            error: (err) => {
+              console.log(err);
+            }
+          });
+
+        } else {
+          console.log("No se pudo obtener el clienteId.");
+        }
+      },
+      error: (err: any) => {
+        console.log(err)
+      }
+    });
   }
 
   get ObtenerFormGroup() {
