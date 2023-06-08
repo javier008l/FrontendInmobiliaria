@@ -6,6 +6,8 @@
 
 .direccion {
   display: flex;
+  border-bottom: 3px solid #0f435f;
+  margin-left: 24px;
 }
 
 .card
@@ -128,5 +130,8 @@
 }
 
 .linea {
-  border-left: 5px solid #0f435f;
+  border-left: 3px solid #0f435f;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
