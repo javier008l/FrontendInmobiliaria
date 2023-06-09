@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let inmueble of listaInmuebles">
+      <tr *ngFor="let inmueble of listaInmuebles | paginate: { itemsPerPage: 10, currentPage: pag, totalItems: total }">
         <td>{{inmueble.direccion}}</td>
         <td>{{inmueble.costo}}</td>
         <td>{{inmueble.tipoInmuebleId ? obtenerTipoInmueble(inmueble.tipoInmuebleId) : ''}}</td>
@@ -31,6 +31,18 @@
         <td>
             <a routerLink="/parametros/inmueble-editar/{{inmueble.id}}" class="btn orange">Editar Registro</a>&nbsp;
             <a routerLink="/parametros/inmueble-eliminar/{{inmueble.id}}" class="btn red">Eliminar Registro</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <pagination-controls
+          (pageChange)="pag = $event; ListarRegistrosInmuebles()"
+          previousLabel="Anterior"
+          nextLabel="Siguiente"
+          screenReaderPaginationLabel="Navegación"
+          screenReaderPageLabel="Página"
+          screenReaderCurrentLabel="Página Actual">
+          </pagination-controls>
         </td>
       </tr>
     </tbody>

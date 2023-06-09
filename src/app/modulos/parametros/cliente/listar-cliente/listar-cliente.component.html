@@ -5,10 +5,6 @@
 <table>
     <thead>
       <tr>
-          <!-- <th>Primer Nombre</th>
-          <th>Segundo Nombre</th>
-          <th>Primer Apellido</th>
-          <th>Segundo Apellido</th> -->
           <th>Nombre</th>
           <th>Cedula</th>
           <th>Correo</th>
@@ -19,10 +15,6 @@
     <tbody>
       <!-- <tr *ngFor="let cliente of listaClientes"> -->
       <tr *ngFor="let r of listaClientes | paginate: { itemsPerPage: 10, currentPage: pag, totalItems: total }">
-        <!-- <td>{{cliente.primerNombre}}</td>
-        <td>{{cliente.segundoNombre}}</td>
-        <td>{{cliente.primerApellido}}</td>
-        <td>{{cliente.segundoApellido}}</td> -->
         <td>{{r.primerNombre}} {{r.segundoNombre}} {{r.primerApellido}} {{r.segundoApellido}}</td>
         <td>{{r.cedula}}</td>
         <td>{{r.correo}}</td>
@@ -36,7 +28,7 @@
       <tr>
         <td colspan="5">
           <pagination-controls
-          (pageChange)="pag = $event; ListarRegistros()"
+          (pageChange)="pag = $event; ListarRegistrosClientes()"
           previousLabel="Anterior"
           nextLabel="Siguiente"
           screenReaderPaginationLabel="Navegación"

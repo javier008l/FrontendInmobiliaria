@@ -20,10 +20,10 @@ export class ListarClienteComponent {
   }
 
   ngOnInit(){
-    this.ListarRegistros()
+    this.ListarRegistrosClientes()
   }
 
-  ListarRegistros(){
+  ListarRegistrosClientes(){
     this.servicioCliente.listarRegistrosClientes(this.pag).subscribe({
       next: (datos) => {
         this.listaClientes = datos.registros;

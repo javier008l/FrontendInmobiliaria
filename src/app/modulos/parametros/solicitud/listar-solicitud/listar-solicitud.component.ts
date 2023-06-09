@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
 import { SolicitudService } from 'src/app/servicios/parametros/solicitud.service';
 
@@ -8,7 +9,10 @@ import { SolicitudService } from 'src/app/servicios/parametros/solicitud.service
   styleUrls: ['./listar-solicitud.component.css']
 })
 export class ListarSolicitudComponent {
-  listaSolicitudes: SolicitudModel[]=[];
+  listaSolicitudes: SolicitudModel[]=[];  
+  pag = 1;
+  total = 0;
+  registroPorPagina = ConfiguracionPaginacion.registrosPorPagina;
 
   constructor(
     private servicioSolicitudes : SolicitudService
@@ -16,6 +20,10 @@ export class ListarSolicitudComponent {
   }
 
   ngOnInit(){
+    this.ListarRegistrosSolicitudes()    
+  }
+
+  ListarRegistrosSolicitudes() {
     this.servicioSolicitudes.listarRegistrosSolicitudes().subscribe({
       next: (datos) => {
         this.listaSolicitudes = datos;

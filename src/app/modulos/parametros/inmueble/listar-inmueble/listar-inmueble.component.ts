@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { InmuebleService} from 'src/app/servicios/parametros/inmueble.service';
 
@@ -9,6 +10,9 @@ import { InmuebleService} from 'src/app/servicios/parametros/inmueble.service';
 })
 export class ListarInmuebleComponent {
   listaInmuebles: InmuebleModel[]=[];
+  pag = 1;
+  total = 0;
+  registroPorPagina = ConfiguracionPaginacion.registrosPorPagina;
 
   constructor(
     private servicioInmueble: InmuebleService
@@ -16,6 +20,10 @@ export class ListarInmuebleComponent {
   }
 
   ngOnInit(){
+    this.ListarRegistrosInmuebles()    
+  }
+
+  ListarRegistrosInmuebles(){
     this.servicioInmueble.listarRegistros().subscribe({
       next: (datos) => {
         this.listaInmuebles = datos;
