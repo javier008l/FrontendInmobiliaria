@@ -24,9 +24,10 @@ export class ListarSolicitudComponent {
   }
 
   ListarRegistrosSolicitudes() {
-    this.servicioSolicitudes.listarRegistrosSolicitudes().subscribe({
+    this.servicioSolicitudes.listarRegistrosSolicitudesPaginados(this.pag).subscribe({
       next: (datos) => {
-        this.listaSolicitudes = datos;
+        this.listaSolicitudes = datos.registros;
+        this.total = datos.totalRegistros;
       },
       error: (err) => {
         alert("Error leyendo la información");

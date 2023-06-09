@@ -16,6 +16,7 @@ import { CrearClienteComponent } from './cliente/crear-cliente/crear-cliente.com
 import { EliminarClienteComponent } from './cliente/eliminar-cliente/eliminar-cliente.component';
 import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
 import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-asesor.component';
+import { CambiarAsesorSolicitudComponent } from './cambiar-asesor-solicitud/cambiar-asesor-solicitud.component';
 
 const routes: Routes = [
   {
@@ -77,6 +78,10 @@ const routes: Routes = [
   {
     path: "solicitudes-asesor",
     component: SolicitudesAsesorComponent,
+  },
+  {
+    path: "cambiar-asesor/:id/:asesorId",
+    component: CambiarAsesorSolicitudComponent,
   },
   {
     path: "creacion",

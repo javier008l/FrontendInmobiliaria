@@ -1,8 +1,9 @@
-<br />
-<!-- <a routerLink="/parametros/solicitud-agregar" class="btn">Agregar Registro</a> -->
-<br />
+<div class="container">
+  <br />
+  <!-- <a routerLink="/parametros/solicitud-agregar" class="btn">Agregar Registro</a> -->
+  <br />
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Fecha Solicitud</th>
@@ -40,4 +41,54 @@
       </td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha Solicitud</th>
+        <th>Cliente</th>
+        <th>Asesor</th>
+        <th>Codeudor</th>
+        <th>Tipo de Solicitud</th>
+        <th>Estado</th>
+        <th>Tipo de Inmueble</th>
+        <th>Inmueble</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let solicitud of listaSolicitudes | paginate: {itemsPerPage: 10, currentPage: pag, totalItems: total}">
+        <td>{{solicitud.fechaSolicitud}}</td>
+        <td>{{solicitud.clienteId}}</td>
+        <td>{{solicitud.asesorId}}</td>
+        <td>{{solicitud.codeudorId}}</td>
+        <td>{{solicitud.tipoSolicitudId ?
+          obtenerTipoSolicitud(solicitud.tipoSolicitudId) : ''}}</td>
+        <td>{{solicitud.estadoId ? obtenerEstadoSolicitud(solicitud.estadoId) :
+          ''}}</td>
+        <td>{{solicitud.tipoInmuebleId ?
+          obtenerTipoInmueble(solicitud.tipoInmuebleId) : ''}}</td>
+        <td>{{solicitud.inmuebleId}}</td>
+        <td class="direccion">
+          <a routerLink="/parametros/inmueble-editar/{{solicitud.id}}"
+            class="btn orange">Editar Registro</a>&nbsp;
+          <a routerLink="/parametros/inmueble-eliminar/{{solicitud.id}}"
+            class="btn red">Eliminar Registro</a>
+          <a
+            routerLink="/parametros/cambiar-asesor/{{solicitud.id}}/{{solicitud.asesorId}}"
+            class="btn blue">Cambiar Asesor</a>
+
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <pagination-controls (pageChange)="pag = $event; ListarRegistrosSolicitudes()" previousLabel="Anterior"
+            nextLabel="Siguiente" screenReaderPaginationLabel="Navegación" screenReaderPageLabel="Página"
+            screenReaderCurrentLabel="Página Actual">
+          </pagination-controls>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

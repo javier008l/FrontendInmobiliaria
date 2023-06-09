@@ -1,0 +1,9 @@
+.container {
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.direccion {
+  display: flex;
+  gap: 10px;
+}

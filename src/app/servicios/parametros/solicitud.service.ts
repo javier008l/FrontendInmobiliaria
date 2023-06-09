@@ -5,6 +5,7 @@ import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { CoDeudorModel } from 'src/app/modelos/codeudor.model';
 import { ContratoModel } from 'src/app/modelos/contrato.model';
+import { PaginadorSolicitudModel } from 'src/app/modelos/paginador.solicitud.model';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
 
 @Injectable({
@@ -17,6 +18,12 @@ export class SolicitudService {
 
   listarRegistrosSolicitudes(): Observable<SolicitudModel[]> {
     return this.http.get<SolicitudModel[]>(`${this.urlBase}solicitud?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
+  }
+  listarRegistrosSolicitudesPaginados(pag: number): Observable<PaginadorSolicitudModel> {
+    let limit = ConfiguracionPaginacion.registrosPorPagina;
+    let skip = (pag -1) * limit;
+    let url = `${this.urlBase}solicitud-paginada?filter={"limit":${limit}, "skip":${skip}}`
+    return this.http.get<PaginadorSolicitudModel>(url);
   }
 
   SolicitudesCliente(correoCliente: string): Observable<SolicitudModel[]> {
