@@ -30,7 +30,7 @@ export namespace ConfiguracionMenuLateral{
     },
     {
         id: "64790da4f5616802009c2bb7",
-        ruta: "/parametros/inmueble-crear",
+        ruta: "/parametros/inmueble-agregar",
         texto: "Crear un inmueble"
     },
     {
@@ -65,7 +65,7 @@ export namespace ConfiguracionMenuLateral{
         id: "647bbbce168a6494c64db5d9",
         ruta: "/parametros/cliente-listar",
         texto: "Clientes"
-    },
+    }
 
 ];
 }

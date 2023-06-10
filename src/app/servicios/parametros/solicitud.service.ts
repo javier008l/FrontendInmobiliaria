@@ -16,9 +16,9 @@ export class SolicitudService {
 
   constructor(private http: HttpClient) { }
 
-  listarRegistrosSolicitudes(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>(`${this.urlBase}solicitud?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
-  }
+  // listarRegistrosSolicitudes(): Observable<SolicitudModel[]> {
+  //   return this.http.get<SolicitudModel[]>(`${this.urlBase}solicitud?filter={"limit":${ConfiguracionPaginacion.registrosPorPagina}}`);
+  // }
   listarRegistrosSolicitudesPaginados(pag: number): Observable<PaginadorSolicitudModel> {
     let limit = ConfiguracionPaginacion.registrosPorPagina;
     let skip = (pag -1) * limit;

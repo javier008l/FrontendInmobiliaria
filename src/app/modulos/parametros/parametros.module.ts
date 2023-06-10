@@ -17,6 +17,7 @@ import { ListarSolicitudComponent } from './solicitud/listar-solicitud/listar-so
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-asesor.component';
 import { CambiarAsesorSolicitudComponent } from './cambiar-asesor-solicitud/cambiar-asesor-solicitud.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { CambiarAsesorSolicitudComponent } from './cambiar-asesor-solicitud/camb
   imports: [
     CommonModule,
     ParametrosRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParametrosModule { }

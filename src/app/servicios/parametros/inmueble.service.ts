@@ -5,6 +5,7 @@ import { InmuebleModel } from '../../modelos/inmueble.model';
 import { Observable } from 'rxjs';
 import { SolicitudModel } from '../../modelos/solicitud.model';
 import { ConfiguracionPaginacion } from '../../config/configuracion.paginacion';
+import { ArchivoModel } from 'src/app/modelos/archivo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,14 @@ export class InmuebleService {
       correoAsesor: correoAsesor
     }
     );
+  }
+
+  AgregarRegistro(registro: InmuebleModel):Observable<InmuebleModel>{
+    return this.http.post(`${this.urlBase}inmueble`, registro);
+  }
+
+  CargarArchivo(formData: FormData): Observable<ArchivoModel> {
+    return this.http.post<ArchivoModel>(`${this.urlBase}cargar-archivo-inmueble`, formData);
   }
 
 }
