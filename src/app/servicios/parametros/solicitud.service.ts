@@ -135,4 +135,9 @@ export class SolicitudService {
     return this.http.delete<any>(`${this.urlBase}solicitud/${id}`);
   }
 
+  EditarRegistro(registro: SolicitudModel):Observable<SolicitudModel>{
+    return this.http.put(`${this.urlBase}solicitud/${registro.id}`, registro);
+  }
+  
+
 }

@@ -45,7 +45,6 @@ export class EditarClienteComponent {
         this.obtenerFgDatos["cedula"].setValue(datos.cedula);
         this.obtenerFgDatos["correo"].setValue(datos.correo);
         this.obtenerFgDatos["telefono"].setValue(datos.telefono);
-        this.archivoCargado = true;
       },
       error: (err) => {
         alert("El registro no existe.")
@@ -112,27 +111,4 @@ export class EditarClienteComponent {
     return this.cargaArchivoFG.controls;
   }
 
-  // CargarArchivo() {
-  //   const formData = new FormData();
-  //   formData.append('file', this.cargaArchivoFG.controls["archivo"].value);
-  //   this.servicio.CargarArchivo(formData).subscribe({
-  //     next: (data: ArchivoModel) => {
-  //       console.log(data);
-  //       this.nombreArchivoCargado = data.file;
-  //       this.obtenerFgDatos["foto"].setValue(this.nombreArchivoCargado);
-  //       this.archivoCargado = true;
-  //       alert("Archivo cargado correctamente.");
-  //     },
-  //     error: (err: any) => {
-  //       alert("Error cargando el archivo");
-  //     }
-  //   });
-  // }
-
-  // CuandoSeleccionaArchivo(event: any) {
-  //   if (event.target.files.length > 0) {
-  //     const f = event.target.files[0];
-  //     this.obtenerFgArchivo["archivo"].setValue(f);
-  //   }
-  // }
 }

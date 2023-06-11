@@ -1,1 +1,124 @@
-<p>editar-solicitud works!</p>
+<fieldset class="center container">
+    <legend>Edición de Solicitudes</legend>    
+    <div class="row">
+      <form [formGroup]="fGroup">
+        <div class="row">
+            <!-- FECHA -->
+          <div class="input-field col s4">
+            <input type="hidden" formControlName="id" />
+            <input formControlName="fechaSolicitud" class="validate" id="fechaSolicitud" type="date">
+            <label for="fechaSolicitud" data-error="wrong" class="active" data-success="right">Fecha Solicitud</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['fechaSolicitud'].errors 
+            && (obtenerFgDatos['fechaSolicitud'].dirty || obtenerFgDatos['fechaSolicitud'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <!-- CLIENTE -->
+          <div class="input-field col s4">
+            <input formControlName="clienteId" id="clienteId" type="number">
+            <label for="clienteId" class="active" >Cliente</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['clienteId'].errors 
+            && (obtenerFgDatos['clienteId'].dirty || obtenerFgDatos['clienteId'].touched)">
+            </div>
+          </div>
+          <!-- ASESOR -->
+          <div class="input-field col s4">
+            <input formControlName="asesorId" id="asesorId" type="number">
+            <label for="asesorId" class="active" >Asesor</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['asesorId'].errors 
+            && (obtenerFgDatos['asesorId'].dirty || obtenerFgDatos['asesorId'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <!-- CODEUDOR -->
+          <div class="input-field col s4">
+            <input formControlName="codeudorId" id="codeudorId" type="number">
+            <label for="codeudorId" class="active" >Codeudor</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['codeudorId'].errors 
+            && (obtenerFgDatos['codeudorId'].dirty || obtenerFgDatos['codeudorId'].touched)">
+            </div>
+          </div>
+          <!-- TIPO SOLICITUD -->
+          <!-- <div class="input-field col s4">
+            <input formControlName="tipoSolicitudId" id="tipoSolicitudId" type="number">
+            <label for="tipoSolicitudId" class="active" >Tipo de Solicitud</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['tipoSolicitudId'].errors 
+            && (obtenerFgDatos['tipoSolicitudId'].dirty || obtenerFgDatos['tipoSolicitudId'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div> -->
+          <div class="input-field col s4">
+            <select #selectElement (change)="onSelectChangeTipoSolicitud(selectElement.value)">
+              <option value="" disabled selected>Tipo de solicitud</option>
+              <option value="1">Compra</option>
+              <option value="2">Venta</option>
+            </select>
+            <label>Elige uno</label>
+            </div>
+          <!-- ESTADO -->
+          <!-- <div class="input-field col s4">
+            <input formControlName="estadoId" id="estadoId" type="number">
+            <label for="estadoId" class="active" >Estado</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['estadoId'].errors 
+            && (obtenerFgDatos['estadoId'].dirty || obtenerFgDatos['estadoId'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div> -->
+          <div class="input-field col s4">
+            <select #selectElement (change)="onSelectChangeEstado(selectElement.value)">
+              <option value="" disabled selected>Estado</option>
+              <option value="1">Enviado</option>
+              <option value="2">En Estudio</option>
+              <option value="3">Aceptado con Codeudor</option>
+              <option value="3">Aceptado</option>
+              <option value="3">Rechazado</option>
+            </select>
+            <label>Elige uno</label>
+            </div>
+          <!-- TIPO INMUEBLE -->
+          <!-- <div class="input-field col s4">
+            <input formControlName="tipoInmuebleId" id="tipoInmuebleId" type="number">
+            <label for="tipoInmuebleId" class="active" >Tipo de inmueble</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['tipoInmuebleId'].errors 
+            && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div> -->
+          <div class="input-field col s4">
+            <select #selectElement (change)="onSelectChangeTipoInmueble(selectElement.value)">
+              <option value="" disabled selected>Tipo de inmueble</option>
+              <option value="1">Casa</option>
+              <option value="2">Apartamento</option>
+              <option value="3">Finca</option>
+            </select>
+            <label>Elige uno</label>
+            </div>
+          <!-- INMUEBLE -->
+          <div class="input-field col s4">
+            <input formControlName="inmuebleId" id="inmuebleId" type="number">
+            <label for="inmuebleId" class="active" >Inmueble</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['inmuebleId'].errors 
+            && (obtenerFgDatos['inmuebleId'].dirty || obtenerFgDatos['inmuebleId'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+
+          <!-- MOTIVO RECHAZO -->
+          <div class="input-field col s4">
+            <input formControlName="motivoRechazo" id="motivoRechazo" type="text">
+            <label for="motivoRechazo" class="active" >Motivo Rechazo</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['motivoRechazo'].errors 
+            && (obtenerFgDatos['motivoRechazo'].dirty || obtenerFgDatos['motivoRechazo'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <a routerLink="/parametros/solicitud-listar" class="btn red">Cancelar</a>&nbsp;
+            <button (click)="EditarRegistro()" class="btn waves-effect waves-light">Editar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</fieldset>
