@@ -36,4 +36,8 @@ export class ClienteService {
     return this.http.put(`${this.urlBase}cliente/${registro.id}`, registro);
   }
 
+  EliminarRegistro(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.urlBase}cliente/${id}`);
+  }
+
 }
