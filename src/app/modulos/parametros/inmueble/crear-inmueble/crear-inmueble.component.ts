@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { ArchivoModel } from 'src/app/modelos/archivo.model';
@@ -26,10 +26,7 @@ export class CrearInmuebleComponent {
   tipo : number =0;
   tiposInmueble: TipoInmuebleModel[] = [];
   ciudades: CiudadModel[] = [];
-  // formulario = new FormGroup({
-  //   this.ciudades: new FormControl()
-  // });
-
+  
   constructor(
     private fb: FormBuilder,
     private servicio: InmuebleService,
@@ -140,17 +137,17 @@ export class CrearInmuebleComponent {
   }
 
   // --------------------------------------------------------
-  obtenerTiposInmueble() {
-    this.servicioTipoInmueble.obtenerTiposInmueble().subscribe(
-      (tipos: TipoInmuebleModel[]) => {
-        this.tiposInmueble = tipos;
-        // console.log("tipos", tipos)
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  // obtenerTiposInmueble() {
+  //   this.servicioTipoInmueble.obtenerTiposInmueble().subscribe(
+  //     (tipos: TipoInmuebleModel[]) => {
+  //       this.tiposInmueble = tipos;
+  //       // console.log("tipos", tipos)
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   // obtenerCiudades(): void {
   //   this.servicioCiudad.obtenerCiudades().subscribe(

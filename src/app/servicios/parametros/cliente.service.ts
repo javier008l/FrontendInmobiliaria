@@ -5,6 +5,7 @@ import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { PaginadorClienteModel } from 'src/app/modelos/paginador.cliente.model';
 import { SeguridadService } from '../seguridad.service';
+import { ClienteModel } from 'src/app/modelos/cliente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,14 @@ export class ClienteService {
     let skip = (pag -1) * limit;
     let url = `${this.urlBase}cliente?filter={"limit":${limit}, "skip":${skip}}`
     return this.http.get<PaginadorClienteModel>(url);
+  }
+
+  BuscarRegistro(id: number): Observable<ClienteModel>{
+    return this.http.get<ClienteModel>(`${this.urlBase}cliente/${id}`);
+  }
+
+  EditarRegistro(registro: ClienteModel):Observable<ClienteModel>{
+    return this.http.put(`${this.urlBase}cliente/${registro.id}`, registro);
   }
 
 }

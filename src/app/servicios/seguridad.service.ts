@@ -125,6 +125,7 @@ export class SeguridadService {
     } else {
       let datosString = JSON.stringify(datos);
       localStorage.setItem('datos-sesion', datosString);
+      // Llamar este metodo donde se esten dando los permisos al usuario
       this.ActualizarComportamientoUsuario(datos);
       return true;
     }
