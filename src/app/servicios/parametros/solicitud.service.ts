@@ -127,4 +127,12 @@ export class SolicitudService {
     );
   }
 
+  BuscarRegistro(id: number): Observable<SolicitudModel>{
+    return this.http.get<SolicitudModel>(`${this.urlBase}solicitud/${id}`);
+  }
+
+  EliminarRegistro(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.urlBase}solicitud/${id}`);
+  }
+
 }

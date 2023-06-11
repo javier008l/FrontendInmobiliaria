@@ -51,8 +51,8 @@ export class CrearInmuebleComponent {
       foto: [''],
       tipoInmuebleId: ['', [Validators.required]],
       ciudadId: ['', [Validators.required]],
-      paraVenta: ['', [Validators.required]],
-      paraAlquiler: ['', [Validators.required]],
+      paraVenta: [''],
+      paraAlquiler: [''],
       correoAsesor: ['', [Validators.required]],
       fecha: ['', [Validators.required]],
     });

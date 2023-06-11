@@ -1,6 +1,6 @@
 export class SolicitudModel {
     id?: number;
-    fechaSolicitud?: string;
+    fechaSolicitud?: Date;
     clienteId?: number;
     asesorId?: number;
     codeudorId?: number;

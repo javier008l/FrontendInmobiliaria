@@ -19,13 +19,11 @@
         <td>{{solicitud.clienteId}}</td>
         <td>{{solicitud.asesorId}}</td>
         <td>{{solicitud.codeudorId}}</td>
-        <td>{{solicitud.tipoSolicitudId ?
-          obtenerTipoSolicitud(solicitud.tipoSolicitudId) : ''}}</td>
-        <td>{{solicitud.estadoId ? obtenerEstadoSolicitud(solicitud.estadoId) :
-          ''}}</td>
-        <td>{{solicitud.tipoInmuebleId ?
-          obtenerTipoInmueble(solicitud.tipoInmuebleId) : ''}}</td>
+        <td>{{solicitud.tipoSolicitudId ? obtenerTipoSolicitud(solicitud.tipoSolicitudId) : ''}}</td>
+        <td>{{solicitud.estadoId ? obtenerEstadoSolicitud(solicitud.estadoId) : ''}}</td>
+        <td>{{solicitud.tipoInmuebleId ? obtenerTipoInmueble(solicitud.tipoInmuebleId) : ''}}</td>
         <td>{{solicitud.inmuebleId}}</td>
+        <td>{{solicitud.motivoRechazo}}</td>
         <td class="direccion">
           <!-- <a routerLink="/parametros/inmueble-editar/{{solicitud.id}}"
             class="btn orange">Editar Registro</a>&nbsp; -->
