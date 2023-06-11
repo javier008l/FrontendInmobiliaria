@@ -14,6 +14,9 @@ import { SpinnerModule } from './componentes/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { CommonModule } from '@angular/common';
+// import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -33,7 +36,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     SpinnerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // ---
+    // CommonModule,
+    // MatFormFieldModule,
+    // MatSelectModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true},

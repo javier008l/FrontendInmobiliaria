@@ -41,8 +41,20 @@ export class InmuebleService {
     return this.http.post(`${this.urlBase}inmueble`, registro);
   }
 
+  EditarRegistro(registro: InmuebleModel):Observable<InmuebleModel>{
+    return this.http.put(`${this.urlBase}inmueble/${registro.id}`, registro);
+  }
+  
   CargarArchivo(formData: FormData): Observable<ArchivoModel> {
     return this.http.post<ArchivoModel>(`${this.urlBase}cargar-archivo-inmueble`, formData);
+  }
+
+  BuscarRegistro(id: number): Observable<InmuebleModel>{
+    return this.http.get<InmuebleModel>(`${this.urlBase}inmueble/${id}`);
+  }
+
+  EliminarRegistro(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.urlBase}inmueble/${id}`);
   }
 
 }

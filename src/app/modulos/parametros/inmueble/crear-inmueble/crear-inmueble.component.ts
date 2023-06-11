@@ -23,9 +23,12 @@ export class CrearInmuebleComponent {
   cargaArchivoFG: FormGroup = new FormGroup({});
   archivoCargado: Boolean = false;
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
+  tipo : number =0;
   tiposInmueble: TipoInmuebleModel[] = [];
   ciudades: CiudadModel[] = [];
-  // ciudadIdControl = new FormControl('');
+  // formulario = new FormGroup({
+  //   this.ciudades: new FormControl()
+  // });
 
   constructor(
     private fb: FormBuilder,
@@ -38,8 +41,10 @@ export class CrearInmuebleComponent {
   ngOnInit(): void {
     this.ConstruirFormularioDatos();
     this.ConstruirFormularioArchivo();
-    this.obtenerTiposInmueble();
-    this.obtenerCiudades();
+    // this.obtenerTiposInmueble();
+    // this.obtenerCiudades();
+    let elems = document.querySelectorAll('select');
+    let instances = M.FormSelect.init(elems);
   }
 
   ConstruirFormularioDatos() {
@@ -130,6 +135,10 @@ export class CrearInmuebleComponent {
     }
   }
 
+  onSelectChange(value: string) {
+    this.tipo = parseInt(value, 10);
+  }
+
   // --------------------------------------------------------
   obtenerTiposInmueble() {
     this.servicioTipoInmueble.obtenerTiposInmueble().subscribe(
@@ -143,16 +152,16 @@ export class CrearInmuebleComponent {
     );
   }
 
-  obtenerCiudades(): void {
-    this.servicioCiudad.obtenerCiudades().subscribe(
-      (response: CiudadModel[]) => {
-        this.ciudades = response;
-      },
-      (error) => {
-        console.log('Error al obtener las ciudades:', error);
-      }
-    );
-  }
+  // obtenerCiudades(): void {
+  //   this.servicioCiudad.obtenerCiudades().subscribe(
+  //     (response: CiudadModel[]) => {
+  //       this.ciudades = response;
+  //     },
+  //     (error) => {
+  //       console.log('Error al obtener las ciudades:', error);
+  //     }
+  //   );
+  // }
 
   // onCiudadSelectChange(ciudadId: number) {
   //   console.log('Ciudad seleccionada:', ciudadId);

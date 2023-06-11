@@ -1,10 +1,10 @@
 export class InmuebleModel {
     id?: number;
     direccion?: string;
-    costo?: string;
+    costo?: number;
     foto?: string;
     tipoInmuebleId?: number;
-    ciudadId?: string;
+    ciudadId?: number;
     paraVenta?: boolean;
     paraAlquiler?: boolean;
     correoAsesor?: string;

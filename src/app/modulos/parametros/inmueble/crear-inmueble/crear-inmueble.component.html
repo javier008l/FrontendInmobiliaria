@@ -1,7 +1,7 @@
 <fieldset class="center container">
     <legend>Creación de Inmuebles</legend>
     <div class="row">
-        <!-- <form class="col s12" [formGroup]="cargaArchivoFG">
+        <form class="col s12" [formGroup]="cargaArchivoFG">
             <div class="row">
                 <div class="showImage center-align">
                     <img *ngIf="!archivoCargado" src="/assets/media/default.png" class="imagenInmueble" />
@@ -22,7 +22,7 @@
                     <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo()" />
                 </div>
             </div>
-        </form> -->
+        </form>
     </div>
     <div class="row">
       <form [formGroup]="fGroup">
@@ -45,13 +45,14 @@
           </div>
           <!-- ------------------------- -->
           <div class="input-field col s3">
-            <input formControlName="tipoInmuebleId" id="tipoInmuebleId" type="number">
-            <label for="tipoInmuebleId">Tipo Inmueble</label>
-            <div class="show-errors" *ngIf="obtenerFgDatos['tipoInmuebleId'].errors 
-            && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
-            <strong>Este campo es obligatorio</strong>
-            </div>
-          </div>
+            <select #selectElement (change)="onSelectChange(selectElement.value)">
+              <option value="" disabled selected>Tipo de inmueble</option>
+              <option value="1">Casa</option>
+              <option value="2">Apartamento</option>
+              <option value="3">Finca</option>
+            </select>
+            <label>Elige uno</label>
+        </div>
            <div class="input-field col s3">
             <input formControlName="ciudadId" id="ciudadId" type="number">
             <label for="ciudadId">ciudad</label> 
@@ -60,38 +61,22 @@
             <strong>Este campo es obligatorio</strong>
             </div>
           </div> 
-      
-         <!-- ----------------- -->
-         <!-- <div class="input-field col s3">
-          <select #selectElement
-              (change)="onSelectChange(selectElement.value)">
-              <option value="" disabled selected>xxxx</option>
-              <option value="casa">Casa</option>
-              <option value="apartamento">Apartamento</option>
-              <option value="finca">Finca</option>
-          </select>
-          <label>Elige uno</label>
-      </div> -->
-      <!-- <div>
-        <select (change)="onCiudadSelectChange($event.target.value)">
-          <option value="" disabled selected>Selecciona una opción</option>
-          <option *ngFor="let ciudad of ciudades" [value]="ciudad?.id">{{ ciudad?.nombre }}</option>
-        </select>
-      </div> -->
 
-      
-      
-      
-         <!-- ----- -->
+          <!-- <ng-container *ngIf="tiposInmueble">
+            <form [formGroup]="formulario">
+              <mat-form-field appearance="fill">
+                <mat-label>Select an option</mat-label>
+                <mat-select formControlName="tipoInmueble">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let tipo of tiposInmueble" [value]="tipo.id">
+                    {{ tipo.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+          </ng-container> -->
           
-          <!-- ------------------------- -->
-          <!-- TIPO DE INMUEBLE -->
-          <!-- <div>
-          <select formControlName="tipoInmuebleId" id="tipoInmuebleId">
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option *ngFor="let tipo of tiposInmueble" [value]="tipo.id">{{ tipo.nuevoTipoInmueble}}</option>
-          </select>
-        </div> -->
+      
         <!-- CIUDADES -->
         <!-- <div>
           <select formControlName="ciudadId" id="ciudadId">

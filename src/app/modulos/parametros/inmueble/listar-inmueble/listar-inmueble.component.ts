@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
+import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { InmuebleService} from 'src/app/servicios/parametros/inmueble.service';
 
@@ -13,6 +14,7 @@ export class ListarInmuebleComponent {
   pag = 1;
   total = 0;
   registroPorPagina = ConfiguracionPaginacion.registrosPorPagina;
+  BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
 
   constructor(
     private servicioInmueble: InmuebleService

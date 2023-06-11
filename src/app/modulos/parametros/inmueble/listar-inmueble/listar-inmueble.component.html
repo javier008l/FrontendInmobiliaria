@@ -29,7 +29,9 @@
         <td>{{inmueble.paraAlquiler}}</td>
         <td>{{inmueble.correoAsesor}}</td>
         <td>{{inmueble.fecha}}</td>
-        <td><img src="{{inmueble.foto}}" class="imagenListadoRegistros" /></td>
+        <td>
+          <img src="{{BASE_URL}}ObtenerArchivo/1/{{inmueble.foto}}" class="imagenListadoRegistros" />
+        </td>
         <td class="direccion">
           <a routerLink="/parametros/inmueble-editar/{{inmueble.id}}"
             class="btn orange">Editar Registro</a>&nbsp;
