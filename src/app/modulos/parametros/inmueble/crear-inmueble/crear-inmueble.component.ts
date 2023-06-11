@@ -9,7 +9,6 @@ import { TipoInmuebleModel } from 'src/app/modelos/tipoInmueble.model';
 import { CiudadService } from 'src/app/servicios/parametros/ciudad.service';
 import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
 import { TipoInmuebleService } from 'src/app/servicios/parametros/tipo-inmueble.service';
-// import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-crear-inmueble',
@@ -24,14 +23,14 @@ export class CrearInmuebleComponent {
   archivoCargado: Boolean = false;
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
   tipo : number =0;
-  tiposInmueble: TipoInmuebleModel[] = [];
-  ciudades: CiudadModel[] = [];
+  // tiposInmueble: TipoInmuebleModel[] = [];
+  // ciudades: CiudadModel[] = [];
   
   constructor(
     private fb: FormBuilder,
     private servicio: InmuebleService,
-    private servicioTipoInmueble: TipoInmuebleService,
-    private servicioCiudad: CiudadService,
+    // private servicioTipoInmueble: TipoInmuebleService,
+    // private servicioCiudad: CiudadService,
     private router: Router,
   ) { }
 
@@ -48,12 +47,12 @@ export class CrearInmuebleComponent {
     this.fGroup = this.fb.group({
       direccion: ['', [Validators.required]],
       costo: ['', [Validators.required]],
-      foto: [''],
+      foto: ['', [Validators.required]],
       tipoInmuebleId: ['', [Validators.required]],
       ciudadId: ['', [Validators.required]],
       paraVenta: [''],
       paraAlquiler: [''],
-      correoAsesor: ['', [Validators.required]],
+      correoAsesor: [''],
       fecha: ['', [Validators.required]],
     });
   }

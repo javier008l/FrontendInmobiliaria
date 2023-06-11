@@ -34,8 +34,8 @@ export class EditarInmuebleComponent {
     this.ConstruirFormularioDatos();
     this.ConstruirFormularioArchivo();
     this.BuscarRegistro();
-    let elems = document.querySelectorAll('select');
-    let instances = M.FormSelect.init(elems);
+    // let elems = document.querySelectorAll('select');
+    // let instances = M.FormSelect.init(elems);
   }
 
   BuscarRegistro() {

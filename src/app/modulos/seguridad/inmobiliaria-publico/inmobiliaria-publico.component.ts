@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { UsuarioValidadoModel } from 'src/app/modelos/usuario.valido.model';
 import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
@@ -14,6 +15,7 @@ export class InmobiliariaPublicoComponent {
   listaInmuebles: InmuebleModel[] = [];
   showVenta: boolean = true;
   showAlquiler: boolean = false;
+  BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
 
   constructor(
     private servicioSeguridad: SeguridadService,

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="showImage center-align">
                     <img *ngIf="!archivoCargado" src="/assets/media/default.png" class="imagenInmueble" />
-                    <img *ngIf="archivoCargado" src="{{BASE_URL}}ObtenerArchivo/1/{{nombreArchivoCargado}}" class="imagenInmueble" />
+                    <img *ngIf="archivoCargado" src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado}}" class="imagenInmueble" />
                 </div>
             </div>
             <div class="file-field input-field row">
@@ -44,7 +44,7 @@
             </div>
           </div>
           <!-- ------------------------- -->
-          <div class="input-field col s3">
+          <!-- <div class="input-field col s3">
             <select #selectElement (change)="onSelectChange(selectElement.value)">
               <option value="" disabled selected>Tipo de inmueble</option>
               <option value="1">Casa</option>
@@ -52,7 +52,15 @@
               <option value="3">Finca</option>
             </select>
             <label>Elige uno</label>
-        </div>
+        </div> -->
+        <div class="input-field col s3">
+          <input formControlName="tipoInmuebleId" id="tipoInmuebleId" type="number">
+          <label for="tipoInmuebleId">Tipo de Inmueble</label> 
+          <div class="show-errors" *ngIf="obtenerFgDatos['tipoInmuebleId'].errors 
+          && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
+          <strong>Este campo es obligatorio</strong>
+          </div>
+        </div> 
            <div class="input-field col s3">
             <input formControlName="ciudadId" id="ciudadId" type="number">
             <label for="ciudadId">ciudad</label> 
@@ -92,7 +100,6 @@
           </label>
           <div class="show-errors" *ngIf="obtenerFgDatos['paraVenta'].errors 
             && (obtenerFgDatos['paraVenta'].dirty || obtenerFgDatos['paraVenta'].touched)">
-            <strong>Este campo es obligatorio</strong>
           </div>
         </div>
         <!-- PARA ALQUILAR -->
@@ -103,7 +110,6 @@
           </label>
           <div class="show-errors" *ngIf="obtenerFgDatos['paraAlquiler'].errors 
             && (obtenerFgDatos['paraAlquiler'].dirty || obtenerFgDatos['paraAlquiler'].touched)">
-            <strong>Este campo es obligatorio</strong>
           </div>
         </div>
         <!-- CORREO DEL ASESOR -->
@@ -112,7 +118,6 @@
           <label for="correoAsesor">correo Asesor</label>
           <div class="show-errors" *ngIf="obtenerFgDatos['correoAsesor'].errors 
           && (obtenerFgDatos['correoAsesor'].dirty || obtenerFgDatos['correoAsesor'].touched)">
-          <strong>Este campo es obligatorio</strong>
           </div>
         </div>
         <!-- FECHA -->
