@@ -24,7 +24,7 @@ export class ClienteService {
   listarRegistrosClientes(pag: number): Observable<PaginadorClienteModel> {
     let limit = ConfiguracionPaginacion.registrosPorPagina;
     let skip = (pag -1) * limit;
-    let url = `${this.urlBase}cliente?filter={"limit":${limit}, "skip":${skip}}`
+    let url = `${this.urlBase}cliente?filter={"limit":${limit}, "skip":${skip}, "order": "id DESC"}`
     return this.http.get<PaginadorClienteModel>(url);
   }
 

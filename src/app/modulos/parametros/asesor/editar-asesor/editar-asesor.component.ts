@@ -76,7 +76,7 @@ export class EditarAsesorComponent {
       this.servicio.EditarRegistro(model).subscribe({
         next: (data: AsesorModel) => {
           alert("Información modificada correctamente");
-          this.router.navigate(['/parametros/cliente-listar']);
+          this.router.navigate(['/parametros/asesor-listar']);
         },
         error: (err: any) => {
           alert("Ha ocurrido un error");

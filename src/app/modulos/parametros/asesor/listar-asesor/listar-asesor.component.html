@@ -12,7 +12,7 @@
             <th>Telefono</th>
             <th>Direccion</th>
             <th>Inmuebles</th>
-            <!-- <th>Solicitudes</th> -->
+            <th>Solicitudes</th>
             <th>Acciones</th>
         </tr>
       </thead>
@@ -24,7 +24,7 @@
           <td>{{r.telefono}}</td>
           <td>{{r.direccion}}</td>
           <td>{{r.inmuebleId}}</td>
-          <!-- <td>{{r.solicitudId}}</td> -->
+          <td>{{r.solicitudId}}</td>
   
           <td>
             <a routerLink="/parametros/asesor-editar/{{r.id}}"
@@ -34,7 +34,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="5">
+          <td colspan="8">
             <pagination-controls
             (pageChange)="pag = $event; ListarRegistrosAsesores()"
             previousLabel="Anterior"

@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="input-field col s6">
-            <input formControlName="cedula" id="cedula" type="text">
+            <input formControlName="cedula" id="cedula" type="text" maxLength="10">
             <label for="cedula" class="active">Cedula</label>
             <div class="show-errors" *ngIf="obtenerFgDatos['cedula'].errors 
         && (obtenerFgDatos['cedula'].dirty || obtenerFgDatos['cedula'].touched)">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="input-field col s6">
-            <input formControlName="correo" id="correo" type="text">
+            <input formControlName="correo" id="correo" type="text" maxLength="10">
             <label for="correo" class="active">Correo</label>
             <div class="show-errors" *ngIf="obtenerFgDatos['correo'].errors 
         && (obtenerFgDatos['correo'].dirty || obtenerFgDatos['correo'].touched)">
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="input-field col s6">
-            <input formControlName="telefono" id="telefono" type="text">
+            <input formControlName="telefono" id="telefono" type="text" maxLength="13">
             <label for="telefono" class="active">Telefono</label>
             <div class="show-errors" *ngIf="obtenerFgDatos['telefono'].errors 
         && (obtenerFgDatos['telefono'].dirty || obtenerFgDatos['telefono'].touched)">
