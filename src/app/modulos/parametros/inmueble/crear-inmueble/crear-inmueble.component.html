@@ -51,14 +51,15 @@
         </div>
         <!-- ------------------------- -->
         <!-- <div class="input-field col s3">
-            <select #selectElement (change)="onSelectChange(selectElement.value)">
-              <option value="" disabled selected>Tipo de inmueble</option>
-              <option value="1">Casa</option>
-              <option value="2">Apartamento</option>
-              <option value="3">Finca</option>
-            </select>
-            <label>Elige uno</label>
+          <select formControlName="tipoInmuebleId">
+            <option value="" disabled selected>Tipo de inmueble</option>
+            <option value=1>Casa</option>
+            <option value=2>Apartamento</option>
+            <option value=3>Finca</option>
+          </select>
+          <label>Elige uno</label>
         </div> -->
+        
         <div class="input-field col s3">
           <input formControlName="tipoInmuebleId" id="tipoInmuebleId"
             type="number">
