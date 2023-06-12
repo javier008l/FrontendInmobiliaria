@@ -3,12 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { ArchivoModel } from 'src/app/modelos/archivo.model';
-import { CiudadModel } from 'src/app/modelos/ciudad.model';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
-import { TipoInmuebleModel } from 'src/app/modelos/tipoInmueble.model';
-import { CiudadService } from 'src/app/servicios/parametros/ciudad.service';
 import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
-import { TipoInmuebleService } from 'src/app/servicios/parametros/tipo-inmueble.service';
 
 @Component({
   selector: 'app-crear-inmueble',

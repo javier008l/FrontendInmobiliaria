@@ -22,7 +22,7 @@ export class SolicitudService {
   listarRegistrosSolicitudesPaginados(pag: number): Observable<PaginadorSolicitudModel> {
     let limit = ConfiguracionPaginacion.registrosPorPagina;
     let skip = (pag -1) * limit;
-    let url = `${this.urlBase}solicitud-paginada?filter={"limit":${limit}, "skip":${skip}}`
+    let url = `${this.urlBase}solicitud-paginada?filter={"limit":${limit}, "skip":${skip}, "order":"id DESC"}`
     return this.http.get<PaginadorSolicitudModel>(url);
   }
 
