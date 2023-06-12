@@ -1,59 +1,68 @@
 <fieldset class="center container">
-    <legend>Edición de Inmuebles</legend>
-    <div class="row">
-        <form class="col s12" [formGroup]="cargaArchivoFG">
-            <div class="row">
-                <div class="showImage center-align">
-                    <img *ngIf="!archivoCargado" src="/assets/media/default.png" class="imagenInmueble" />
-                    <img *ngIf="archivoCargado" src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado}}" class="imagenInmueble" />
-                </div>
-            </div>
-            <div class="file-field input-field row">
-                <div class="btn col s3">
-                    <span>Seleccionar Archivo</span>
-                    <input (change)="CuandoSeleccionaArchivo($event)" name="image" type="file">
-                </div>
-                <div class="file-path-wrapper col s9">
-                    <input class="file-path validate" type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo()" />
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="row">
-      <form [formGroup]="fGroup">
-        <div class="row">
-          <div class="input-field col s4">
-            <input type="hidden" formControlName="id" />
-            <input formControlName="direccion" class="validate" id="direccion" type="text">
-            <label for="direccion" data-error="wrong" class="active" data-success="right">Direccion</label>
-            <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors 
+  <legend>Edición de Inmuebles</legend>
+  <div class="row">
+    <form class="col s12" [formGroup]="cargaArchivoFG">
+      <div class="row">
+        <div class="showImage center-align">
+          <img *ngIf="!archivoCargado" src="/assets/media/default.png"
+            class="imagenInmueble" />
+          <img *ngIf="archivoCargado"
+            src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado}}"
+            class="imagenInmueble" />
+        </div>
+      </div>
+      <div class="file-field input-field row">
+        <div class="btn col s3">
+          <span>Seleccionar Archivo</span>
+          <input (change)="CuandoSeleccionaArchivo($event)" name="image"
+            type="file">
+        </div>
+        <div class="file-path-wrapper col s9">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <input type="button" class="btn" value="Subir Archivo"
+            (click)="CargarArchivo()" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <form [formGroup]="fGroup">
+      <div class="row">
+        <div class="input-field col s4">
+          <input type="hidden" formControlName="id" />
+          <input formControlName="direccion" class="validate" id="direccion"
+            type="text" [readonly]="true">
+          <label for="direccion" data-error="wrong" class="active"
+            data-success="right">Direccion</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors 
             && (obtenerFgDatos['direccion'].dirty || obtenerFgDatos['direccion'].touched)">
-            <strong>Este campo es obligatorio</strong>
-            </div>
+            <!-- <strong>Este campo es obligatorio</strong> -->
           </div>
-          <div class="input-field col s4">
-            <input formControlName="costo" id="costo" type="number">
-            <label for="costo" class="active" >Costo</label>
-            <div class="show-errors" *ngIf="obtenerFgDatos['costo'].errors 
+        </div>
+        <div class="input-field col s4">
+          <input formControlName="costo" id="costo" type="number">
+          <label for="costo" class="active">Costo</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['costo'].errors 
             && (obtenerFgDatos['costo'].dirty || obtenerFgDatos['costo'].touched)">
             <strong>Este campo es obligatorio</strong>
-            </div>
           </div>
-          <!-- TIPO INMUEBLE -->
-          <div class="input-field col s4">
-            <input formControlName="tipoInmuebleId" id="tipoInmuebleId" type="number">
-            <label for="tipoInmuebleId">Tipo de inmueble</label> 
-            <div class="show-errors" *ngIf="obtenerFgDatos['tipoInmuebleId'].errors 
+        </div>
+        <!-- TIPO INMUEBLE -->
+        <div class="input-field col s4">
+          <input formControlName="tipoInmuebleId" id="tipoInmuebleId"
+            type="number" [readonly]="true">
+          <label for="tipoInmuebleId">Tipo de inmueble</label>
+          <div class="show-errors"
+            *ngIf="obtenerFgDatos['tipoInmuebleId'].errors 
             && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
             <strong>Este campo es obligatorio</strong>
-            </div>
-          </div> 
-          <!-- <div class="input-field col s4">
+          </div>
+        </div>
+        <!-- <div class="input-field col s4">
             <select #selectElement (change)="onSelectChange(selectElement.value)">
               <option value="" disabled selected>Tipo de inmueble</option>
               <option value=1>Casa</option>
@@ -62,16 +71,17 @@
             </select>
             <label>Elige uno</label>
             </div> -->
-            <!-- CIUDAD -->
-            <div class="input-field col s4">
-              <input formControlName="ciudadId" id="ciudadId" type="number">
-              <label for="ciudadId">ciudad</label> 
-              <div class="show-errors" *ngIf="obtenerFgDatos['ciudadId'].errors 
+        <!-- CIUDAD -->
+        <div class="input-field col s4">
+          <input formControlName="ciudadId"
+            id="ciudadId" type="number" [readonly]="true">
+          <label for="ciudadId">ciudad</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['ciudadId'].errors 
               && (obtenerFgDatos['ciudadId'].dirty || obtenerFgDatos['ciudadId'].touched)">
-              <strong>Este campo es obligatorio</strong>
-              </div>
-            </div> 
-            <!-- PARA VENDER -->
+            <strong>Este campo es obligatorio</strong>
+          </div>
+        </div>
+        <!-- PARA VENDER -->
         <div class="input-field col s4">
           <label>
             <input formControlName="paraVenta" id="paraVenta" type="checkbox">
@@ -85,10 +95,12 @@
         <!-- PARA ALQUILAR -->
         <div class="input-field col s4">
           <label>
-            <input formControlName="paraAlquiler" id="paraAlquiler" type="checkbox">
+            <input formControlName="paraAlquiler" id="paraAlquiler"
+              type="checkbox">
             <span>para Alquiler</span>
           </label>
-          <div class="show-errors" *ngIf="obtenerFgDatos['paraAlquiler'].errors 
+          <div class="show-errors"
+            *ngIf="obtenerFgDatos['paraAlquiler'].errors 
             && (obtenerFgDatos['paraAlquiler'].dirty || obtenerFgDatos['paraAlquiler'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
@@ -97,26 +109,19 @@
         <div class="input-field col s5">
           <input formControlName="correoAsesor" id="correoAsesor" type="text">
           <label for="correoAsesor">correo Asesor</label>
-          <div class="show-errors" *ngIf="obtenerFgDatos['correoAsesor'].errors 
+          <div class="show-errors"
+            *ngIf="obtenerFgDatos['correoAsesor'].errors 
           && (obtenerFgDatos['correoAsesor'].dirty || obtenerFgDatos['correoAsesor'].touched)">
           </div>
         </div>
-        <!-- FECHA -->
-        <div class="input-field col s5">
-          <input formControlName="fecha" id="fecha" type="date">
-          <label for="fecha">Fecha</label>
-          <div class="show-errors" *ngIf="obtenerFgDatos['fecha'].errors 
-            && (obtenerFgDatos['fecha'].dirty || obtenerFgDatos['fecha'].touched)">
-            <strong>Este campo es obligatorio</strong>
-          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <a routerLink="/parametros/inmueble-listar" class="btn red">Cancelar</a>&nbsp;
+          <button (click)="EditarRegistro()"
+            class="btn waves-effect waves-light">Editar</button>
         </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <a routerLink="/parametros/inmueble-listar" class="btn red">Cancelar</a>&nbsp;
-            <button (click)="EditarRegistro()" class="btn waves-effect waves-light">Editar</button>
-          </div>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
 </fieldset>

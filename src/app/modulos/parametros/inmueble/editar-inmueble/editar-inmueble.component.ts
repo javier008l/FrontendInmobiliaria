@@ -19,7 +19,7 @@ export class EditarInmuebleComponent {
   archivoCargado: Boolean = false;
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
   recordId: number = 0;
-  tipo : number =0;
+  tipo: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -63,33 +63,31 @@ export class EditarInmuebleComponent {
   ConstruirFormularioDatos() {
     this.fGroup = this.fb.group({
       id: ['', [Validators.required]],
-      direccion: ['', [Validators.required]],
-      costo: ['', [Validators.required]],
-      foto: ['', [Validators.required]],
-      tipoInmuebleId: ['', [Validators.required]],
-      ciudadId: ['', [Validators.required]],
-      paraVenta: ['', [Validators.required]],
-      paraAlquiler: ['', [Validators.required]],
-      correoAsesor: ['', [Validators.required]],
-      fecha: ['', [Validators.required]],
+      direccion: [''],
+      costo: [''],
+      foto: [''],
+      tipoInmuebleId: [''],
+      ciudadId: [''],
+      paraVenta: [''],
+      paraAlquiler: [''],
+      correoAsesor: [''],
+      fecha: [''],
     });
   }
 
   EditarRegistro() {
-    if (this.fGroup.invalid) {
-      alert("Debe diligenciar todo el formulario, incluyendo la carga del archivo.");
-    } else {
-      let model = this.obtenerRegistro();
-      this.servicio.EditarRegistro(model).subscribe({
-        next: (data: InmuebleModel) => {
-          alert("Información modificada correctamente");
-          this.router.navigate(['/parametros/inmueble-listar']);
-        },
-        error: (err: any) => {
-          alert("Ha ocurrido un error");
-        }
-      })
-    }
+
+    let model = this.obtenerRegistro();
+    this.servicio.EditarRegistro(model).subscribe({
+      next: (data: InmuebleModel) => {
+        alert("Información modificada correctamente");
+        this.router.navigate(['/parametros/inmueble-listar']);
+      },
+      error: (err: any) => {
+        alert("Ha ocurrido un error");
+      }
+    })
+
   }
 
   obtenerRegistro(): InmuebleModel {
@@ -100,7 +98,7 @@ export class EditarInmuebleComponent {
     model.foto = this.obtenerFgDatos["foto"].value;
     model.tipoInmuebleId = this.obtenerFgDatos["tipoInmuebleId"].value;
     model.ciudadId = this.obtenerFgDatos["ciudadId"].value;
-    model.paraVenta = this.obtenerFgDatos["paraventa"].value;
+    model.paraVenta = this.obtenerFgDatos["paraVenta"].value;
     model.paraAlquiler = this.obtenerFgDatos["paraAlquiler"].value;
     model.correoAsesor = this.obtenerFgDatos["correoAsesor"].value;
     model.fecha = this.obtenerFgDatos["fecha"].value;
