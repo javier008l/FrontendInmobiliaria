@@ -148,6 +148,31 @@ export class SolicitudService {
     });
   }
 
+  conseguirId(correoAsesor: string): Observable<AsesorModel[]> {
+    return this.http.post<AsesorModel[]>(
+      `${this.urlBase}id-asesor`, {
+      correoAsesor: correoAsesor,
+    });
+  }
+
+  conseguirClienteId(correoAsesor: string): Observable<AsesorModel[]> {
+    return this.http.post<AsesorModel[]>(
+      `${this.urlBase}id-cliente`, {
+      correoAsesor: correoAsesor,
+    });
+  }
+
+  hacerSolicitud(inmuebleId: number, asesorId: number, clienteId: number, tipoInmuebleId: number, tipoSolicitudId: number, fechaSolicitud: Date): Observable<AsesorModel[]> {
+    return this.http.post<AsesorModel[]>(
+      `${this.urlBase}solicitud`, {
+      inmuebleId: inmuebleId,
+      asesorId: asesorId,
+      clienteId: clienteId,
+      tipoInmuebleId: tipoInmuebleId,
+      tipoSolicitudId: tipoSolicitudId,
+      fechaSolicitud: fechaSolicitud
+    });
+  }
 
   BuscarRegistro(id: number): Observable<SolicitudModel> {
     return this.http.get<SolicitudModel>(`${this.urlBase}solicitud/${id}`);
@@ -160,6 +185,5 @@ export class SolicitudService {
   EditarRegistro(registro: SolicitudModel): Observable<SolicitudModel> {
     return this.http.put(`${this.urlBase}solicitud/${registro.id}`, registro);
   }
-
 
 }
