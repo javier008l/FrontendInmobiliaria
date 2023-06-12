@@ -22,10 +22,10 @@ export class CrearInmuebleComponent {
   cargaArchivoFG: FormGroup = new FormGroup({});
   archivoCargado: Boolean = false;
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
-  tipo : number =0;
+  tipo: number = 0;
   // tiposInmueble: TipoInmuebleModel[] = [];
   // ciudades: CiudadModel[] = [];
-  
+
   constructor(
     private fb: FormBuilder,
     private servicio: InmuebleService,
@@ -44,6 +44,8 @@ export class CrearInmuebleComponent {
   }
 
   ConstruirFormularioDatos() {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
     this.fGroup = this.fb.group({
       direccion: ['', [Validators.required]],
       costo: ['', [Validators.required]],
@@ -53,7 +55,7 @@ export class CrearInmuebleComponent {
       paraVenta: [''],
       paraAlquiler: [''],
       correoAsesor: [''],
-      fecha: ['', [Validators.required]],
+      fecha: [formattedDate, [Validators.required]],
     });
   }
 
@@ -62,11 +64,12 @@ export class CrearInmuebleComponent {
       alert("Debe diligenciar todo el formulario, incluyendo la carga del archivo.");
     } else {
       let model = this.obtenerRegistro();
-      console.log(model)
+
       this.servicio.AgregarRegistro(model).subscribe({
         next: (data: InmuebleModel) => {
           alert("Información almacenada correctamente");
           this.router.navigate(['/parametros/inmueble-listar']);
+          console.log(model)
         },
         error: (err: any) => {
           alert("Ha ocurrido un error");
@@ -85,7 +88,7 @@ export class CrearInmuebleComponent {
     model.paraVenta = this.obtenerFgDatos["paraVenta"].value;
     model.paraAlquiler = this.obtenerFgDatos["paraAlquiler"].value;
     model.correoAsesor = this.obtenerFgDatos["correoAsesor"].value;
-    model.fecha = this.obtenerFgDatos["fecha"].value;
+    model.fecha = this.convertDateFormat(this.obtenerFgDatos["fecha"].value);
     return model;
   }
 
@@ -106,6 +109,20 @@ export class CrearInmuebleComponent {
   get obtenerFgArchivo() {
     return this.cargaArchivoFG.controls;
   }
+
+  convertDateFormat(inputDate: string): Date {
+    const parts = inputDate.split('/');
+    const day = parts[0].padStart(2, '0');
+    const month = parts[1].padStart(2, '0');
+    const year = parts[2];
+
+    const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
+
+    const formattedDate = `${year}-${month}-${day} ${currentTime}`;
+
+    return new Date(formattedDate);
+  }
+
 
   CargarArchivo() {
     const formData = new FormData();
@@ -161,10 +178,10 @@ export class CrearInmuebleComponent {
 
   // onCiudadSelectChange(ciudadId: number) {
   //   console.log('Ciudad seleccionada:', ciudadId);
-  
+
   //   // Obtener la ciudad seleccionada
   //   const ciudadSeleccionada = this.ciudades.find(ciudad => ciudad.id === ciudadId);
-  
+
   //   // Realizar la lógica adicional con la ciudad seleccionada
   //   if (ciudadSeleccionada) {
   //     console.log('Nombre de la ciudad:', ciudadSeleccionada.nombre);
