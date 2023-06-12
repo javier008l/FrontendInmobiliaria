@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
+import { AsesorModel } from 'src/app/modelos/asesor.model';
 import { CoDeudorModel } from 'src/app/modelos/codeudor.model';
 import { ContratoModel } from 'src/app/modelos/contrato.model';
+import { DatosAsignacionSolicitudes } from 'src/app/modelos/datos-asignacion-solicitud.model';
 import { PaginadorSolicitudModel } from 'src/app/modelos/paginador.solicitud.model';
 import { SolicitudModel } from 'src/app/modelos/solicitud.model';
 
@@ -21,7 +23,7 @@ export class SolicitudService {
   // }
   listarRegistrosSolicitudesPaginados(pag: number): Observable<PaginadorSolicitudModel> {
     let limit = ConfiguracionPaginacion.registrosPorPagina;
-    let skip = (pag -1) * limit;
+    let skip = (pag - 1) * limit;
     let url = `${this.urlBase}solicitud-paginada?filter={"limit":${limit}, "skip":${skip}}`
     return this.http.get<PaginadorSolicitudModel>(url);
   }
@@ -127,17 +129,37 @@ export class SolicitudService {
     );
   }
 
-  BuscarRegistro(id: number): Observable<SolicitudModel>{
+  // CambiarASesor(solicitudId: number, asesorActualId: number, asesorNuevoId: number): Observable<DatosAsignacionSolicitudes[]> {
+  //   return this.http.post<DatosAsignacionSolicitudes[]>(
+  //     `${this.urlBase}cambiar-Solicitud-asesor`, {
+  //     solicitudId: solicitudId,
+  //     asesorActualId: asesorActualId,
+  //     asesorNuevoId: asesorNuevoId
+  //   }
+  //   );
+  // }
+
+  CambiarASesor(solicitudId: number, asesorActualId: number, asesorNuevoId: number): Observable<DatosAsignacionSolicitudes[]> {
+    return this.http.post<DatosAsignacionSolicitudes[]>(
+      `${this.urlBase}cambiar-Solicitud-asesor`, {
+      solicitudId: solicitudId,
+      asesorActualId: asesorActualId,
+      asesorNuevoId: asesorNuevoId
+    });
+  }
+
+
+  BuscarRegistro(id: number): Observable<SolicitudModel> {
     return this.http.get<SolicitudModel>(`${this.urlBase}solicitud/${id}`);
   }
 
-  EliminarRegistro(id: number): Observable<any>{
+  EliminarRegistro(id: number): Observable<any> {
     return this.http.delete<any>(`${this.urlBase}solicitud/${id}`);
   }
 
-  EditarRegistro(registro: SolicitudModel):Observable<SolicitudModel>{
+  EditarRegistro(registro: SolicitudModel): Observable<SolicitudModel> {
     return this.http.put(`${this.urlBase}solicitud/${registro.id}`, registro);
   }
-  
+
 
 }

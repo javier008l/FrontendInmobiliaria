@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SolicitudService } from 'src/app/servicios/parametros/solicitud.service';
+
 
 @Component({
   selector: 'app-cambiar-asesor-solicitud',
@@ -9,17 +11,22 @@ import { ActivatedRoute } from '@angular/router';
 export class CambiarAsesorSolicitudComponent {
   id: any;
   asesorId: any;
-  // nuevoAsesor: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private servicioSolicitudes: SolicitudService,) { }
 
   CambiarAsesor(event: Event) {
     event.preventDefault();
     this.route.params.subscribe(params => {
-      this.id = params['id'];
-      this.asesorId = params['asesorId'];
-      const nuevoAsesor = (document.getElementById('nuevoAsesor') as HTMLInputElement)?.value;
-      console.log(this.id, this.asesorId, nuevoAsesor);
+      this.id = Number(params['id']);
+      this.asesorId = Number(params['asesorId']);
+      const nuevoAsesorInput = document.getElementById('nuevoAsesor') as HTMLInputElement;
+      const nuevoAsesorValue = nuevoAsesorInput?.value;
+      const nuevoAsesorNumber = parseInt(nuevoAsesorValue);
+      console.log(this.id, this.asesorId, nuevoAsesorNumber);
+
+      this.servicioSolicitudes.CambiarASesor(this.id, this.asesorId, nuevoAsesorNumber).subscribe({
+
+      });
     });
   }
 }

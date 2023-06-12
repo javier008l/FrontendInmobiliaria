@@ -21,6 +21,8 @@ import { ListarAsesorComponent } from './asesor/listar-asesor/listar-asesor.comp
 import { CrearAsesorComponent } from './asesor/crear-asesor/crear-asesor.component';
 import { EliminarAsesorComponent } from './asesor/eliminar-asesor/eliminar-asesor.component';
 import { EditarAsesorComponent } from './asesor/editar-asesor/editar-asesor.component';
+import { CrearSolicitudesClienteComponent } from './crear-solicitudes-cliente/crear-solicitudes-cliente.component';
+import { SinglePageComponent } from './single-page/single-page.component';
 
 const routes: Routes = [
   {
@@ -103,6 +105,16 @@ const routes: Routes = [
   {
     path: "asesor-eliminar/:id",
     component: EliminarAsesorComponent,
+  },
+
+  {
+    path: "crear-solicitudes-cliente/:id",
+    component: CrearSolicitudesClienteComponent,
+  },
+
+  {
+    path: "pagina-inmueble/:id",
+    component: SinglePageComponent,
   },
   {
     path: "asesor-editar/:id",

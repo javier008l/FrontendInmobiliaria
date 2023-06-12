@@ -1,20 +1,23 @@
 <div class="contenedor">
-<ul id="slide-out" class="sidenav">
-  <li><div class="user-view">
-    <div class="background fondo">
-    </div>
-    <div class="direccion">
-    <a href="#user" class="perfil"><img class="circle"  src="../../../../assets/media/casa1.png"></a>
-    <a href="#name"class="perfil"><span class="white-text name">Inmobiliaria Tu Hogar</span></a>
-    <br>
-  </div>
-  </div>
-</li>
-<!-- ***************************** -->
-<!-- icono -->
-<li *ngFor="let m of listaMenus">
-  <a class="opcion" routerLink="{{m.ruta}}">{{m.texto }}</a>
-  <div class="divider"></div></li>
-</ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger menu"><i class="material-icons">menu</i></a>
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+        <div class="background fondo">
+        </div>
+        <div class="direccion">
+          <a href="#user" class="perfil"><img class="circle"
+              src="../../../../assets/media/casa1.png"></a>
+          <a href="#name" class="perfil"><span class="white-text name">Inmobiliaria
+              Tu Hogar</span></a>
+          <br>
+        </div>
+      </div>
+    </li>
+    <!-- ***************************** -->
+    <!-- icono -->
+    <li *ngFor="let m of listaMenus">
+      <a class="opcion" routerLink="{{m.ruta}}">{{m.texto }}</a>
+      <div class="divider"></div></li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger menu"><i
+      class="material-icons">menu</i></a>
 </div>
