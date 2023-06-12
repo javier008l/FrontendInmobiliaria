@@ -18,6 +18,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-asesor.component';
 import { CambiarAsesorSolicitudComponent } from './cambiar-asesor-solicitud/cambiar-asesor-solicitud.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListarAsesorComponent } from './asesor/listar-asesor/listar-asesor.component';
+import { CrearAsesorComponent } from './asesor/crear-asesor/crear-asesor.component';
+import { EditarAsesorComponent } from './asesor/editar-asesor/editar-asesor.component';
+import { EliminarAsesorComponent } from './asesor/eliminar-asesor/eliminar-asesor.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListarSolicitudComponent,
     SolicitudesAsesorComponent,
     CambiarAsesorSolicitudComponent,
+    ListarAsesorComponent,
+    CrearAsesorComponent,
+    EditarAsesorComponent,
+    EliminarAsesorComponent,
   ],
   imports: [
     CommonModule,

@@ -17,6 +17,10 @@ import { EliminarClienteComponent } from './cliente/eliminar-cliente/eliminar-cl
 import { CreacionDepCiuComponent } from './creacion-dep-ciu/creacion-dep-ciu.component';
 import { SolicitudesAsesorComponent } from './solicitudes-asesor/solicitudes-asesor.component';
 import { CambiarAsesorSolicitudComponent } from './cambiar-asesor-solicitud/cambiar-asesor-solicitud.component';
+import { ListarAsesorComponent } from './asesor/listar-asesor/listar-asesor.component';
+import { CrearAsesorComponent } from './asesor/crear-asesor/crear-asesor.component';
+import { EliminarAsesorComponent } from './asesor/eliminar-asesor/eliminar-asesor.component';
+import { EditarAsesorComponent } from './asesor/editar-asesor/editar-asesor.component';
 
 const routes: Routes = [
   {
@@ -59,7 +63,8 @@ const routes: Routes = [
   {
     path: "solicitudes-cliente",
     component: SolicitudesClienteComponent
-  }, {
+  },
+  {
     path: "cliente-listar",
     component: ListarClienteComponent,
   },
@@ -86,7 +91,23 @@ const routes: Routes = [
   {
     path: "creacion",
     component: CreacionDepCiuComponent
-  }
+  },
+  {
+    path: "asesor-listar",
+    component: ListarAsesorComponent,
+  },
+  {
+    path: "asesor-agregar",
+    component: CrearAsesorComponent,
+  },
+  {
+    path: "asesor-eliminar/:id",
+    component: EliminarAsesorComponent,
+  },
+  {
+    path: "asesor-editar/:id",
+    component: EditarAsesorComponent,
+  },
 ];
 
 @NgModule({

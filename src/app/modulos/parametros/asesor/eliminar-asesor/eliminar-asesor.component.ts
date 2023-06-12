@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
-import { ClienteModel } from 'src/app/modelos/cliente.model';
-import { ClienteService } from 'src/app/servicios/parametros/cliente.service';
+import { AsesorModel } from 'src/app/modelos/asesor.model';
+import { AsesorService } from 'src/app/servicios/parametros/asesor.service';
 
 @Component({
-  selector: 'app-eliminar-cliente',
-  templateUrl: './eliminar-cliente.component.html',
-  styleUrls: ['./eliminar-cliente.component.css']
+  selector: 'app-eliminar-asesor',
+  templateUrl: './eliminar-asesor.component.html',
+  styleUrls: ['./eliminar-asesor.component.css']
 })
-export class EliminarClienteComponent {
+export class EliminarAsesorComponent {
 
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
   recordId: number = 0;
@@ -20,9 +20,12 @@ export class EliminarClienteComponent {
   cedula: string = "";
   correo: string = "";
   telefono: string = "";
+  direccion: string = "";
+  inmuebleId: number[] = [];
+  // solicitudId?: number[] = [];
 
   constructor(
-    private servicio: ClienteService,
+    private servicio: AsesorService,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -35,7 +38,7 @@ export class EliminarClienteComponent {
 
   BuscarRegistro() {
     this.servicio.BuscarRegistro(this.recordId).subscribe({
-      next: (datos: ClienteModel) => {
+      next: (datos: AsesorModel) => {
         this.recordId = datos.id!;
         this.primerNombre = datos.primerNombre!;
         this.segundoNombre = datos.segundoNombre!;
@@ -44,6 +47,9 @@ export class EliminarClienteComponent {
         this.cedula = datos.cedula!;
         this.correo = datos.correo!;
         this.telefono = datos.telefono!;
+        this.direccion = datos.direccion!;
+        this.inmuebleId = datos.inmuebleId!;
+        // this.solicitudId = datos.solicitudId!;
       },
       error: (err) => {
         alert("El registro no existe.")

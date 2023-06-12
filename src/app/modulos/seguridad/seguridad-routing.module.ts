@@ -11,7 +11,6 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-usuario.component';
-import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/registro-privado-asesor.component';
 import { RegistroPublicoAsesorComponent } from './registro-publico-asesor/registro-publico-asesor.component';
 import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 import { FormularioContactoClienteComponent } from './formulario-contacto-cliente/formulario-contacto-cliente.component';
@@ -88,11 +87,6 @@ const routes: Routes = [
     path: 'registro-publico-asesor',
     component: RegistroPublicoAsesorComponent,
     // canActivate: [ValidarSesionInactivaGuard]
-  },
-  {
-    path: "registro-privado-asesor",
-    component: RegistroPrivadoAsesorComponent,
-    // canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "cambiar-clave",

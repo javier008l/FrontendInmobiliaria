@@ -58,8 +58,8 @@ export namespace ConfiguracionMenuLateral{
     },
     {
         id: "641f65738e3ec03084db6834",
-        ruta: "/seguridad/registro-privado-asesor",
-        texto: "Crear Asesor"
+        ruta: "/parametros/asesor-listar",
+        texto: "Asesores"
     },
     {
         id: "647bbbce168a6494c64db5d9",

@@ -1,5 +1,5 @@
 <fieldset class="center container">
-    <legend class="">Eliminación de Clientes</legend>
+    <legend>Eliminación de Clientes</legend>
     <div class="row">
       <div class="row">
         <div class="col s12">
@@ -14,17 +14,17 @@
         <div class="col s4">Cedula: {{ cedula }}</div>
         <div class="col s4">Correo: {{ correo }}</div>
         <div class="col s4">Telefono: {{ telefono }}</div>
+        <div class="col s4">Direccion: {{ direccion }}</div>
+        <div class="col s4">Inmuebles: {{ inmuebleId }}</div>
+        <!-- <div class="col s4">Solicitudes: {{ solicitudId }}</div> -->
         
       </div>
   
       <div class="row">
         <div class="input-field col s12">
-          <a routerLink="/parametros/cliente-listar" class="btn red">Cancelar</a
+          <a routerLink="/parametros/asesor-listar" class="btn red">Cancelar</a
           >&nbsp;
-          <button
-            (click)="EliminarRegistro()"
-            class="btn waves-effect waves-light"
-          >
+          <button (click)="EliminarRegistro()" class="btn waves-effect waves-light">
             Confirmar
           </button>
         </div>

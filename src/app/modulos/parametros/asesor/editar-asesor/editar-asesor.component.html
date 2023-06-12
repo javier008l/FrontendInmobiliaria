@@ -2,7 +2,7 @@
 <br>
 <div class="container">
   <div class="contenedor">
-    <h3 class="color_principal">Edicion de Clientes</h3>
+    <h3 class="color_principal">Edicion de Asesores</h3>
     <form [formGroup]="fGroup" class="col s12">
       <div class="row">
         <div class="input-field col s4">
@@ -49,7 +49,8 @@
           && (obtenerFgDatos['correo'].dirty || obtenerFgDatos['correo'].touched)">
           <strong>Este campo es obligatorio</strong>
           </div>
-        </div><div class="input-field col s4">
+        </div>
+        <div class="input-field col s4">
           <input formControlName="telefono" id="telefono" type="text">
           <label for="telefono" class="active" >Telefono</label>
           <div class="show-errors" *ngIf="obtenerFgDatos['telefono'].errors 
@@ -57,11 +58,33 @@
           <strong>Este campo es obligatorio</strong>
           </div>
         </div>
+        <div class="input-field col s4">
+          <input formControlName="direccion" id="direccion" type="text">
+          <label for="direccion" class="active" >Direccion</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors 
+          && (obtenerFgDatos['direccion'].dirty || obtenerFgDatos['direccion'].touched)">
+          <strong>Este campo es obligatorio</strong>
+          </div>
+        </div>
+        <div class="input-field col s4">
+          <input formControlName="inmuebleId" id="inmuebleId" type="number">
+          <label for="inmuebleId" class="active" >Inmuebles</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['inmuebleId'].errors 
+          && (obtenerFgDatos['inmuebleId'].dirty || obtenerFgDatos['inmuebleId'].touched)">
+          </div>
+        </div>
+        <div class="input-field col s4">
+          <input formControlName="solicitudId" id="solicitudId" type="number">
+          <label for="solicitudId" class="active" >Solicitudes</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['solicitudId'].errors 
+          && (obtenerFgDatos['solicitudId'].dirty || obtenerFgDatos['solicitudId'].touched)">
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="row">
           <div class="input-field col s12">
-            <a routerLink="/parametros/cliente-listar" class="btn red">Cancelar</a>&nbsp;
+            <a routerLink="/parametros/asesor-listar" class="btn red">Cancelar</a>&nbsp;
             <button (click)="EditarRegistro()" class="btn waves-effect waves-light">Editar</button>
           </div>
         </div>

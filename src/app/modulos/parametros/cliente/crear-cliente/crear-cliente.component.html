@@ -1,1 +1,76 @@
-<p>crear-cliente works!</p>
+<br>
+<br>
+<div class="container">
+  <div class="contenedor">
+    <h3 class="color_principal">Registro Clientes</h3>
+    <form [formGroup]="fGroup" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+            <input formControlName="primerNombre" class="validate" id="primerNombre" type="text">
+            <label for="primerNombre" data-error="wrong" class="active" data-success="right">Primer
+                Nombre</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['primerNombre'].errors 
+        && (obtenerFgDatos['primerNombre'].dirty || obtenerFgDatos['primerNombre'].touched)">
+                <strong>Este campo es obligatorio</strong>
+            </div>
+        </div>
+        <div class="input-field col s6">
+            <input formControlName="segundoNombre" id="segundoNombre" type="text">
+            <label for="segundoNombre" class="active">Segundo Nombre</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['segundoNombre'].errors 
+        && (obtenerFgDatos['segundoNombre'].dirty || obtenerFgDatos['segundoNombre'].touched)">
+            </div>
+        </div>
+        <div class="input-field col s6">
+            <input formControlName="primerApellido" id="primerApellido" type="text">
+            <label for="primerApellido" class="active">Primer Apellido</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['primerApellido'].errors 
+        && (obtenerFgDatos['primerApellido'].dirty || obtenerFgDatos['primerApellido'].touched)">
+                <strong>Este campo es obligatorio</strong>
+            </div>
+        </div>
+        <div class="input-field col s6">
+            <input formControlName="segundoApellido" id="segundoApellido" type="text">
+            <label for="segundoApellido" class="active">Segundo Apellido</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['segundoApellido'].errors 
+        && (obtenerFgDatos['segundoApellido'].dirty || obtenerFgDatos['segundoApellido'].touched)">
+            </div>
+        </div>
+        <div class="input-field col s6">
+            <input formControlName="cedula" id="cedula" type="text">
+            <label for="cedula" class="active">Cedula</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['cedula'].errors 
+        && (obtenerFgDatos['cedula'].dirty || obtenerFgDatos['cedula'].touched)">
+                <strong>Este campo es obligatorio</strong>
+            </div>
+        </div>
+        <div class="input-field col s6">
+            <input formControlName="correo" id="correo" type="text">
+            <label for="correo" class="active">Correo</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['correo'].errors 
+        && (obtenerFgDatos['correo'].dirty || obtenerFgDatos['correo'].touched)">
+                <strong>Este campo es obligatorio</strong>
+            </div>
+        </div>
+        <div class="input-field col s6">
+            <input formControlName="telefono" id="telefono" type="text">
+            <label for="telefono" class="active">Telefono</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['telefono'].errors 
+        && (obtenerFgDatos['telefono'].dirty || obtenerFgDatos['telefono'].touched)">
+                <strong>Este campo es obligatorio</strong>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+            <div class="input-field col s12">
+                <a routerLink="/parametros/cliente-listar" class="waves-effect waves-light btn-large boton">Cancelar</a>&nbsp;
+                <button (click)="GuardarRegistro()" class="waves-effect waves-light btn-large boton">Guardar</button>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<br>
+<br>

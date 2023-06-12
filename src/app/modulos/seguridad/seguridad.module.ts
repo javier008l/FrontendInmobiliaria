@@ -15,7 +15,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { RegistroPublicoUsuariosComponent } from './registro-publico-usuarios/registro-publico-usuarios.component';
 import { ValidarHashUsuarioPublicoComponent } from './validar-hash-usuario-publico/validar-hash-usuario-publico.component';
 import { RegistroPublicoAsesorComponent } from './registro-publico-asesor/registro-publico-asesor.component';
-import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/registro-privado-asesor.component';
+// import { RegistroPrivadoAsesorComponent } from './registro-privado-asesor/registro-privado-asesor.component';
 import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 import { FormularioContactoClienteComponent } from './formulario-contacto-cliente/formulario-contacto-cliente.component';
 import { FormularioContactoAsesorComponent } from './formulario-contacto-asesor/formulario-contacto-asesor.component';
@@ -40,7 +40,7 @@ import { InmueblesAsesorComponent } from '../parametros/inmuebles-asesor/inmuebl
     RegistroPublicoUsuariosComponent,
     ValidarHashUsuarioPublicoComponent,
     RegistroPublicoAsesorComponent,
-    RegistroPrivadoAsesorComponent,
+    // RegistroPrivadoAsesorComponent,
     CambiarClaveComponent,
     FormularioContactoClienteComponent,
     FormularioContactoAsesorComponent,

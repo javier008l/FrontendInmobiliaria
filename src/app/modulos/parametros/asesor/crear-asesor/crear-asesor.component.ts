@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
-  selector: 'app-registro-privado-asesor',
-  templateUrl: './registro-privado-asesor.component.html',
-  styleUrls: ['./registro-privado-asesor.component.css']
+  selector: 'app-crear-asesor',
+  templateUrl: './crear-asesor.component.html',
+  styleUrls: ['./crear-asesor.component.css']
 })
-export class RegistroPrivadoAsesorComponent {
+export class CrearAsesorComponent {
 
   fGroup: FormGroup = new FormGroup({});
 
@@ -66,5 +65,5 @@ export class RegistroPrivadoAsesorComponent {
   get ObtenerFormGroup() {
     return this.fGroup.controls;
   }
-
 }
+

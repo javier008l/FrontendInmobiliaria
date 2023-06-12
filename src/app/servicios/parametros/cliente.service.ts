@@ -28,6 +28,10 @@ export class ClienteService {
     return this.http.get<PaginadorClienteModel>(url);
   }
 
+  AgregarRegistro(registro: ClienteModel):Observable<ClienteModel>{
+    return this.http.post(`${this.urlBase}cliente`, registro);
+  }
+
   BuscarRegistro(id: number): Observable<ClienteModel>{
     return this.http.get<ClienteModel>(`${this.urlBase}cliente/${id}`);
   }
