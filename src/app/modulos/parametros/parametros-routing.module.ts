@@ -23,6 +23,7 @@ import { EliminarAsesorComponent } from './asesor/eliminar-asesor/eliminar-aseso
 import { EditarAsesorComponent } from './asesor/editar-asesor/editar-asesor.component';
 import { CrearSolicitudesClienteComponent } from './crear-solicitudes-cliente/crear-solicitudes-cliente.component';
 import { SinglePageComponent } from './single-page/single-page.component';
+import { InmueblesClienteComponent } from './inmuebles-cliente/inmuebles-cliente.component';
 
 const routes: Routes = [
   {
@@ -119,6 +120,10 @@ const routes: Routes = [
   {
     path: "asesor-editar/:id",
     component: EditarAsesorComponent,
+  },
+  {
+    path: "inmuebles-cliente",
+    component: InmueblesClienteComponent,
   },
 ];
 

@@ -24,6 +24,7 @@ import { EditarAsesorComponent } from './asesor/editar-asesor/editar-asesor.comp
 import { EliminarAsesorComponent } from './asesor/eliminar-asesor/eliminar-asesor.component';
 import { CrearSolicitudesClienteComponent } from './crear-solicitudes-cliente/crear-solicitudes-cliente.component';
 import { SinglePageComponent } from './single-page/single-page.component';
+import { InmueblesClienteComponent } from './inmuebles-cliente/inmuebles-cliente.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SinglePageComponent } from './single-page/single-page.component';
     EliminarAsesorComponent,
     CrearSolicitudesClienteComponent,
     SinglePageComponent,
+    InmueblesClienteComponent,
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,10 @@
 export namespace ConfiguracionMenuLateral{
     export const listarMenus=[
     // MENU LATERAL DEL CLIENTE
+    // 6487877e5b49a3057423927f
     {
-        id: "641e21713ae85517e8ef09c7",
-        ruta: "/parametros/inmueble-listar",
+        id: "6487877e5b49a3057423927f",
+        ruta: "/parametros/inmuebles-cliente",
         texto: "Inmuebles"
     },
     {
@@ -65,6 +66,11 @@ export namespace ConfiguracionMenuLateral{
         id: "647bbbce168a6494c64db5d9",
         ruta: "/parametros/cliente-listar",
         texto: "Clientes"
+    },
+    {
+        id: "641e21713ae85517e8ef09c7",
+        ruta: "/parametros/inmueble-listar",
+        texto: "Inmuebles"
     }
 
 ];
