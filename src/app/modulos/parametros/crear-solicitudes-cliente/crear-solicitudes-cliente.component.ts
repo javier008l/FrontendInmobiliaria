@@ -30,7 +30,7 @@ export class CrearSolicitudesClienteComponent {
       this.paraAlquiler = params['paraAlquiler'];
       this.tipoInmuebleId = Number(params['tipoInmuebleId']);
       const fechaHoy = new Date();
-      const fechaSolicitud = this.convertDateFormat(fechaHoy.toLocaleDateString());
+      const fechaSolicitud = this.convertDateFormat(fechaHoy);
       this.servicioSolicitudes.conseguirId(this.correoAsesor).subscribe({
         next: (datos) => {
           this.asesorId = datos
@@ -46,12 +46,14 @@ export class CrearSolicitudesClienteComponent {
                 } else if (this.paraVenta === false) {
                   this.tipoSolicitudId = 1
                 }
+
                 this.servicioSolicitudes.hacerSolicitud(this.inmuebleid, this.asesorId, this.clienteId, this.tipoInmuebleId, this.tipoSolicitudId, fechaSolicitud).subscribe({
                   next: (datos) => {
 
                   },
                   error: (err) => {
-                    // Manejo de error
+                    console.log(err)
+                    console.log(this.tipoSolicitudId)
                   }
                 });
               },
@@ -69,11 +71,10 @@ export class CrearSolicitudesClienteComponent {
     });
   }
 
-  convertDateFormat(inputDate: string): Date {
-    const parts = inputDate.split('/');
-    const day = parts[0].padStart(2, '0');
-    const month = parts[1].padStart(2, '0');
-    const year = parts[2];
+  convertDateFormat(inputDate: Date): Date {
+    const day = inputDate.getDate().toString().padStart(2, '0');
+    const month = (inputDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = inputDate.getFullYear();
 
     const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
 
@@ -81,4 +82,7 @@ export class CrearSolicitudesClienteComponent {
 
     return new Date(formattedDate);
   }
+
+
+
 }
