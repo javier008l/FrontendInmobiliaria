@@ -32,22 +32,23 @@
                     <!-- EN ENVIADO -->
                     <button *ngIf="r.estadoId === 1"
                         (click)="r.id && pasarEnEstudio(r.id)"
-                        class="waves-effect waves-light btn-large boton rechazado">
-                        <i class="material-icons left">close</i>Pasar a Estudio
+                        class="waves-effect waves-light btn-large boton aceptadocodeudor">
+                        <i class="material-icons left">arrow_forward</i>Pasar a
+                        Estudio
                     </button>
                     <!-- EN ESTUDIO -->
                     <!-- ACEPTAR -->
                     <button *ngIf="r.estadoId === 2 || r.estadoId === 4"
                         (click)="r.id && aceptar(r.id)"
                         class="waves-effect waves-light btn-large boton aceptado">
-                        <i class="material-icons left">close</i>Aceptar
+                        <i class="material-icons left">add</i>Aceptar
                         Solicitud
                     </button>
                     <!-- ACEPTAR CODEUDOR -->
                     <button *ngIf="r.estadoId === 2"
                         (click)="r.id && aceptarCodeudor(r.id)"
                         class="waves-effect waves-light btn-large boton aceptadocodeudor">
-                        <i class="material-icons left">close</i>Aceptar
+                        <i class="material-icons left">add_circle_outline</i>Aceptar
                         Solicitud CoDeudor
                     </button>
                     <!-- RECHAZAR -->
@@ -60,7 +61,7 @@
                     <button *ngIf="r.estadoId === 4"
                         (click)="r.id && solicitarCodeudor(r.id)"
                         class="waves-effect waves-light btn-large boton aceptadocodeudor">
-                        <i class="material-icons left">close</i>Solicitar
+                        <i class="material-icons left">attach_file</i>Solicitar
                         Informacion
                     </button>
                     <!-- RECHAZADO -->
