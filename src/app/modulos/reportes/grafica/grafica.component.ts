@@ -95,7 +95,8 @@ export class GraficaComponent implements AfterViewInit {
   contSolicitud: any;
   contAsesor: any;
   contCliente: any;
-  contInmueble: any
+  contInmueble: any;
+  prueba = true
 
   chartLabels = ['Asesores', 'Clientes', 'Inmuebles', 'Solicitudes'];
 
