@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './publico/pagina-maestra/encabezado/encabezado.component';
@@ -14,8 +13,7 @@ import { SpinnerModule } from './componentes/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -35,11 +33,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SpinnerModule,
     FormsModule,
     ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
