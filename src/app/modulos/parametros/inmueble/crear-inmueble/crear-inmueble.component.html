@@ -24,6 +24,68 @@
         </div>
       </div>
     </form>
+    <!-- FOTOS -->
+    <div class="row">
+      <!-- Columna 1 -->
+      <div class="col s4">
+        <div class="showImage center-align">
+          <img *ngIf="!archivoCargado1" src="/assets/media/default.png" class="imagenInmueble2" />
+          <img *ngIf="archivoCargado1" src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado1}}" class="imagenInmueble2" />
+        </div>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Seleccionar Archivo</span>
+            <input (change)="CuandoSeleccionaArchivo1($event)" name="image" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div>
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo1()" />
+        </div>
+      </div>
+    
+      <!-- Columna 2 -->
+      <div class="col s4">
+        <div class="showImage center-align">
+          <img *ngIf="!archivoCargado2" src="/assets/media/default.png" class="imagenInmueble2" />
+          <img *ngIf="archivoCargado2" src="{{BASE_URL}}ObtenerArchivos/2/{{nombreArchivoCargado2}}" class="imagenInmueble2" />
+        </div>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Seleccionar Archivo</span>
+            <input (change)="CuandoSeleccionaArchivo2($event)" name="image" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div>
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo2()" />
+        </div>
+      </div>
+    
+      <!-- Columna 3 -->
+      <div class="col s4">
+        <div class="showImage center-align">
+          <img *ngIf="!archivoCargado3" src="/assets/media/default.png" class="imagenInmueble2" />
+          <img *ngIf="archivoCargado3" src="{{BASE_URL}}ObtenerArchivos/3/{{nombreArchivoCargado3}}" class="imagenInmueble2" />
+        </div>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Seleccionar Archivo</span>
+            <input (change)="CuandoSeleccionaArchivo3($event)" name="archivo3" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div>
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo3()" />
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row">
     <form [formGroup]="fGroup">

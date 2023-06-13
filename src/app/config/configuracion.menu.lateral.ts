@@ -54,7 +54,7 @@ export namespace ConfiguracionMenuLateral{
     },
     {
         id: "647a0ee87670d92b40f6682c",
-        ruta: "/reportes/",
+        ruta: "/reportes/graficas",
         texto: "Informes gráficos"
     },
     {

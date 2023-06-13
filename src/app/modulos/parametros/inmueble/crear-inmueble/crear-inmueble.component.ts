@@ -15,29 +15,34 @@ export class CrearInmuebleComponent {
 
   nombreArchivoCargado: String = '';
   fGroup: FormGroup = new FormGroup({});
-  cargaArchivoFG: FormGroup = new FormGroup({});
+  // cargaArchivoFG: FormGroup = new FormGroup({});
   archivoCargado: Boolean = false;
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
   tipo: number = 0;
   mostrarCampoTipoInmueble = false;
-  // tiposInmueble: TipoInmuebleModel[] = [];
-  // ciudades: CiudadModel[] = [];
+  // -
+  nombreArchivoCargado1: String = '';
+  nombreArchivoCargado2: String = '';
+  nombreArchivoCargado3: String = '';
+  archivoCargado1: Boolean = false;
+  archivoCargado2: Boolean = false;
+  archivoCargado3: Boolean = false;
+  cargaArchivoFG: FormGroup = this.fb.group({
+    archivo: ['', []],
+    archivo1: ['', []],
+    archivo2: ['', []],
+    archivo3: ['', []]
+  });
 
   constructor(
     private fb: FormBuilder,
     private servicio: InmuebleService,
-    // private servicioTipoInmueble: TipoInmuebleService,
-    // private servicioCiudad: CiudadService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.ConstruirFormularioDatos();
     this.ConstruirFormularioArchivo();
-    // this.obtenerTiposInmueble();
-    // this.obtenerCiudades();
-    let elems = document.querySelectorAll('select');
-    let instances = M.FormSelect.init(elems);
   }
 
   ConstruirFormularioDatos() {
@@ -53,6 +58,9 @@ export class CrearInmuebleComponent {
       paraAlquiler: [false],
       correoAsesor: [''],
       fecha: [formattedDate, [Validators.required]],
+      foto1: [''],
+      foto2: [],
+      foto3: [],
     });
   }
 
@@ -86,25 +94,14 @@ export class CrearInmuebleComponent {
     model.paraAlquiler = this.obtenerFgDatos["paraAlquiler"].value;
     model.correoAsesor = this.obtenerFgDatos["correoAsesor"].value;
     model.fecha = this.convertDateFormat(this.obtenerFgDatos["fecha"].value);
+    model.foto1 = this.obtenerFgDatos["foto1"].value;
+    model.foto2 = this.obtenerFgDatos["foto2"].value;
+    model.foto3 = this.obtenerFgDatos["foto3"].value;
     return model;
   }
 
   get obtenerFgDatos() {
     return this.fGroup.controls;
-  }
-
-
-
-  /** Carga de archivo */
-
-  ConstruirFormularioArchivo() {
-    this.cargaArchivoFG = this.fb.group({
-      archivo: ['', []]
-    });
-  }
-
-  get obtenerFgArchivo() {
-    return this.cargaArchivoFG.controls;
   }
 
   convertDateFormat(inputDate: string): Date {
@@ -120,6 +117,24 @@ export class CrearInmuebleComponent {
     return new Date(formattedDate);
   }
 
+  mostrarTexto() {
+    this.mostrarCampoTipoInmueble = true;
+  }
+
+  /** Carga de archivo */
+
+  ConstruirFormularioArchivo() {
+    this.cargaArchivoFG = this.fb.group({
+      archivo: ['', []],
+      archivo1: ['', []],
+      archivo2: ['', []],
+      archivo3: ['', []]
+    });
+  }
+
+  get obtenerFgArchivo() {
+    return this.cargaArchivoFG.controls;
+  }
 
   CargarArchivo() {
     const formData = new FormData();
@@ -144,57 +159,77 @@ export class CrearInmuebleComponent {
       this.obtenerFgArchivo["archivo"].setValue(f);
     }
   }
+
+  CargarArchivo1() {
+    const formData = new FormData();
+  formData.append('file', this.obtenerFgArchivo["archivo1"].value);
+    this.servicio.CargarArchivo(formData).subscribe({
+      next: (data: ArchivoModel) => {
+        console.log(data);
+        this.nombreArchivoCargado1 = data.file;
+        this.archivoCargado1 = true;
+        alert("Archivo 1 cargado correctamente.");
+      },
+      error: (err: any) => {
+        alert("Error cargando el archivo 1");
+      }
+    });
+  }
   
-
-  onSelectChange(value: string) {
-    this.tipo = parseInt(value, 10);
+  CuandoSeleccionaArchivo1(event: any) {
+    if (event.target.files.length > 0) {
+      const f = event.target.files[0];
+      this.obtenerFgArchivo["archivo1"].setValue(f);
+    }
   }
+  
+CargarArchivo2() {
+  const formData = new FormData();
+  formData.append('file', this.cargaArchivoFG.controls["archivo2"].value);
+  this.servicio.CargarArchivo(formData).subscribe({
+    next: (data: ArchivoModel) => {
+      console.log(data);
+      this.nombreArchivoCargado2 = data.file;
+      this.obtenerFgDatos["foto2"].setValue(this.nombreArchivoCargado2); // Corregir esta línea
+      this.archivoCargado2 = true;
+      alert("Archivo 2 cargado correctamente.");
+    },
+    error: (err: any) => {
+      alert("Error cargando el archivo 2");
+    }
+  });
+}
 
-  mostrarTexto() {
-    this.mostrarCampoTipoInmueble = true;
+CuandoSeleccionaArchivo2(event: any) {
+  if (event.target.files.length > 0) {
+    const f = event.target.files[0];
+    this.obtenerFgArchivo["archivo2"].setValue(f);
   }
+}
 
-  // --------------------------------------------------------
-  // obtenerTiposInmueble() {
-  //   this.servicioTipoInmueble.obtenerTiposInmueble().subscribe(
-  //     (tipos: TipoInmuebleModel[]) => {
-  //       this.tiposInmueble = tipos;
-  //       // console.log("tipos", tipos)
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
+CargarArchivo3() {
+  const formData = new FormData();
+  formData.append('file', this.cargaArchivoFG.controls["archivo3"].value);
+  this.servicio.CargarArchivo(formData).subscribe({
+    next: (data: ArchivoModel) => {
+      console.log(data);
+      this.nombreArchivoCargado3 = data.file;
+      this.obtenerFgDatos["foto3"].setValue(this.nombreArchivoCargado3); // Corregir esta línea
+      this.archivoCargado3 = true;
+      alert("Archivo 3 cargado correctamente.");
+    },
+    error: (err: any) => {
+      alert("Error cargando el archivo 3");
+    }
+  });
+}
 
-  // obtenerCiudades(): void {
-  //   this.servicioCiudad.obtenerCiudades().subscribe(
-  //     (response: CiudadModel[]) => {
-  //       this.ciudades = response;
-  //     },
-  //     (error) => {
-  //       console.log('Error al obtener las ciudades:', error);
-  //     }
-  //   );
-  // }
-
-  // onCiudadSelectChange(ciudadId: number) {
-  //   console.log('Ciudad seleccionada:', ciudadId);
-
-  //   // Obtener la ciudad seleccionada
-  //   const ciudadSeleccionada = this.ciudades.find(ciudad => ciudad.id === ciudadId);
-
-  //   // Realizar la lógica adicional con la ciudad seleccionada
-  //   if (ciudadSeleccionada) {
-  //     console.log('Nombre de la ciudad:', ciudadSeleccionada.nombre);
-  //     console.log('Departamento ID:', ciudadSeleccionada.departamentoId);
-  //     // Realizar más operaciones según sea necesario
-  //   } else {
-  //     console.log('Ciudad no encontrada');
-  //   }
-  // }
-
-
+CuandoSeleccionaArchivo3(event: any) {
+  if (event.target.files.length > 0) {
+    const f = event.target.files[0];
+    this.obtenerFgArchivo["archivo3"].setValue(f);
+  }
+}
 }
 
 
