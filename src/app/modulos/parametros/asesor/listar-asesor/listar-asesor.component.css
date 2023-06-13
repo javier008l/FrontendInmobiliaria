@@ -1,0 +1,25 @@
+.table-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.table-container table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-container th,
+.table-container td {
+  white-space: normal;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.espacio {
+  padding-left: 40px;
+  padding-right: 40px;
+}
