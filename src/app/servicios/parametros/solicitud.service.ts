@@ -1,10 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { AsesorModel } from 'src/app/modelos/asesor.model';
 import { CoDeudorModel } from 'src/app/modelos/codeudor.model';
+import { ConteosModel } from 'src/app/modelos/conteos.model';
 import { ContratoModel } from 'src/app/modelos/contrato.model';
 import { DatosAsignacionSolicitudes } from 'src/app/modelos/datos-asignacion-solicitud.model';
 import { PaginadorSolicitudModel } from 'src/app/modelos/paginador.solicitud.model';
@@ -173,6 +174,39 @@ export class SolicitudService {
       fechaSolicitud: fechaSolicitud
     });
   }
+
+  contarAsesor(nombre: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    const requestBody = { nombre: nombre };
+    return this.http.post<any>(`${this.urlBase}total`, requestBody, httpOptions);
+  }
+
+  contarCliente(nombre: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    const requestBody = { nombre: nombre };
+    return this.http.post<any>(`${this.urlBase}total`, requestBody, httpOptions);
+  }
+
+  contarInmuebles(nombre: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    const requestBody = { nombre: nombre };
+    return this.http.post<any>(`${this.urlBase}total`, requestBody, httpOptions);
+  }
+
+  contarSolicitudes(nombre: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    const requestBody = { nombre: nombre };
+    return this.http.post<any>(`${this.urlBase}total`, requestBody, httpOptions);
+  }
+
 
   BuscarRegistro(id: number): Observable<SolicitudModel> {
     return this.http.get<SolicitudModel>(`${this.urlBase}solicitud/${id}`);
