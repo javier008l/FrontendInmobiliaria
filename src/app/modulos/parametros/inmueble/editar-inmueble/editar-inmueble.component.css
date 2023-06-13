@@ -2,3 +2,18 @@
     height: auto;
     width: 300px;
 }
+
+.imagenInmueble2{
+    height: auto;
+    width: 250px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .input-field {
+    flex: 1;
+    margin-right: 10px;
+  }

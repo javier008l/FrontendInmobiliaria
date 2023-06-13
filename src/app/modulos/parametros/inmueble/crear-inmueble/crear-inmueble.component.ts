@@ -13,20 +13,19 @@ import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
 })
 export class CrearInmuebleComponent {
 
-  nombreArchivoCargado: String = '';
   fGroup: FormGroup = new FormGroup({});
-  // cargaArchivoFG: FormGroup = new FormGroup({});
-  archivoCargado: Boolean = false;
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
   tipo: number = 0;
   mostrarCampoTipoInmueble = false;
-  // -
+  nombreArchivoCargado: String = '';
   nombreArchivoCargado1: String = '';
   nombreArchivoCargado2: String = '';
   nombreArchivoCargado3: String = '';
+  archivoCargado: Boolean = false;
   archivoCargado1: Boolean = false;
   archivoCargado2: Boolean = false;
   archivoCargado3: Boolean = false;
+
   cargaArchivoFG: FormGroup = this.fb.group({
     archivo: ['', []],
     archivo1: ['', []],
@@ -162,74 +161,74 @@ export class CrearInmuebleComponent {
 
   CargarArchivo1() {
     const formData = new FormData();
-  formData.append('file', this.obtenerFgArchivo["archivo1"].value);
+    formData.append('file', this.obtenerFgArchivo["archivo1"].value);
     this.servicio.CargarArchivo(formData).subscribe({
       next: (data: ArchivoModel) => {
         console.log(data);
         this.nombreArchivoCargado1 = data.file;
         this.archivoCargado1 = true;
-        alert("Archivo 1 cargado correctamente.");
+        alert("Archivo cargado correctamente.");
       },
       error: (err: any) => {
         alert("Error cargando el archivo 1");
       }
     });
   }
-  
+
   CuandoSeleccionaArchivo1(event: any) {
     if (event.target.files.length > 0) {
       const f = event.target.files[0];
       this.obtenerFgArchivo["archivo1"].setValue(f);
     }
   }
-  
-CargarArchivo2() {
-  const formData = new FormData();
-  formData.append('file', this.cargaArchivoFG.controls["archivo2"].value);
-  this.servicio.CargarArchivo(formData).subscribe({
-    next: (data: ArchivoModel) => {
-      console.log(data);
-      this.nombreArchivoCargado2 = data.file;
-      this.obtenerFgDatos["foto2"].setValue(this.nombreArchivoCargado2); // Corregir esta línea
-      this.archivoCargado2 = true;
-      alert("Archivo 2 cargado correctamente.");
-    },
-    error: (err: any) => {
-      alert("Error cargando el archivo 2");
-    }
-  });
-}
 
-CuandoSeleccionaArchivo2(event: any) {
-  if (event.target.files.length > 0) {
-    const f = event.target.files[0];
-    this.obtenerFgArchivo["archivo2"].setValue(f);
+  CargarArchivo2() {
+    const formData = new FormData();
+    formData.append('file', this.cargaArchivoFG.controls["archivo2"].value);
+    this.servicio.CargarArchivo(formData).subscribe({
+      next: (data: ArchivoModel) => {
+        console.log(data);
+        this.nombreArchivoCargado2 = data.file;
+        this.obtenerFgDatos["foto2"].setValue(this.nombreArchivoCargado2); // Corregir esta línea
+        this.archivoCargado2 = true;
+        alert("Archivo cargado correctamente.");
+      },
+      error: (err: any) => {
+        alert("Error cargando el archivo 2");
+      }
+    });
   }
-}
 
-CargarArchivo3() {
-  const formData = new FormData();
-  formData.append('file', this.cargaArchivoFG.controls["archivo3"].value);
-  this.servicio.CargarArchivo(formData).subscribe({
-    next: (data: ArchivoModel) => {
-      console.log(data);
-      this.nombreArchivoCargado3 = data.file;
-      this.obtenerFgDatos["foto3"].setValue(this.nombreArchivoCargado3); // Corregir esta línea
-      this.archivoCargado3 = true;
-      alert("Archivo 3 cargado correctamente.");
-    },
-    error: (err: any) => {
-      alert("Error cargando el archivo 3");
+  CuandoSeleccionaArchivo2(event: any) {
+    if (event.target.files.length > 0) {
+      const f = event.target.files[0];
+      this.obtenerFgArchivo["archivo2"].setValue(f);
     }
-  });
-}
-
-CuandoSeleccionaArchivo3(event: any) {
-  if (event.target.files.length > 0) {
-    const f = event.target.files[0];
-    this.obtenerFgArchivo["archivo3"].setValue(f);
   }
-}
+
+  CargarArchivo3() {
+    const formData = new FormData();
+    formData.append('file', this.cargaArchivoFG.controls["archivo3"].value);
+    this.servicio.CargarArchivo(formData).subscribe({
+      next: (data: ArchivoModel) => {
+        console.log(data);
+        this.nombreArchivoCargado3 = data.file;
+        this.obtenerFgDatos["foto3"].setValue(this.nombreArchivoCargado3); // Corregir esta línea
+        this.archivoCargado3 = true;
+        alert("Archivo cargado correctamente.");
+      },
+      error: (err: any) => {
+        alert("Error cargando el archivo 3");
+      }
+    });
+  }
+
+  CuandoSeleccionaArchivo3(event: any) {
+    if (event.target.files.length > 0) {
+      const f = event.target.files[0];
+      this.obtenerFgArchivo["archivo3"].setValue(f);
+    }
+  }
 }
 
 

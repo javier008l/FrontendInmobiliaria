@@ -4,18 +4,15 @@
     <form class="col s12" [formGroup]="cargaArchivoFG">
       <div class="row">
         <div class="showImage center-align">
-          <img *ngIf="!archivoCargado" src="/assets/media/default.png"
-            class="imagenInmueble" />
-          <img *ngIf="archivoCargado"
-            src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado}}"
+          <img *ngIf="!archivoCargado" src="/assets/media/default.png" class="imagenInmueble" />
+          <img *ngIf="archivoCargado" src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado}}"
             class="imagenInmueble" />
         </div>
       </div>
       <div class="file-field input-field row">
         <div class="btn col s3">
           <span>Seleccionar Archivo</span>
-          <input (change)="CuandoSeleccionaArchivo($event)" name="image"
-            type="file">
+          <input (change)="CuandoSeleccionaArchivo($event)" name="image" type="file">
         </div>
         <div class="file-path-wrapper col s9">
           <input class="file-path validate" type="text">
@@ -23,102 +20,158 @@
       </div>
       <div class="row">
         <div class="col s12">
-          <input type="button" class="btn" value="Subir Archivo"
-            (click)="CargarArchivo()" />
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo()" />
         </div>
       </div>
     </form>
+    <!-- FOTOS -->
+    <div class="row">
+      <!-- Columna 1 -->
+      <div class="col s4">
+        <div class="showImage center-align">
+          <img *ngIf="!archivoCargado1" src="/assets/media/default.png" class="imagenInmueble2" />
+          <img *ngIf="archivoCargado1" src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado1}}"
+            class="imagenInmueble2" />
+        </div>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Seleccionar Archivo</span>
+            <input (change)="CuandoSeleccionaArchivo1($event)" name="image" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div>
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo1()" />
+        </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="col s4">
+        <div class="showImage center-align">
+          <img *ngIf="!archivoCargado2" src="/assets/media/default.png" class="imagenInmueble2" />
+          <img *ngIf="archivoCargado2" src="{{BASE_URL}}ObtenerArchivos/2/{{nombreArchivoCargado2}}"
+            class="imagenInmueble2" />
+        </div>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Seleccionar Archivo</span>
+            <input (change)="CuandoSeleccionaArchivo2($event)" name="image" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div>
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo2()" />
+        </div>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="col s4">
+        <div class="showImage center-align">
+          <img *ngIf="!archivoCargado3" src="/assets/media/default.png" class="imagenInmueble2" />
+          <img *ngIf="archivoCargado3" src="{{BASE_URL}}ObtenerArchivos/3/{{nombreArchivoCargado3}}"
+            class="imagenInmueble2" />
+        </div>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Seleccionar Archivo</span>
+            <input (change)="CuandoSeleccionaArchivo3($event)" name="archivo3" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div>
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo3()" />
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row">
     <form [formGroup]="fGroup">
       <div class="row">
-        <div class="input-field col s4">
-          <input type="hidden" formControlName="id" />
-          <input formControlName="direccion" class="validate" id="direccion"
-            type="text" [readonly]="true">
-          <label for="direccion" data-error="wrong" class="active"
-            data-success="right">Direccion</label>
-          <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors 
-            && (obtenerFgDatos['direccion'].dirty || obtenerFgDatos['direccion'].touched)">
+        <!-- DIRECCIÓN -->
+        <div class="row">
+          <div class="input-field col s4">
+            <input type="hidden" formControlName="id" />
+            <input formControlName="direccion" class="validate" id="direccion" type="text" [readonly]="true">
+            <label for="direccion" data-error="wrong" class="active">{{obtenerFgDatos['direccion'].value}}</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors 
+              && (obtenerFgDatos['direccion'].dirty || obtenerFgDatos['direccion'].touched)">
+            </div>
           </div>
         </div>
+  
+        <!-- COSTO -->
         <div class="input-field col s4">
           <input formControlName="costo" id="costo" type="number">
           <label for="costo" class="active">Costo</label>
-          <div class="show-errors" *ngIf="obtenerFgDatos['costo'].errors 
-            && (obtenerFgDatos['costo'].dirty || obtenerFgDatos['costo'].touched)">
+          <div class="show-errors" *ngIf="obtenerFgDatos['costo'].errors && (obtenerFgDatos['costo'].dirty || obtenerFgDatos['costo'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
         </div>
+  
         <!-- TIPO INMUEBLE -->
         <div class="input-field col s4">
-          <input formControlName="tipoInmuebleId" id="tipoInmuebleId"
-            type="number" [readonly]="true">
+          <input formControlName="tipoInmuebleId" id="tipoInmuebleId" type="number" [readonly]="true">
           <label for="tipoInmuebleId">Tipo de inmueble</label>
-          <div class="show-errors"
-            *ngIf="obtenerFgDatos['tipoInmuebleId'].errors 
-            && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
+          <div class="show-errors" *ngIf="obtenerFgDatos['tipoInmuebleId'].errors && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
         </div>
-        <!-- <div class="input-field col s4">
-            <select #selectElement (change)="onSelectChange(selectElement.value)">
-              <option value="" disabled selected>Tipo de inmueble</option>
-              <option value=1>Casa</option>
-              <option value=2>Apartamento</option>
-              <option value=3>Finca</option>
-            </select>
-            <label>Elige uno</label>
-            </div> -->
+      </div>
+  
+      <div class="row">
         <!-- CIUDAD -->
         <div class="input-field col s4">
-          <input formControlName="ciudadId"
-            id="ciudadId" type="number" [readonly]="true">
-          <label for="ciudadId">ciudad</label>
-          <div class="show-errors" *ngIf="obtenerFgDatos['ciudadId'].errors 
-              && (obtenerFgDatos['ciudadId'].dirty || obtenerFgDatos['ciudadId'].touched)">
+          <input formControlName="ciudadId" id="ciudadId" type="number" [readonly]="true">
+          <label for="ciudadId">Ciudad</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['ciudadId'].errors && (obtenerFgDatos['ciudadId'].dirty || obtenerFgDatos['ciudadId'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
         </div>
-        <!-- PARA VENDER -->
+  
+        <!-- PARA VENTA -->
         <div class="input-field col s4">
           <label>
             <input formControlName="paraVenta" id="paraVenta" type="checkbox">
             <span>Para Venta</span>
           </label>
-          <div class="show-errors" *ngIf="obtenerFgDatos['paraVenta'].errors 
-            && (obtenerFgDatos['paraVenta'].dirty || obtenerFgDatos['paraVenta'].touched)">
+          <div class="show-errors" *ngIf="obtenerFgDatos['paraVenta'].errors && (obtenerFgDatos['paraVenta'].dirty || obtenerFgDatos['paraVenta'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
         </div>
-        <!-- PARA ALQUILAR -->
+  
+        <!-- PARA ALQUILER -->
         <div class="input-field col s4">
           <label>
-            <input formControlName="paraAlquiler" id="paraAlquiler"
-              type="checkbox">
-            <span>para Alquiler</span>
+            <input formControlName="paraAlquiler" id="paraAlquiler" type="checkbox">
+            <span>Para Alquiler</span>
           </label>
-          <div class="show-errors"
-            *ngIf="obtenerFgDatos['paraAlquiler'].errors 
-            && (obtenerFgDatos['paraAlquiler'].dirty || obtenerFgDatos['paraAlquiler'].touched)">
+          <div class="show-errors" *ngIf="obtenerFgDatos['paraAlquiler'].errors && (obtenerFgDatos['paraAlquiler'].dirty || obtenerFgDatos['paraAlquiler'].touched)">
             <strong>Este campo es obligatorio</strong>
-          </div>
-        </div>
-        <!-- CORREO DEL ASESOR -->
-        <div class="input-field col s5">
-          <input formControlName="correoAsesor" id="correoAsesor" type="text">
-          <label for="correoAsesor">correo Asesor</label>
-          <div class="show-errors"
-            *ngIf="obtenerFgDatos['correoAsesor'].errors 
-          && (obtenerFgDatos['correoAsesor'].dirty || obtenerFgDatos['correoAsesor'].touched)">
           </div>
         </div>
       </div>
+  
+      <!-- CORREO DEL ASESOR -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="correoAsesor" id="correoAsesor" type="text">
+          <label for="correoAsesor">Correo Asesor</label>
+          <div class="show-errors" *ngIf="obtenerFgDatos['correoAsesor'].errors && (obtenerFgDatos['correoAsesor'].dirty || obtenerFgDatos['correoAsesor'].touched)">
+          </div>
+        </div>
+      </div>
+  
+  
       <div class="row">
         <div class="input-field col s12">
           <a routerLink="/parametros/inmueble-listar" class="btn red">Cancelar</a>&nbsp;
-          <button (click)="EditarRegistro()"
-            class="btn waves-effect waves-light">Editar</button>
+          <button (click)="EditarRegistro()" class="btn waves-effect waves-light">Editar</button>
         </div>
       </div>
     </form>
