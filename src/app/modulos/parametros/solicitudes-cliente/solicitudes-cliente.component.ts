@@ -64,7 +64,7 @@ export class SolicitudesClienteComponent {
 
   contrato() {
     alert("Una vez firmado el contrato, subelo a google drive como pdf y pon el link en URL Contrato y dale al boton subir contrato")
-    window.open('https://drive.google.com/file/d/1FOJc2CWwjKx6jC9ZC-zw6GivNq89HOlB/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1iUaOKFt2p_CzGDYX0zvEj6BlknsePpUU/view?usp=sharing', '_blank');
   }
 
   subirContrato() {
@@ -115,7 +115,7 @@ export class SolicitudesClienteComponent {
   }
 
   coDeudor() {
-    window.open('https://drive.google.com/file/d/1PU66vg1BWsF_w9bvfpAwXRRDAH7eQfG8/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/13jBerZQJfXzCEpXcS_tzrhYu3_voXFxd/view?usp=sharing', '_blank');
   }
 
   eliminar(id: number) {
