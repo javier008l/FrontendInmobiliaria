@@ -109,7 +109,7 @@ const routes: Routes = [
   },
 
   {
-    path: "crear-solicitudes-cliente/:id",
+    path: "crear-solicitudes-cliente/:id/:correoAsesor/:paraAlquiler/:paraVenta/:tipoInmuebleId",
     component: CrearSolicitudesClienteComponent,
   },
 
