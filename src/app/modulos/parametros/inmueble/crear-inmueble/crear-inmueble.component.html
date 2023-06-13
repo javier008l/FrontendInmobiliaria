@@ -4,18 +4,15 @@
     <form class="col s12" [formGroup]="cargaArchivoFG">
       <div class="row">
         <div class="showImage center-align">
-          <img *ngIf="!archivoCargado" src="/assets/media/default.png"
-            class="imagenInmueble" />
-          <img *ngIf="archivoCargado"
-            src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado}}"
+          <img *ngIf="!archivoCargado" src="/assets/media/default.png" class="imagenInmueble" />
+          <img *ngIf="archivoCargado" src="{{BASE_URL}}ObtenerArchivos/1/{{nombreArchivoCargado}}"
             class="imagenInmueble" />
         </div>
       </div>
       <div class="file-field input-field row">
         <div class="btn col s3">
           <span>Seleccionar Archivo</span>
-          <input (change)="CuandoSeleccionaArchivo($event)" name="image"
-            type="file">
+          <input (change)="CuandoSeleccionaArchivo($event)" name="image" type="file">
         </div>
         <div class="file-path-wrapper col s9">
           <input class="file-path validate" type="text">
@@ -23,8 +20,7 @@
       </div>
       <div class="row">
         <div class="col s12">
-          <input type="button" class="btn" value="Subir Archivo"
-            (click)="CargarArchivo()" />
+          <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo()" />
         </div>
       </div>
     </form>
@@ -32,15 +28,16 @@
   <div class="row">
     <form [formGroup]="fGroup">
       <div class="row">
+        <!-- DIRECCION -->
         <div class="input-field col s3">
-          <input formControlName="direccion" class="validate" id="direccion"
-            type="text">
+          <input formControlName="direccion" class="validate" id="direccion" type="text">
           <label for="direccion" data-error="wrong" data-success="right">Direccion</label>
           <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors 
             && (obtenerFgDatos['direccion'].dirty || obtenerFgDatos['direccion'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
         </div>
+        <!-- COSTO -->
         <div class="input-field col s3">
           <input formControlName="costo" id="costo" type="number">
           <label for="costo">Costo</label>
@@ -49,27 +46,18 @@
             <strong>Este campo es obligatorio</strong>
           </div>
         </div>
-        <!-- ------------------------- -->
-        <!-- <div class="input-field col s3">
-          <select formControlName="tipoInmuebleId">
-            <option value="" disabled selected>Tipo de inmueble</option>
-            <option value=1>Casa</option>
-            <option value=2>Apartamento</option>
-            <option value=3>Finca</option>
-          </select>
-          <label>Elige uno</label>
-        </div> -->
-        
+
+       <!-- TIPO DE INMUEBLE -->
         <div class="input-field col s3">
-          <input formControlName="tipoInmuebleId" id="tipoInmuebleId"
-            type="number">
+          <input formControlName="tipoInmuebleId" id="tipoInmuebleId" type="number" (focus)="mostrarTexto()">
           <label for="tipoInmuebleId">Tipo de Inmueble</label>
-          <div class="show-errors"
-            *ngIf="obtenerFgDatos['tipoInmuebleId'].errors 
-          && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
-            <strong>Este campo es obligatorio</strong>
+          <div class="show-text" *ngIf="mostrarCampoTipoInmueble">
+            <p>1:Casa</p>
+            <p>2:Apartamento</p>
+            <p>3:Finca</p>
           </div>
         </div>
+        <!-- CIUDAD -->
         <div class="input-field col s3">
           <input formControlName="ciudadId" id="ciudadId" type="number">
           <label for="ciudadId">ciudad</label>
@@ -78,28 +66,6 @@
             <strong>Este campo es obligatorio</strong>
           </div>
         </div>
-
-        <!-- <ng-container *ngIf="tiposInmueble">
-            <form [formGroup]="formulario">
-              <mat-form-field appearance="fill">
-                <mat-label>Select an option</mat-label>
-                <mat-select formControlName="tipoInmueble">
-                  <mat-option>None</mat-option>
-                  <mat-option *ngFor="let tipo of tiposInmueble" [value]="tipo.id">
-                    {{ tipo.nombre }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </form>
-          </ng-container> -->
-
-        <!-- CIUDADES -->
-        <!-- <div>
-          <select formControlName="ciudadId" id="ciudadId">
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.nombre }}</option>
-          </select>
-        </div> -->
         <!-- PARA VENDER -->
         <div class="input-field col s3">
           <label>
@@ -113,12 +79,10 @@
         <!-- PARA ALQUILAR -->
         <div class="input-field col s3">
           <label>
-            <input formControlName="paraAlquiler" id="paraAlquiler"
-              type="checkbox">
+            <input formControlName="paraAlquiler" id="paraAlquiler" type="checkbox">
             <span>para Alquiler</span>
           </label>
-          <div class="show-errors"
-            *ngIf="obtenerFgDatos['paraAlquiler'].errors 
+          <div class="show-errors" *ngIf="obtenerFgDatos['paraAlquiler'].errors 
             && (obtenerFgDatos['paraAlquiler'].dirty || obtenerFgDatos['paraAlquiler'].touched)">
           </div>
         </div>
@@ -126,8 +90,7 @@
         <div class="input-field col s3">
           <input formControlName="correoAsesor" id="correoAsesor" type="text">
           <label for="correoAsesor">correo Asesor</label>
-          <div class="show-errors"
-            *ngIf="obtenerFgDatos['correoAsesor'].errors 
+          <div class="show-errors" *ngIf="obtenerFgDatos['correoAsesor'].errors 
           && (obtenerFgDatos['correoAsesor'].dirty || obtenerFgDatos['correoAsesor'].touched)">
           </div>
         </div>
@@ -137,8 +100,7 @@
       <div class="row">
         <div class="input-field col s12">
           <a routerLink="/parametros/inmueble-listar" class="btn red">Cancelar</a>&nbsp;
-          <button (click)="GuardarRegistro()"
-            class="btn waves-effect waves-light">Guardar</button>
+          <button (click)="GuardarRegistro()" class="btn waves-effect waves-light">Guardar</button>
         </div>
       </div>
     </form>

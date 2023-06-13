@@ -19,6 +19,7 @@ export class CrearInmuebleComponent {
   archivoCargado: Boolean = false;
   BASE_URL: String = ConfiguracionRutasBackend.urlLogica;
   tipo: number = 0;
+  mostrarCampoTipoInmueble = false;
   // tiposInmueble: TipoInmuebleModel[] = [];
   // ciudades: CiudadModel[] = [];
 
@@ -48,8 +49,8 @@ export class CrearInmuebleComponent {
       foto: ['', [Validators.required]],
       tipoInmuebleId: ['', [Validators.required]],
       ciudadId: ['', [Validators.required]],
-      paraVenta: [''],
-      paraAlquiler: [''],
+      paraVenta: [false],
+      paraAlquiler: [false],
       correoAsesor: [''],
       fecha: [formattedDate, [Validators.required]],
     });
@@ -143,9 +144,14 @@ export class CrearInmuebleComponent {
       this.obtenerFgArchivo["archivo"].setValue(f);
     }
   }
+  
 
   onSelectChange(value: string) {
     this.tipo = parseInt(value, 10);
+  }
+
+  mostrarTexto() {
+    this.mostrarCampoTipoInmueble = true;
   }
 
   // --------------------------------------------------------

@@ -1,8 +1,7 @@
 <div class="container">
     <br />
-    <a routerLink="/parametros/inmueble-agregar" class="btn">Agregar Registro</a>
+    <h4 class="color_principal" >INMUEBLES</h4>
     <br />
-  
     <table>
       <thead>
         <tr>
@@ -13,7 +12,6 @@
           <th>Para Venta</th>
           <th>Para Alquiler</th>
           <th>Correo del Asesor</th>
-          <th>Fecha</th>
           <th>Imagen</th>
           <th>Acciones</th>
         </tr>
@@ -22,13 +20,11 @@
         <tr *ngFor="let inmueble of listaInmuebles | paginate: { itemsPerPage: 10, currentPage: pag, totalItems: total }">
           <td>{{inmueble.direccion}}</td>
           <td>{{inmueble.costo}}</td>
-          <td>{{inmueble.tipoInmuebleId ?
-            obtenerTipoInmueble(inmueble.tipoInmuebleId) : ''}}</td>
+          <td>{{inmueble.tipoInmuebleId ? obtenerTipoInmueble(inmueble.tipoInmuebleId) : ''}}</td>
           <td>{{inmueble.ciudadId}}</td>
-          <td>{{inmueble.paraVenta}}</td>
-          <td>{{inmueble.paraAlquiler}}</td>
+          <td>{{inmueble.paraVenta ? obtenerTipoVenta(inmueble.paraVenta): ''}}</td>
+          <td>{{inmueble.paraAlquiler ? obtenerTipoAlquiler(inmueble.paraAlquiler): ''}}</td>
           <td>{{inmueble.correoAsesor}}</td>
-          <td>{{inmueble.fecha}}</td>
           <td>
             <img src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto}}" class="imagenListadoRegistros" />
           </td>

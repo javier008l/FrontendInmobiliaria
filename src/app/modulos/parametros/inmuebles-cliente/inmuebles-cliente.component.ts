@@ -48,4 +48,26 @@ export class InmueblesClienteComponent {
     }
     return this.obtenerTipoInmueble(tipoInmuebleId);
   }
+  obtenerTipoVenta(paraVenta: boolean): string {
+    if (paraVenta === true) {
+      return 'Si';
+    } else if (paraVenta === false) {
+      return 'No';
+    } else if (paraVenta === undefined) {
+      return 'Desconocido';
+    }
+    return this.obtenerTipoInmueble(paraVenta);
+  }
+
+  obtenerTipoAlquiler(paraAlquiler: boolean): string {
+    if (!paraAlquiler) {
+      return 'No';
+    } else if (paraAlquiler === true) {
+      return 'Si';
+    } else if (paraAlquiler === undefined) {
+      return 'Desconocido';
+    }
+    return this.obtenerTipoInmueble(paraAlquiler);
+  }
+  
 }
