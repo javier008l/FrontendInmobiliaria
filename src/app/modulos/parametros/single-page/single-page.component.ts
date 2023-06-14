@@ -47,8 +47,22 @@ export class SinglePageComponent implements OnInit, AfterViewInit {
 
   inicializarCarrusel() {
     var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, {});
+    var instances = M.Carousel.init(elems, {
+      fullWidth: true,
+      indicators: true,
+      duration: 200
+    });
+
+    // Agrega la siguiente función para lograr el efecto de reproducción automática
+    function autoplay() {
+      instances.forEach((instance) => {
+        instance.next();
+      });
+      setTimeout(autoplay, 4000); // Intervalo entre imágenes (en milisegundos)
+    }
+    autoplay(); // Inicia la reproducción automática
   }
+
 
   obtenerTipoInmueble(tipoInmuebleId: number): string {
     if (tipoInmuebleId === 1) {

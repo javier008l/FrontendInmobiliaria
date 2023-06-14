@@ -1,27 +1,29 @@
 <!-- single-page.component.html -->
 <div class="container">
     <h2 class="centrar color_principal">Inmueble</h2>
-    <div *ngFor="let inmueble of listaInmuebles" class="col">
-        <span class="card-title color_principal">{{ inmueble.direccion
-            }}</span>
-        <div class="card">
-            <div class="carousel color">
-                <a class="carousel-item"><img height="auto" width="400px"
-                        src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto}}"></a>
-                <a class="carousel-item"><img height="auto" width="400px"
-                        src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto1}}"></a>
-                <a class="carousel-item"><img height="auto" width="400px"
-                        src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto2}}"></a>
-                <a class="carousel-item"><img height="auto" width="400px"
-                        src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto3}}"></a>
-            </div>
-            <div class="card-content prueba">
-                <p class="prueba1">El precio del inmueble es: {{
-                    inmueble.costo |
-                    currency }}</p>
-                <p class="prueba1">El inmueble es: {{
-                    inmueble.tipoInmuebleId ?
-                    obtenerTipoInmueble(inmueble.tipoInmuebleId) : '' }}</p>
+    <div class="centro">
+        <div *ngFor="let inmueble of listaInmuebles" class="col">
+            <span class="card-title color_principal">{{ inmueble.direccion
+                }}</span>
+            <div class="card custom-card">
+                <div class="carousel color custom-carousel">
+                    <a class="carousel-item"><img
+                            src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto}}"></a>
+                    <a class="carousel-item"><img
+                            src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto1}}"></a>
+                    <a class="carousel-item"><img
+                            src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto2}}"></a>
+                    <a class="carousel-item"><img
+                            src="{{BASE_URL}}ObtenerArchivos/1/{{inmueble.foto3}}"></a>
+                </div>
+                <div class="card-content prueba">
+                    <p class="prueba1">El precio del inmueble es: {{
+                        inmueble.costo |
+                        currency }}</p>
+                    <p class="prueba1">El inmueble es: {{
+                        inmueble.tipoInmuebleId ?
+                        obtenerTipoInmueble(inmueble.tipoInmuebleId) : '' }}</p>
+                </div>
             </div>
         </div>
     </div>

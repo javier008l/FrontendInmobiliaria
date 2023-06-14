@@ -6,7 +6,27 @@
   background: #00000021;
 }
 
-img {
-  height: auto;
-  width: 500px;
+.custom-carousel.carousel {
+  width: 600px; /* Ajusta el ancho del carrusel */
+  height: 400px; /* Ajusta la altura del carrusel */
+}
+
+.custom-carousel.carousel .carousel-item {
+  width: 100%; /* Ajusta el ancho de los elementos del carrusel */
+  height: 100%; /* Ajusta la altura de los elementos del carrusel */
+}
+
+.custom-carousel.carousel .carousel-item img {
+  width: 100%; /* Ajusta el ancho de las imágenes */
+  height: 100%; /* Ajusta la altura de las imágenes */
+  object-fit: cover; /* Asegura que las imágenes mantengan su relación de aspecto */
+}
+
+.custom-card {
+  width: 600px; /* Ajusta el ancho de la tarjeta al mismo ancho que el carrusel */
+}
+
+.centro{
+    display:flex;
+    justify-content:center
 }
