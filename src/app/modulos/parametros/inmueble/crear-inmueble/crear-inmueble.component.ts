@@ -64,22 +64,18 @@ export class CrearInmuebleComponent {
   }
 
   GuardarRegistro() {
-    if (this.fGroup.invalid) {
-      alert("Debe diligenciar todo el formulario, incluyendo la carga del archivo.");
-    } else {
-      let model = this.obtenerRegistro();
+    let model = this.obtenerRegistro();
+    this.servicio.AgregarRegistro(model).subscribe({
+      next: (data: InmuebleModel) => {
+        alert("Información almacenada correctamente");
+        this.router.navigate(['/parametros/inmueble-listar']);
+        console.log(model)
+      },
+      error: (err: any) => {
+        alert("Ha ocurrido un error");
+      }
+    })
 
-      this.servicio.AgregarRegistro(model).subscribe({
-        next: (data: InmuebleModel) => {
-          alert("Información almacenada correctamente");
-          this.router.navigate(['/parametros/inmueble-listar']);
-          console.log(model)
-        },
-        error: (err: any) => {
-          alert("Ha ocurrido un error");
-        }
-      })
-    }
   }
 
   obtenerRegistro(): InmuebleModel {
