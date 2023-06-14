@@ -88,7 +88,7 @@
           <input type="button" class="btn" value="Subir Archivo" (click)="CargarArchivo3()" />
         </div>
       </div>
-    </div>
+    </div> 
   </div>
   <div class="row">
     <form [formGroup]="fGroup">
@@ -98,9 +98,8 @@
           <div class="input-field col s4">
             <input type="hidden" formControlName="id" />
             <input formControlName="direccion" class="validate" id="direccion" type="text" [readonly]="true">
-            <label for="direccion" data-error="wrong" class="active">{{obtenerFgDatos['direccion'].value}}</label>
-            <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors 
-              && (obtenerFgDatos['direccion'].dirty || obtenerFgDatos['direccion'].touched)">
+            <label for="direccion" class="active">Direccion</label>
+            <div class="show-errors" *ngIf="obtenerFgDatos['direccion'].errors && (obtenerFgDatos['direccion'].dirty || obtenerFgDatos['direccion'].touched)">
             </div>
           </div>
         </div>
@@ -117,7 +116,7 @@
         <!-- TIPO INMUEBLE -->
         <div class="input-field col s4">
           <input formControlName="tipoInmuebleId" id="tipoInmuebleId" type="number" [readonly]="true">
-          <label for="tipoInmuebleId">Tipo de inmueble</label>
+          <label for="direccion" class="active">Tipo de inmueble</label>
           <div class="show-errors" *ngIf="obtenerFgDatos['tipoInmuebleId'].errors && (obtenerFgDatos['tipoInmuebleId'].dirty || obtenerFgDatos['tipoInmuebleId'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
@@ -128,7 +127,7 @@
         <!-- CIUDAD -->
         <div class="input-field col s4">
           <input formControlName="ciudadId" id="ciudadId" type="number" [readonly]="true">
-          <label for="ciudadId">Ciudad</label>
+          <label for="ciudadId" class="active">Ciudad</label>
           <div class="show-errors" *ngIf="obtenerFgDatos['ciudadId'].errors && (obtenerFgDatos['ciudadId'].dirty || obtenerFgDatos['ciudadId'].touched)">
             <strong>Este campo es obligatorio</strong>
           </div>
@@ -161,7 +160,7 @@
       <div class="row">
         <div class="input-field col s12">
           <input formControlName="correoAsesor" id="correoAsesor" type="text">
-          <label for="correoAsesor">Correo Asesor</label>
+          <label for="correoAsesor" class="active">Correo Asesor</label>
           <div class="show-errors" *ngIf="obtenerFgDatos['correoAsesor'].errors && (obtenerFgDatos['correoAsesor'].dirty || obtenerFgDatos['correoAsesor'].touched)">
           </div>
         </div>

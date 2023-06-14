@@ -58,8 +58,8 @@ export class CrearInmuebleComponent {
       correoAsesor: [''],
       fecha: [formattedDate, [Validators.required]],
       foto1: [''],
-      foto2: [],
-      foto3: [],
+      // foto2: [],
+      // foto3: [],
     });
   }
 
@@ -94,8 +94,8 @@ export class CrearInmuebleComponent {
     model.correoAsesor = this.obtenerFgDatos["correoAsesor"].value;
     model.fecha = this.convertDateFormat(this.obtenerFgDatos["fecha"].value);
     model.foto1 = this.obtenerFgDatos["foto1"].value;
-    model.foto2 = this.obtenerFgDatos["foto2"].value;
-    model.foto3 = this.obtenerFgDatos["foto3"].value;
+    // model.foto2 = this.obtenerFgDatos["foto2"].value;
+    // model.foto3 = this.obtenerFgDatos["foto3"].value;
     return model;
   }
 
