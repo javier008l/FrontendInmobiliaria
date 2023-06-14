@@ -14,13 +14,13 @@ export class MenuLateralComponent {
 
   constructor(
     private servicioSeguridad: SeguridadService
-  ){
+  ) {
 
   }
 
-  ngOnInit(){
-   this.listaMenus = this.servicioSeguridad.ObtenerItemsMenuLateral();
-   iniciarMenuLateral();
+  ngOnInit() {
+    this.listaMenus = this.servicioSeguridad.ObtenerItemsMenuLateral();
+    iniciarMenuLateral();
   }
 
 }

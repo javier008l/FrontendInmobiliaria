@@ -20,7 +20,7 @@ export class IdentificacionUsuarioComponent {
     private fb: FormBuilder,
     private servicioSeguridad: SeguridadService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.ConstruirFormulario();
