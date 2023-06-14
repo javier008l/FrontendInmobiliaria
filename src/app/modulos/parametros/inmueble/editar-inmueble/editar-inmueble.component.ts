@@ -64,8 +64,8 @@ export class EditarInmuebleComponent {
         this.obtenerFgDatos["correoAsesor"].setValue(datos.correoAsesor);
         this.obtenerFgDatos["fecha"].setValue(datos.fecha);
         this.obtenerFgDatos["foto1"].setValue(datos.foto1)
-        // this.obtenerFgDatos["foto2"].setValue(datos.foto2)
-        // this.obtenerFgDatos["foto3"].setValue(datos.foto3)
+        this.obtenerFgDatos["foto2"].setValue(datos.foto2)
+        this.obtenerFgDatos["foto3"].setValue(datos.foto3)
         this.nombreArchivoCargado = datos.foto!;
         this.archivoCargado = true;
         this.nombreArchivoCargado1 = datos.foto!;
@@ -126,8 +126,8 @@ export class EditarInmuebleComponent {
     model.correoAsesor = this.obtenerFgDatos["correoAsesor"].value;
     model.fecha = this.obtenerFgDatos["fecha"].value;
     model.foto1 = this.obtenerFgDatos["foto1"].value;
-    // model.foto2 = this.obtenerFgDatos["foto2"].value;
-    // model.foto3 = this.obtenerFgDatos["foto3"].value;
+    model.foto2 = this.obtenerFgDatos["foto2"].value;
+    model.foto3 = this.obtenerFgDatos["foto3"].value;
     return model;
   }
 
