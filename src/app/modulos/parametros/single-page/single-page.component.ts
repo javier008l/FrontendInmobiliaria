@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+// single-page.component.ts
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
@@ -11,7 +12,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
   templateUrl: './single-page.component.html',
   styleUrls: ['./single-page.component.css']
 })
-export class SinglePageComponent {
+export class SinglePageComponent implements OnInit, AfterViewInit {
   id: any;
   listaInmuebles: InmuebleModel[] = [];
   showVenta: boolean = true;
@@ -24,6 +25,30 @@ export class SinglePageComponent {
     private route: ActivatedRoute
   ) { }
 
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = Number(params['id']);
+      this.servicioInmueble.singlePage(this.id).subscribe({
+        next: (datos) => {
+          this.listaInmuebles = datos;
+          setTimeout(() => {
+            this.inicializarCarrusel();
+          }, 0);
+        },
+        error: (err) => {
+          // Manejo de error
+        }
+      });
+    });
+  }
+
+  ngAfterViewInit() {
+  }
+
+  inicializarCarrusel() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, {});
+  }
 
   obtenerTipoInmueble(tipoInmuebleId: number): string {
     if (tipoInmuebleId === 1) {
@@ -36,22 +61,4 @@ export class SinglePageComponent {
       return 'desconocido';
     }
   }
-
-  ngOnInit() {
-    this.showVenta = false;
-    this.showAlquiler = true;
-    this.route.params.subscribe(params => {
-      this.id = Number(params['id']);
-      this.servicioInmueble.singlePage(this.id).subscribe({
-        next: (datos) => {
-          this.listaInmuebles = datos;
-        },
-        error: (err) => {
-          // Manejo de error
-        }
-      });
-
-    });
-  }
 }
-

@@ -1,0 +1,12 @@
+.centrar {
+  display: flex;
+  justify-content: center;
+}
+.color {
+  background: #00000021;
+}
+
+img {
+  height: auto;
+  width: 500px;
+}

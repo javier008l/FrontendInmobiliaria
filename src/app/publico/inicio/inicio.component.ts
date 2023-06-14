@@ -35,8 +35,6 @@ export class InicioComponent {
     });
   }
 
-
-
   ngOnInit() {
     this.ValidarSesion();
   }
